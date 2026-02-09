@@ -4,19 +4,86 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
-enum EstadoSesionRecabacion {
-  PLANEADA
-  EN_PROCESO
-  COMPLETADA
+model Proyecto {
+  id             String    @id @default(cuid())
+  nombre         String
+  descripcion    String?
+  creado_en      DateTime  @default(now())
+  actualizado_en DateTime  @updatedAt
+  personas       Persona[]
+  procesos       Proceso[]
+  roles          Rol[]
 }
 
-enum EstadoRequisito {
-  PROPUESTO
-  VALIDADO
-  APROBADO
+model Rol {
+  id          String    @id @default(cuid())
+  proyecto_id String
+  nombre      String
+  personas    Persona[]
+  proyecto    Proyecto  @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
+
+  @@unique([proyecto_id, nombre])
+  @@index([proyecto_id])
+}
+
+model Persona {
+  id              String   @id @default(cuid())
+  proyecto_id     String
+  rol_id          String
+  nombre_completo String
+  correo          String?
+  telefono        String?
+  notas           String?
+  creado_en       DateTime @default(now())
+  proyecto        Proyecto @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
+  rol             Rol      @relation(fields: [rol_id], references: [id])
+
+  @@index([proyecto_id])
+  @@index([rol_id])
+}
+
+model Proceso {
+  id          String       @id @default(cuid())
+  proyecto_id String
+  nombre      String
+  descripcion String?
+  proyecto    Proyecto     @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
+  subprocesos Subproceso[]
+
+  @@unique([proyecto_id, nombre])
+  @@index([proyecto_id])
+}
+
+model Subproceso {
+  id                  String              @id @default(cuid())
+  proceso_id          String
+  nombre              String
+  descripcion         String?
+  proceso             Proceso             @relation(fields: [proceso_id], references: [id], onDelete: Cascade)
+  subproceso_tecnicas SubprocesoTecnica[]
+
+  @@unique([proceso_id, nombre])
+  @@index([proceso_id])
+}
+
+model Tecnica {
+  id                  String              @id @default(cuid())
+  nombre              String
+  tipo_metodo         TipoMetodoTecnica
+  descripcion         String?
+  subproceso_tecnicas SubprocesoTecnica[]
+}
+
+model SubprocesoTecnica {
+  subproceso_id String
+  tecnica_id    String
+  subproceso    Subproceso @relation(fields: [subproceso_id], references: [id], onDelete: Cascade)
+  tecnica       Tecnica    @relation(fields: [tecnica_id], references: [id], onDelete: Cascade)
+
+  @@id([subproceso_id, tecnica_id])
+  @@index([tecnica_id])
 }
 
 enum TipoMetodoTecnica {
@@ -27,197 +94,4 @@ enum TipoMetodoTecnica {
   FOCUS_GROUP
   DOCUMENTOS
   SEGUIMIENTO_TRANSACCIONAL
-}
-
-enum TipoResultadoRecabacion {
-  NOTAS
-  RESUMEN
-  TRANSCRIPCION
-  RESPUESTAS
-  OBSERVACIONES
-}
-
-model Proyecto {
-  id            String   @id @default(cuid())
-  nombre        String
-  descripcion   String?
-  creado_en     DateTime @default(now())
-  actualizado_en DateTime @updatedAt
-
-  roles            Rol[]
-  personas         Persona[]
-  procesos         Proceso[]
-  sesiones_recabacion SesionRecabacion[]
-  requisitos       Requisito[]
-}
-
-model Rol {
-  id         String  @id @default(cuid())
-  proyecto_id String
-  nombre     String
-
-  proyecto   Proyecto @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
-  personas   Persona[]
-
-  @@unique([proyecto_id, nombre])
-  @@index([proyecto_id])
-}
-
-model Persona {
-  id             String   @id @default(cuid())
-  proyecto_id     String
-  rol_id          String
-  nombre_completo String
-  correo          String?
-  telefono        String?
-  notas           String?
-  creado_en       DateTime @default(now())
-
-  proyecto        Proyecto @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
-  rol             Rol      @relation(fields: [rol_id], references: [id], onDelete: Restrict)
-
-  sesiones_aplicadas SesionRecabacion[] @relation("SesionesAplicadasPor")
-  participaciones    SesionParticipante[]
-}
-
-model Proceso {
-  id          String  @id @default(cuid())
-  proyecto_id String
-  nombre      String
-  descripcion String?
-
-  proyecto    Proyecto   @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
-  subprocesos Subproceso[]
-
-  @@index([proyecto_id])
-  @@unique([proyecto_id, nombre])
-}
-
-model Subproceso {
-  id          String  @id @default(cuid())
-  proceso_id  String
-  nombre      String
-  descripcion String?
-
-  proceso     Proceso  @relation(fields: [proceso_id], references: [id], onDelete: Cascade)
-
-  subproceso_tecnicas SubprocesoTecnica[]
-  sesiones_recabacion SesionRecabacion[]
-  requisito_fuentes   RequisitoFuente[]
-
-  @@index([proceso_id])
-  @@unique([proceso_id, nombre])
-}
-
-model Tecnica {
-  id          String  @id @default(cuid())
-  nombre      String
-  tipo_metodo TipoMetodoTecnica
-  descripcion String?
-
-  subproceso_tecnicas SubprocesoTecnica[]
-  sesiones_recabacion SesionRecabacion[]
-  requisito_fuentes   RequisitoFuente[]
-}
-
-model SubprocesoTecnica {
-  subproceso_id String
-  tecnica_id    String
-
-  subproceso Subproceso @relation(fields: [subproceso_id], references: [id], onDelete: Cascade)
-  tecnica    Tecnica    @relation(fields: [tecnica_id], references: [id], onDelete: Cascade)
-
-  @@id([subproceso_id, tecnica_id])
-  @@index([tecnica_id])
-}
-
-model SesionRecabacion {
-  id                      String  @id @default(cuid())
-  proyecto_id              String
-  subproceso_id            String
-  tecnica_id               String
-  aplicada_por_persona_id  String
-  titulo                   String?
-  fecha                    DateTime
-  estado                   EstadoSesionRecabacion
-  notas                    String?
-
-  proyecto     Proyecto  @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
-  subproceso   Subproceso @relation(fields: [subproceso_id], references: [id], onDelete: Restrict)
-  tecnica      Tecnica    @relation(fields: [tecnica_id], references: [id], onDelete: Restrict)
-
-  aplicada_por Persona @relation("SesionesAplicadasPor", fields: [aplicada_por_persona_id], references: [id], onDelete: Restrict)
-
-  participantes SesionParticipante[]
-  resultados    ResultadoRecabacion[]
-  requisito_fuentes RequisitoFuente[]
-
-  @@index([proyecto_id])
-  @@index([subproceso_id])
-  @@index([tecnica_id])
-  @@index([aplicada_por_persona_id])
-}
-
-model SesionParticipante {
-  id          String  @id @default(cuid())
-  sesion_id   String
-  persona_id  String
-  rol_en_sesion String?
-
-  sesion  SesionRecabacion @relation(fields: [sesion_id], references: [id], onDelete: Cascade)
-  persona Persona          @relation(fields: [persona_id], references: [id], onDelete: Cascade)
-
-  @@unique([sesion_id, persona_id])
-  @@index([persona_id])
-}
-
-model ResultadoRecabacion {
-  id            String  @id @default(cuid())
-  sesion_id     String
-  tipo_resultado TipoResultadoRecabacion
-  contenido     String
-  creado_en     DateTime @default(now())
-
-  sesion SesionRecabacion @relation(fields: [sesion_id], references: [id], onDelete: Cascade)
-
-  requisito_fuentes RequisitoFuente[]
-
-  @@index([sesion_id])
-}
-
-model Requisito {
-  id             String  @id @default(cuid())
-  proyecto_id    String
-  titulo         String
-  descripcion    String
-  prioridad      String?
-  estado         EstadoRequisito
-  creado_en      DateTime @default(now())
-  actualizado_en DateTime @updatedAt
-
-  proyecto Proyecto @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
-  fuentes  RequisitoFuente[]
-
-  @@index([proyecto_id])
-}
-
-model RequisitoFuente {
-  id            String  @id @default(cuid())
-  requisito_id  String
-  sesion_id     String?
-  resultado_id  String?
-  subproceso_id String?
-  tecnica_id    String?
-
-  requisito  Requisito @relation(fields: [requisito_id], references: [id], onDelete: Cascade)
-  sesion     SesionRecabacion? @relation(fields: [sesion_id], references: [id], onDelete: SetNull)
-  resultado  ResultadoRecabacion? @relation(fields: [resultado_id], references: [id], onDelete: SetNull)
-  subproceso Subproceso? @relation(fields: [subproceso_id], references: [id], onDelete: SetNull)
-  tecnica    Tecnica? @relation(fields: [tecnica_id], references: [id], onDelete: SetNull)
-
-  @@index([requisito_id])
-  @@index([sesion_id])
-  @@index([resultado_id])
-  @@index([subproceso_id])
-  @@index([tecnica_id])
 }

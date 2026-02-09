@@ -1,49 +1,55 @@
 "use client";
-import React, {useState} from "react";
+
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { MenuItem} from "./Navbar"
+import { MenuItem } from "./Navbar";
 import { HiOutlineChevronDown } from "react-icons/hi";
 
 interface Props {
-    item: MenuItem;
+  item: MenuItem;
 }
 
-export default function Dropdown(props: Props){
-    const { item } = props;
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-    const MenuItems = item?.children ? item.children : [];
+export default function Dropdown({ item }: Props) {
+  const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const menuItems = item?.children || [];
 
-    const toggle = () => {
-        setIsOpen(old => !old);
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
     }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-    const transClass = isOpen ? "flex" : "hidden";
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        className="flex items-center gap-2 text-purple-700 font-semibold text-sm transition hover:text-purple-900"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span>{item.title}</span>
+        <HiOutlineChevronDown
+          className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+        />
+      </button>
 
-    return (
-        <>
-            <div className="relative">
-                <button className="flex items-center gap-2 text-purple-700 font-semibold text-lg transition duration-300 hover:scale-110"
-                onClick={toggle}>
-                    <span>{item.title}</span>
-                    <HiOutlineChevronDown className="w-5 h-5" />
-                    </button>
-                <div className={`absolute top-8 z-30 w-[250px] min-h-[300px] flex flex-col py-4 
-                bg-pruple-700 rounded-md ${transClass}`}>
-                    {
-                        MenuItems.map(item =>
-                            <Link
-                            key={item.route}
-                            className="transition duration-300 hover:scale-110 hover:text-purple-700 px-4 py-1"
-                            href={item?.route || ""}
-                            onClick={toggle}
-                            >{item.title}</Link>
-                        )
-                    }
-                </div>
-            </div>
-            {
-                isOpen ? <div className="fixed top-0 right-0 bottom-0 left-0 z-20 bg-black/40" onClick={toggle}></div> : <></>
-            }
-        </>
-    )
+      {isOpen && (
+        <div className="absolute top-10 left-0 z-30 w-[240px] rounded-xl bg-white py-2 shadow-lg ring-1 ring-black/10">
+          {menuItems.map((child) => (
+            <Link
+              key={child.route}
+              href={child.route || ""}
+              onClick={() => setIsOpen(false)}
+              className="block px-4 py-2 text-sm text-slate-700 hover:bg-violet-50 hover:text-violet-700 transition"
+            >
+              {child.title}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }

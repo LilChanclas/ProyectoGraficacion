@@ -1,67 +1,45 @@
-import Link from "next/link";
-import { HiCog, HiOutlineChip, HiSearch, HiUser } from "react-icons/hi";
-import Dropdown from "./Dropdown";
-//import { prisma } from "@/lib/prisma";
+"use client";
 
-/*AQUI SE DEBEN MOSTRAR LOS PROYECTOS, NO LAS TECNICAS, PERO SIRVE DE EJEMPLO - H */
+import Link from "next/link";
+import { HiOutlineChip } from "react-icons/hi";
+import Dropdown from "./Dropdown";
+import { useQuery } from "@tanstack/react-query";
+
 export interface MenuItem {
-    title: string;
-    route?: string;
-    children?: MenuItem[];
+  title: string;
+  route?: string;
+  children?: MenuItem[];
 }
-//Hacerlo dinamico
-export const MenuItem = {
+
+export default function Navbar() {
+  const { data: proyectos } = useQuery<{ id: string; nombre: string }[]>({
+    queryKey: ["proyectos"],
+    queryFn: () => fetch("/api/proyectos").then((r) => r.json()),
+  });
+
+  const menuItem: MenuItem = {
     title: "Proyectos",
     children: [
-        { title: "Proyecto X", route: "/proyectox" },
-        { title: "Proyecto Y", route: "/proyectoy" },
-        { title: "Proyecto Z", route: "/proyectoz" },
-        { title: "Nuevo Proyecto", route: "/nuevo-proyecto"}
-    ]
-};
+      ...(proyectos?.map((p) => ({
+        title: p.nombre,
+        route: `/proyectos/${p.id}`,
+      })) || []),
+      { title: "+ Nuevo Proyecto", route: "/proyectos/nuevo" },
+    ],
+  };
 
-const Navbar = () => {
-    //trae datos usando prisma (en este momento (SOS)) - h
-    /*
-    Aqui no supe que rollo, mejor meti las opciones con codigo duro - h
-    const tecnicas =  await prisma.proyectos.findMany({
-        select: {nombre: true, id:true }
-    });
-    */
-
-    return (
-        <nav className="fixed top-0 w-full flex items-center
-        justify-between py-4 px-10 border-b border-gray-700 bg-white">
-            <div className="flex items-center gap-6">
-                <Link href="/" className="flex items-center gap-3 text-purple-700 font-semibold
-            text-lg transition duration-300 hover:scale-110">
-                    <HiOutlineChip className="w-16 h-16" />
-                    <span className="text-2xl font-bold">TaskMaster+</span>
-                </Link>
-                {/* Muestra el dropdown */}
-                <Dropdown item={MenuItem} />
-            </div>
-
-            <ul className="flex gap-10 text-2xl">
-
-                {/* Para buscar */}
-                <Link href="/" className="flex items-center gap-3 text-purple-700 font-semibold
-                text-lg transition duration-300 hover:scale-110">
-                    <HiSearch className="w-10 h-10" />
-                </Link>
-                {/* Configuracion */}
-                <Link href="/" className="flex items-center gap-3 text-purple-700 font-semibold
-                text-lg transition duration-300 hover:scale-110">
-                    <HiCog className="w-10 h-10" />
-                </Link>
-                {/* Perfil */}
-                <Link href="/" className="flex items-center gap-3 text-purple-700 font-semibold
-                text-lg transition duration-300 hover:scale-110">
-                    <HiUser className="w-10 h-10" />
-                </Link>
-            </ul>
-        </nav>
-    )
+  return (
+    <nav className="fixed top-0 z-50 w-full flex items-center justify-between py-4 px-10 border-b border-gray-200 bg-white shadow-sm">
+      <div className="flex items-center gap-6">
+        <Link
+          href="/"
+          className="flex items-center gap-3 text-purple-700 font-semibold text-lg transition duration-300 hover:scale-105"
+        >
+          <HiOutlineChip className="w-10 h-10" />
+          <span className="text-xl font-bold">ReqTracker</span>
+        </Link>
+        <Dropdown item={menuItem} />
+      </div>
+    </nav>
+  );
 }
-
-export default Navbar

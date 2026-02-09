@@ -112,7 +112,7 @@ export default function NuevoProyectoPage() {
               <div className="mt-5 space-y-4">
                 <div className="space-y-1">
                   <label className="text-sm font-medium text-purple-500">
-                    Nombre completo <span className="text-red-500">*</span>
+                    Nombre completo <span className="text-purple-500">*</span>
                   </label>
                   <input
                     type="text"

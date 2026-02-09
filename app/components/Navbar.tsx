@@ -16,7 +16,7 @@ export const MenuItem = {
         { title: "Proyecto X", route: "/proyectox" },
         { title: "Proyecto Y", route: "/proyectoy" },
         { title: "Proyecto Z", route: "/proyectoz" },
-        { title: "Nuevo Proyecto", route: "/nuevo_proyecto"}
+        { title: "Nuevo Proyecto", route: "/nuevo-proyecto"}
     ]
 };
 

@@ -3,7 +3,7 @@ import { HiCog, HiOutlineChip, HiSearch, HiUser } from "react-icons/hi";
 import Dropdown from "./Dropdown";
 //import { prisma } from "@/lib/prisma";
 
-
+/*AQUI SE DEBEN MOSTRAR LOS PROYECTOS, NO LAS TECNICAS, PERO SIRVE DE EJEMPLO - H */
 export interface MenuItem {
     title: string;
     route?: string;
@@ -11,11 +11,12 @@ export interface MenuItem {
 }
 //Hacerlo dinamico
 export const MenuItem = {
-    title: "Tecnicas de recabacion",
+    title: "Proyectos",
     children: [
-        { title: "Entrevista", route: "/entrevista" },
-        { title: "Encuesta", route: "/encuesta" },
-        { title: "Observación", route: "/observacion" },
+        { title: "Proyecto X", route: "/proyectox" },
+        { title: "Proyecto Y", route: "/proyectoy" },
+        { title: "Proyecto Z", route: "/proyectoz" },
+        { title: "Nuevo Proyecto", route: "/nuevo_proyecto"}
     ]
 };
 
@@ -23,7 +24,7 @@ const Navbar = () => {
     //trae datos usando prisma (en este momento (SOS)) - h
     /*
     Aqui no supe que rollo, mejor meti las opciones con codigo duro - h
-    const tecnicas =  await prisma.tecnica.findMany({
+    const tecnicas =  await prisma.proyectos.findMany({
         select: {nombre: true, id:true }
     });
     */

@@ -35,7 +35,7 @@ export default function Dropdown(props: Props){
                             key={item.route}
                             className="transition duration-300 hover:scale-110 hover:text-purple-700 px-4 py-1"
                             href={item?.route || ""}
-                             onClick={toggle}
+                            onClick={toggle}
                             >{item.title}</Link>
                         )
                     }

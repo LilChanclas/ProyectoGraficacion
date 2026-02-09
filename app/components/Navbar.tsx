@@ -5,7 +5,7 @@ import { HiCog, HiOutlineChip, HiSearch, HiUser } from "react-icons/hi";
 
 const Navbar = () => {
     return (
-        <nav className="fixed top-0 w-full flex items-center
+        <nav className="sticky top-0 z-50 w-full flex items-center
         justify-around py-5 px-24 border-b border-gray-700 bg-white">
             <Link href="/" className="flex items-center gap-3 text-purple-700 font-semibold
             text-lg transition duration-300 hover:scale-110">

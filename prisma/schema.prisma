@@ -7,14 +7,15 @@ datasource db {
 }
 
 model Proyecto {
-  id             String    @id @default(cuid())
+  id             String      @id @default(cuid())
   nombre         String
   descripcion    String?
-  creado_en      DateTime  @default(now())
-  actualizado_en DateTime  @updatedAt
+  creado_en      DateTime    @default(now())
+  actualizado_en DateTime    @updatedAt
   personas       Persona[]
   procesos       Proceso[]
   roles          Rol[]
+  requisitos     Requisito[]
 }
 
 model Rol {
@@ -29,16 +30,17 @@ model Rol {
 }
 
 model Persona {
-  id              String   @id @default(cuid())
-  proyecto_id     String
-  rol_id          String
-  nombre_completo String
-  correo          String?
-  telefono        String?
-  notas           String?
-  creado_en       DateTime @default(now())
-  proyecto        Proyecto @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
-  rol             Rol      @relation(fields: [rol_id], references: [id])
+  id                  String               @id @default(cuid())
+  proyecto_id         String
+  rol_id              String
+  nombre_completo     String
+  correo              String?
+  telefono            String?
+  notas               String?
+  creado_en           DateTime             @default(now())
+  proyecto            Proyecto             @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
+  rol                 Rol                  @relation(fields: [rol_id], references: [id])
+  sesion_participantes SesionParticipante[]
 
   @@index([proyecto_id])
   @@index([rol_id])
@@ -63,6 +65,7 @@ model Subproceso {
   descripcion         String?
   proceso             Proceso             @relation(fields: [proceso_id], references: [id], onDelete: Cascade)
   subproceso_tecnicas SubprocesoTecnica[]
+  sesiones            SesionRecabacion[]
 
   @@unique([proceso_id, nombre])
   @@index([proceso_id])
@@ -74,6 +77,7 @@ model Tecnica {
   tipo_metodo         TipoMetodoTecnica
   descripcion         String?
   subproceso_tecnicas SubprocesoTecnica[]
+  sesiones            SesionRecabacion[]
 }
 
 model SubprocesoTecnica {
@@ -86,6 +90,71 @@ model SubprocesoTecnica {
   @@index([tecnica_id])
 }
 
+model SesionRecabacion {
+  id            String               @id @default(cuid())
+  subproceso_id String
+  tecnica_id    String
+  fecha         DateTime
+  estado        EstadoSesion         @default(PENDIENTE)
+  notas         String?
+  creado_en     DateTime             @default(now())
+  subproceso    Subproceso           @relation(fields: [subproceso_id], references: [id], onDelete: Cascade)
+  tecnica       Tecnica              @relation(fields: [tecnica_id], references: [id])
+  participantes SesionParticipante[]
+  resultados    ResultadoRecabacion[]
+
+  @@index([subproceso_id])
+  @@index([tecnica_id])
+}
+
+model SesionParticipante {
+  sesion_id  String
+  persona_id String
+  sesion     SesionRecabacion @relation(fields: [sesion_id], references: [id], onDelete: Cascade)
+  persona    Persona          @relation(fields: [persona_id], references: [id], onDelete: Cascade)
+
+  @@id([sesion_id, persona_id])
+  @@index([persona_id])
+}
+
+model ResultadoRecabacion {
+  id                String            @id @default(cuid())
+  sesion_id         String
+  contenido         String
+  notas             String?
+  creado_en         DateTime          @default(now())
+  sesion            SesionRecabacion  @relation(fields: [sesion_id], references: [id], onDelete: Cascade)
+  requisito_fuentes RequisitoFuente[]
+
+  @@index([sesion_id])
+}
+
+model Requisito {
+  id             String             @id @default(cuid())
+  proyecto_id    String
+  codigo         String?
+  nombre         String
+  descripcion    String?
+  prioridad      PrioridadRequisito @default(MEDIA)
+  estado         EstadoRequisito    @default(PENDIENTE)
+  creado_en      DateTime           @default(now())
+  actualizado_en DateTime           @updatedAt
+  proyecto       Proyecto           @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
+  fuentes        RequisitoFuente[]
+
+  @@index([proyecto_id])
+}
+
+model RequisitoFuente {
+  requisito_id String
+  resultado_id String
+  requisito    Requisito           @relation(fields: [requisito_id], references: [id], onDelete: Cascade)
+  resultado    ResultadoRecabacion @relation(fields: [resultado_id], references: [id], onDelete: Cascade)
+
+  @@id([requisito_id, resultado_id])
+  @@index([resultado_id])
+}
+
 enum TipoMetodoTecnica {
   ENTREVISTA
   CUESTIONARIO
@@ -94,4 +163,23 @@ enum TipoMetodoTecnica {
   FOCUS_GROUP
   DOCUMENTOS
   SEGUIMIENTO_TRANSACCIONAL
+}
+
+enum EstadoSesion {
+  PENDIENTE
+  EN_CURSO
+  COMPLETADA
+  CANCELADA
+}
+
+enum PrioridadRequisito {
+  ALTA
+  MEDIA
+  BAJA
+}
+
+enum EstadoRequisito {
+  PENDIENTE
+  VALIDADO
+  DESCARTADO
 }

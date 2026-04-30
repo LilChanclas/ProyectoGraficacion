@@ -42,7 +42,6 @@ export default function ProcesosPage() {
   const { id } = useParams<{ id: string }>();
   const queryClient = useQueryClient();
   const [expandidos, setExpandidos] = useState<Set<string>>(new Set());
-  const [subExpandidos, setSubExpandidos] = useState<Set<string>>(new Set());
 
   // Formularios
   const [nuevoProceso, setNuevoProceso] = useState({ nombre: "", descripcion: "" });
@@ -285,7 +284,6 @@ export default function ProcesosPage() {
 
                     {/* Lista subprocesos */}
                     {proceso.subprocesos.map((sub) => {
-                      const isSubExp = subExpandidos.has(sub.id);
                       const isEditingSub = editandoSub === sub.id;
                       const tecnicasAsignadas = sub.subproceso_tecnicas.map((st) => st.tecnica);
                       const tecnicasDisponibles = tecnicasCatalogo?.filter(
@@ -293,19 +291,17 @@ export default function ProcesosPage() {
                       );
 
                       return (
-                        <div key={sub.id} className="rounded-xl bg-white ring-1 ring-black/5 overflow-hidden">
-                          <div className="flex items-center justify-between px-4 py-3">
-                            <button
-                              onClick={() => toggle(subExpandidos, sub.id, setSubExpandidos)}
-                              className="flex items-center gap-2 text-left"
-                            >
-                              {isSubExp ? <HiChevronDown size={16} className="text-violet-400" /> : <HiChevronRight size={16} className="text-slate-300" />}
+                        <div key={sub.id} className="rounded-xl bg-white ring-1 ring-black/5">
+                          {/* Fila principal del subproceso */}
+                          <div className="flex items-start gap-3 px-4 py-3">
+                            {/* Nombre (editable) */}
+                            <div className="flex-1 min-w-0">
                               {isEditingSub ? (
-                                <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                                <div className="flex items-center gap-2">
                                   <input
                                     value={editForm.nombre}
                                     onChange={(e) => setEditForm({ ...editForm, nombre: e.target.value })}
-                                    className="rounded bg-slate-50 px-2 py-1 text-sm ring-1 ring-black/10"
+                                    className="rounded bg-slate-50 px-2 py-1 text-sm ring-1 ring-black/10 focus:ring-2 focus:ring-violet-500"
                                     autoFocus
                                   />
                                   <button onClick={() => editarSubMut.mutate({ subId: sub.id, data: editForm })} className="text-green-600 p-1"><HiCheck size={14} /></button>
@@ -314,12 +310,72 @@ export default function ProcesosPage() {
                               ) : (
                                 <span className="text-sm font-medium text-slate-700">{sub.nombre}</span>
                               )}
-                              <span className="text-xs text-slate-400">
-                                {tecnicasAsignadas.length} técnica(s)
-                              </span>
-                            </button>
+
+                              {/* Técnicas asignadas — siempre visibles */}
+                              <div className="flex flex-wrap items-center gap-1.5 mt-2">
+                                {tecnicasAsignadas.map((t) => (
+                                  <span
+                                    key={t.id}
+                                    className="inline-flex items-center gap-1 rounded-full bg-violet-100 px-2.5 py-0.5 text-xs font-medium text-violet-700"
+                                  >
+                                    {t.nombre}
+                                    <button
+                                      onClick={() => desasignarTecnicaMut.mutate({ subId: sub.id, tecnicaId: t.id })}
+                                      className="rounded-full hover:bg-violet-200 p-0.5"
+                                    >
+                                      <HiX size={10} />
+                                    </button>
+                                  </span>
+                                ))}
+
+                                {/* Selector inline o botón para asignar */}
+                                {asignandoTecnica === sub.id ? (
+                                  <div className="flex items-center gap-1.5">
+                                    <select
+                                      autoFocus
+                                      className="rounded-lg bg-slate-50 px-2 py-1 text-xs ring-1 ring-black/10 focus:ring-2 focus:ring-violet-500"
+                                      defaultValue=""
+                                      onChange={(e) => {
+                                        if (e.target.value) {
+                                          asignarTecnicaMut.mutate({ subId: sub.id, tecnicaId: e.target.value });
+                                          setAsignandoTecnica(null);
+                                        }
+                                      }}
+                                    >
+                                      <option value="">Seleccionar técnica...</option>
+                                      {tecnicasDisponibles?.map((t) => (
+                                        <option key={t.id} value={t.id}>{t.nombre}</option>
+                                      ))}
+                                    </select>
+                                    <button
+                                      onClick={() => setAsignandoTecnica(null)}
+                                      className="text-xs text-slate-400 hover:text-slate-600"
+                                    >
+                                      <HiX size={12} />
+                                    </button>
+                                  </div>
+                                ) : (
+                                  /* Mostrar botón siempre, deshabilitado si no hay más técnicas disponibles */
+                                  (tecnicasDisponibles === undefined || tecnicasDisponibles.length > 0) && (
+                                    <button
+                                      onClick={() => setAsignandoTecnica(sub.id)}
+                                      disabled={tecnicasDisponibles !== undefined && tecnicasDisponibles.length === 0}
+                                      className="inline-flex items-center gap-0.5 rounded-full border border-dashed border-violet-300 px-2.5 py-0.5 text-xs text-violet-500 hover:border-violet-500 hover:text-violet-700 transition disabled:opacity-40 disabled:cursor-not-allowed"
+                                    >
+                                      <HiPlus size={10} /> Técnica
+                                    </button>
+                                  )
+                                )}
+
+                                {tecnicasAsignadas.length === 0 && asignandoTecnica !== sub.id && (!tecnicasDisponibles || tecnicasDisponibles.length === 0) && (
+                                  <span className="text-xs text-slate-400 italic">Sin técnicas asignadas</span>
+                                )}
+                              </div>
+                            </div>
+
+                            {/* Acciones */}
                             {!isEditingSub && (
-                              <div className="flex gap-1">
+                              <div className="flex gap-1 shrink-0 mt-0.5">
                                 <button
                                   onClick={() => { setEditandoSub(sub.id); setEditForm({ nombre: sub.nombre, descripcion: sub.descripcion || "" }); }}
                                   className="rounded p-1 text-slate-400 hover:text-violet-600 hover:bg-slate-50"
@@ -335,58 +391,6 @@ export default function ProcesosPage() {
                               </div>
                             )}
                           </div>
-
-                          {/* Técnicas del subproceso */}
-                          {isSubExp && (
-                            <div className="border-t border-slate-100 px-4 py-3 space-y-2">
-                              {tecnicasAsignadas.length > 0 && (
-                                <div className="flex flex-wrap gap-2">
-                                  {tecnicasAsignadas.map((t) => (
-                                    <span key={t.id} className="inline-flex items-center gap-1 rounded-full bg-violet-100 px-3 py-1 text-xs font-medium text-violet-700">
-                                      {t.nombre}
-                                      <button
-                                        onClick={() => desasignarTecnicaMut.mutate({ subId: sub.id, tecnicaId: t.id })}
-                                        className="ml-1 rounded-full hover:bg-violet-200 p-0.5"
-                                      >
-                                        <HiX size={12} />
-                                      </button>
-                                    </span>
-                                  ))}
-                                </div>
-                              )}
-
-                              {asignandoTecnica === sub.id ? (
-                                <div className="flex gap-2 items-center">
-                                  <select
-                                    id={`tecnica-${sub.id}`}
-                                    className="flex-1 rounded-lg bg-slate-50 px-3 py-2 text-sm ring-1 ring-black/10 focus:ring-2 focus:ring-violet-500"
-                                    defaultValue=""
-                                    onChange={(e) => {
-                                      if (e.target.value) {
-                                        asignarTecnicaMut.mutate({ subId: sub.id, tecnicaId: e.target.value });
-                                        setAsignandoTecnica(null);
-                                      }
-                                    }}
-                                  >
-                                    <option value="">Seleccionar técnica...</option>
-                                    {tecnicasDisponibles?.map((t) => (
-                                      <option key={t.id} value={t.id}>{t.nombre}</option>
-                                    ))}
-                                  </select>
-                                  <button onClick={() => setAsignandoTecnica(null)} className="text-sm text-slate-400 hover:text-slate-600">
-                                    Cancelar
-                                  </button>
-                                </div>
-                              ) : (
-                                <button
-                                  onClick={() => setAsignandoTecnica(sub.id)}
-                                  className="flex items-center gap-1 text-xs text-violet-600 hover:text-violet-700 font-medium"
-                                >
-                                  <HiPlus size={12} /> Asignar técnica
-                                </button>
-                              )}
-                            </div>
-                          )}
                         </div>
                       );
                     })}

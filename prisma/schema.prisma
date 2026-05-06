@@ -30,17 +30,18 @@ model Rol {
 }
 
 model Persona {
-  id                  String               @id @default(cuid())
-  proyecto_id         String
-  rol_id              String
-  nombre_completo     String
-  correo              String?
-  telefono            String?
-  notas               String?
-  creado_en           DateTime             @default(now())
-  proyecto            Proyecto             @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
-  rol                 Rol                  @relation(fields: [rol_id], references: [id])
+  id                   String               @id @default(cuid())
+  proyecto_id          String
+  rol_id               String
+  nombre_completo      String
+  correo               String?
+  telefono             String?
+  notas                String?
+  creado_en            DateTime             @default(now())
+  proyecto             Proyecto             @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
+  rol                  Rol                  @relation(fields: [rol_id], references: [id])
   sesion_participantes SesionParticipante[]
+  respuestas           RespuestaPregunta[]
 
   @@index([proyecto_id])
   @@index([rol_id])
@@ -102,9 +103,35 @@ model SesionRecabacion {
   tecnica       Tecnica              @relation(fields: [tecnica_id], references: [id])
   participantes SesionParticipante[]
   resultados    ResultadoRecabacion[]
+  preguntas     PreguntaSesion[]
 
   @@index([subproceso_id])
   @@index([tecnica_id])
+}
+
+model PreguntaSesion {
+  id         String              @id @default(cuid())
+  sesion_id  String
+  texto      String
+  orden      Int                 @default(0)
+  creado_en  DateTime            @default(now())
+  sesion     SesionRecabacion    @relation(fields: [sesion_id], references: [id], onDelete: Cascade)
+  respuestas RespuestaPregunta[]
+
+  @@index([sesion_id])
+}
+
+model RespuestaPregunta {
+  id          String         @id @default(cuid())
+  pregunta_id String
+  persona_id  String?
+  respuesta   String
+  creado_en   DateTime       @default(now())
+  pregunta    PreguntaSesion @relation(fields: [pregunta_id], references: [id], onDelete: Cascade)
+  persona     Persona?       @relation(fields: [persona_id], references: [id], onDelete: SetNull)
+
+  @@index([pregunta_id])
+  @@index([persona_id])
 }
 
 model SesionParticipante {

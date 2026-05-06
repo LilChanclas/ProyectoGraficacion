@@ -11,6 +11,7 @@ import {
   HiX,
   HiDocumentText,
   HiLink,
+  HiLightningBolt,
 } from "react-icons/hi";
 
 type PrioridadRequisito = "ALTA" | "MEDIA" | "BAJA";
@@ -463,6 +464,114 @@ function CreateRequisitoModal({
   );
 }
 
+// ─── Sección: Propuestas desde sesiones ──────────────────────────────────────
+
+function PropuestaCard({
+  resultado,
+  proyectoId,
+}: {
+  resultado: ResultadoConFuentes;
+  proyectoId: string;
+}) {
+  const qc = useQueryClient();
+  const [nombre, setNombre] = useState(resultado.contenido.slice(0, 120));
+  const [open, setOpen] = useState(false);
+  const [prioridad, setPrioridad] = useState("MEDIA");
+
+  const crear = useMutation({
+    mutationFn: () =>
+      fetch(`/api/sesiones/${resultado.sesion.id}/extraer-requisito`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contenido_resultado: resultado.contenido,
+          nombre_requisito: nombre,
+          prioridad,
+        }),
+      }).then((r) => r.json()),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["requisitos", proyectoId] });
+      qc.invalidateQueries({ queryKey: ["resultados", proyectoId] });
+    },
+  });
+
+  return (
+    <div className="border border-amber-200 bg-amber-50/40 rounded-lg px-4 py-3">
+      <div className="flex items-start gap-3">
+        <HiLightningBolt className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-[10px] font-medium text-violet-600">
+              {resultado.sesion.tecnica.nombre}
+            </span>
+            <span className="text-[10px] text-slate-400">
+              {resultado.sesion.subproceso.proceso.nombre} /{" "}
+              {resultado.sesion.subproceso.nombre}
+            </span>
+          </div>
+          <p className="text-xs text-slate-700 leading-relaxed line-clamp-2">
+            {resultado.contenido}
+          </p>
+        </div>
+        <button
+          onClick={() => setOpen((o) => !o)}
+          className="shrink-0 text-xs text-amber-600 hover:text-amber-800 font-medium flex items-center gap-1 border border-amber-300 rounded-lg px-2.5 py-1.5 bg-white hover:bg-amber-50 transition"
+        >
+          <HiPlus className="h-3.5 w-3.5" />
+          Crear requisito
+        </button>
+      </div>
+
+      {open && (
+        <div className="mt-3 ml-7 space-y-2 border-t border-amber-100 pt-3">
+          <div>
+            <label className="block text-xs font-medium text-slate-600 mb-1">
+              Nombre del requisito
+            </label>
+            <input
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+              autoFocus
+              className="w-full text-sm border border-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:border-violet-400"
+            />
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <label className="text-xs text-slate-500">Prioridad:</label>
+              <select
+                value={prioridad}
+                onChange={(e) => setPrioridad(e.target.value)}
+                className="text-xs border border-slate-200 rounded px-2 py-1 bg-white focus:outline-none focus:border-violet-400"
+              >
+                <option value="ALTA">Alta</option>
+                <option value="MEDIA">Media</option>
+                <option value="BAJA">Baja</option>
+              </select>
+            </div>
+            <div className="flex gap-2 ml-auto">
+              <button
+                onClick={() => setOpen(false)}
+                className="text-xs text-slate-500 hover:text-slate-700 px-2 py-1"
+              >
+                Cancelar
+              </button>
+              <button
+                disabled={!nombre.trim() || crear.isPending}
+                onClick={() => crear.mutate()}
+                className="text-xs bg-violet-600 text-white px-3 py-1 rounded-lg disabled:opacity-40 hover:bg-violet-700"
+              >
+                {crear.isPending ? "Creando..." : "Confirmar"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Página principal ─────────────────────────────────────────────────────────
+
 export default function RequisitosPage() {
   const { id } = useParams<{ id: string }>();
   const [showCreate, setShowCreate] = useState(false);
@@ -478,6 +587,12 @@ export default function RequisitosPage() {
     queryFn: () =>
       fetch(`/api/proyectos/${id}/resultados`).then((r) => r.json()),
   });
+
+  // Resultados sin ningún requisito vinculado = propuestas
+  const propuestas = useMemo(
+    () => resultadosProyecto.filter((r) => r.requisito_fuentes.length === 0),
+    [resultadosProyecto]
+  );
 
   const stats = useMemo(
     () => ({
@@ -496,8 +611,7 @@ export default function RequisitosPage() {
         <div>
           <h2 className="text-xl font-semibold text-slate-900">Requisitos</h2>
           <p className="text-sm text-slate-500 mt-0.5">
-            Gestiona los requisitos con trazabilidad completa hacia los
-            resultados
+            Gestiona los requisitos con trazabilidad completa hacia las sesiones
           </p>
         </div>
         <button
@@ -509,26 +623,39 @@ export default function RequisitosPage() {
         </button>
       </div>
 
+      {/* Propuestas desde sesiones */}
+      {propuestas.length > 0 && (
+        <div className="mb-6">
+          <div className="flex items-center gap-2 mb-2">
+            <HiLightningBolt className="h-4 w-4 text-amber-500" />
+            <h3 className="text-sm font-semibold text-slate-700">
+              Propuestas desde sesiones
+            </h3>
+            <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-medium">
+              {propuestas.length} sin convertir
+            </span>
+          </div>
+          <p className="text-xs text-slate-400 mb-3">
+            Resultados registrados en sesiones que aún no tienen un requisito
+            asociado.
+          </p>
+          <div className="space-y-2">
+            {propuestas.map((r) => (
+              <PropuestaCard key={r.id} resultado={r} proyectoId={id} />
+            ))}
+          </div>
+          <div className="border-t border-slate-200 mt-6 mb-6" />
+        </div>
+      )}
+
       {/* Stats */}
       {requisitos.length > 0 && (
         <div className="grid grid-cols-4 gap-3 mb-6">
           {[
             { label: "Total", value: stats.total, color: "text-slate-700" },
-            {
-              label: "Pendientes",
-              value: stats.pendiente,
-              color: "text-slate-500",
-            },
-            {
-              label: "Validados",
-              value: stats.validado,
-              color: "text-green-600",
-            },
-            {
-              label: "Prioridad Alta",
-              value: stats.alta,
-              color: "text-red-600",
-            },
+            { label: "Pendientes", value: stats.pendiente, color: "text-slate-500" },
+            { label: "Validados", value: stats.validado, color: "text-green-600" },
+            { label: "Prioridad Alta", value: stats.alta, color: "text-red-600" },
           ].map((s) => (
             <div
               key={s.label}
@@ -541,7 +668,7 @@ export default function RequisitosPage() {
         </div>
       )}
 
-      {/* List */}
+      {/* Lista de requisitos */}
       {isLoading ? (
         <p className="text-sm text-slate-400 text-center py-10">
           Cargando requisitos...
@@ -551,7 +678,8 @@ export default function RequisitosPage() {
           <HiDocumentText className="h-10 w-10 text-slate-200 mx-auto mb-3" />
           <p className="text-slate-500 font-medium">Sin requisitos aún</p>
           <p className="text-sm text-slate-400 mt-1 mb-4">
-            Registra los requisitos identificados en las sesiones de recabación
+            Crea un requisito manualmente o convierte los resultados de tus
+            sesiones usando el rayo ⚡
           </p>
           <button
             onClick={() => setShowCreate(true)}

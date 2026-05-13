@@ -16,6 +16,41 @@ model Proyecto {
   procesos       Proceso[]
   roles          Rol[]
   requisitos     Requisito[]
+  diagramas      Diagrama[]
+  specs          Spec[]
+}
+
+model Spec {
+  id             String   @id @default(cuid())
+  proyecto_id    String
+  nombre         String
+  descripcion    String?
+  contenido      String
+  creado_en      DateTime @default(now())
+  actualizado_en DateTime @updatedAt
+  proyecto       Proyecto @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
+
+  @@index([proyecto_id])
+}
+
+model Diagrama {
+  id             String       @id @default(cuid())
+  proyecto_id    String
+  tipo           TipoDiagrama
+  nombre         String
+  contenido      String
+  creado_en      DateTime     @default(now())
+  actualizado_en DateTime     @updatedAt
+  proyecto       Proyecto     @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
+
+  @@index([proyecto_id])
+}
+
+enum TipoDiagrama {
+  PAQUETES
+  CLASES
+  CASOS_USO
+  SECUENCIA
 }
 
 model Rol {

@@ -17,6 +17,8 @@ const tabs = [
   { label: "Procesos", href: "/procesos" },
   { label: "Sesiones", href: "/sesiones" },
   { label: "Requisitos", href: "/requisitos" },
+  { label: "Diagramas", href: "/diagramas" },
+  { label: "Specs", href: "/specs" },
 ];
 
 export default function ProyectoLayout({

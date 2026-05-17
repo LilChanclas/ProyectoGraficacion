@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   HiPlus, HiTrash, HiPencil, HiChevronDown, HiChevronRight,
-  HiX, HiCheck, HiCalendar, HiDocumentText, HiLightningBolt,
+  HiX, HiCheck, HiCalendar, HiDocumentText,
 } from "react-icons/hi";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -58,92 +58,6 @@ function formatDate(d: string) {
   return new Date(d).toLocaleDateString("es-MX", { year: "numeric", month: "short", day: "numeric" });
 }
 
-// ─── Modal: Extraer Requisito ─────────────────────────────────────────────────
-
-function ExtraerRequisitoModal({
-  sesionId, textoPropuesto, proyectoId, onClose,
-}: { sesionId: string; textoPropuesto: string; proyectoId: string; onClose: () => void }) {
-  const qc = useQueryClient();
-  const [nombre, setNombre] = useState(textoPropuesto.slice(0, 120));
-  const [descripcion, setDescripcion] = useState("");
-  const [prioridad, setPrioridad] = useState("MEDIA");
-
-  const extraer = useMutation({
-    mutationFn: () =>
-      fetch(`/api/sesiones/${sesionId}/extraer-requisito`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contenido_resultado: textoPropuesto,
-          nombre_requisito: nombre,
-          descripcion,
-          prioridad,
-        }),
-      }).then((r) => r.json()),
-    onSuccess: () => {
-      qc.invalidateQueries({ queryKey: ["requisitos", proyectoId] });
-      qc.invalidateQueries({ queryKey: ["sesiones", proyectoId] });
-      qc.invalidateQueries({ queryKey: ["resultados", proyectoId] });
-      onClose();
-    },
-  });
-
-  return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50" onClick={onClose}>
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-md p-6" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="font-semibold text-slate-900">Extraer como Requisito</h3>
-          <button onClick={onClose}><HiX className="h-5 w-5 text-slate-400" /></button>
-        </div>
-
-        <div className="mb-3 p-3 bg-slate-50 rounded-lg text-xs text-slate-500 italic line-clamp-3">
-          "{textoPropuesto}"
-        </div>
-
-        <div className="space-y-3">
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Nombre del requisito *</label>
-            <input
-              value={nombre} onChange={(e) => setNombre(e.target.value)} autoFocus
-              className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-violet-400"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Descripción (opcional)</label>
-            <textarea
-              value={descripcion} onChange={(e) => setDescripcion(e.target.value)} rows={2}
-              className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:border-violet-400"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Prioridad</label>
-            <select
-              value={prioridad} onChange={(e) => setPrioridad(e.target.value)}
-              className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-violet-400"
-            >
-              <option value="ALTA">Alta</option>
-              <option value="MEDIA">Media</option>
-              <option value="BAJA">Baja</option>
-            </select>
-          </div>
-        </div>
-
-        <div className="flex justify-end gap-2 mt-5">
-          <button onClick={onClose} className="px-4 py-2 text-sm text-slate-600 hover:text-slate-800">Cancelar</button>
-          <button
-            disabled={!nombre.trim() || extraer.isPending}
-            onClick={() => extraer.mutate()}
-            className="flex items-center gap-1.5 px-4 py-2 text-sm bg-violet-600 text-white rounded-lg disabled:opacity-40 hover:bg-violet-700"
-          >
-            <HiLightningBolt className="h-3.5 w-3.5" />
-            {extraer.isPending ? "Creando..." : "Crear requisito"}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // ─── Panel: Entrevista / Cuestionario ─────────────────────────────────────────
 
 function EntrevistaPanel({
@@ -153,7 +67,6 @@ function EntrevistaPanel({
   const [nuevaTexto, setNuevaTexto] = useState("");
   const [editandoId, setEditandoId] = useState<string | null>(null);
   const [editTexto, setEditTexto] = useState("");
-  const [extraerDe, setExtraerDe] = useState<{ texto: string } | null>(null);
 
   const { data: preguntas = [] } = useQuery<PreguntaSesion[]>({
     queryKey: ["sesion", sesion.id, "preguntas"],
@@ -209,7 +122,6 @@ function EntrevistaPanel({
             onCancelEdit={() => setEditandoId(null)}
             onChangeEditTexto={setEditTexto}
             onDelete={(id) => { if (confirm("¿Eliminar pregunta y sus respuestas?")) delPregunta.mutate(id); }}
-            onExtraer={(txt) => setExtraerDe({ texto: txt })}
           />
         ))}
       </div>
@@ -231,12 +143,6 @@ function EntrevistaPanel({
         </button>
       </div>
 
-      {extraerDe && (
-        <ExtraerRequisitoModal
-          sesionId={sesion.id} textoPropuesto={extraerDe.texto}
-          proyectoId={proyectoId} onClose={() => setExtraerDe(null)}
-        />
-      )}
     </div>
   );
 }
@@ -245,7 +151,7 @@ function PreguntaItem({
   pregunta, idx, sesion, proyectoId,
   editandoId, editTexto,
   onStartEdit, onSaveEdit, onCancelEdit, onChangeEditTexto,
-  onDelete, onExtraer,
+  onDelete,
 }: {
   pregunta: PreguntaSesion; idx: number; sesion: Sesion; proyectoId: string;
   editandoId: string | null; editTexto: string;
@@ -254,7 +160,6 @@ function PreguntaItem({
   onCancelEdit: () => void;
   onChangeEditTexto: (t: string) => void;
   onDelete: (id: string) => void;
-  onExtraer: (txt: string) => void;
 }) {
   const qc = useQueryClient();
   const [showAddResp, setShowAddResp] = useState(false);
@@ -354,13 +259,6 @@ function PreguntaItem({
             </div>
             {editRespId !== r.id && (
               <div className="flex gap-1 opacity-0 group-hover:opacity-100 shrink-0">
-                <button
-                  title="Extraer como requisito"
-                  onClick={() => onExtraer(r.respuesta)}
-                  className="text-slate-300 hover:text-amber-500 p-0.5"
-                >
-                  <HiLightningBolt className="h-3.5 w-3.5" />
-                </button>
                 <button onClick={() => { setEditRespId(r.id); setEditRespTexto(r.respuesta); }} className="text-slate-300 hover:text-violet-500 p-0.5">
                   <HiPencil className="h-3.5 w-3.5" />
                 </button>
@@ -388,8 +286,8 @@ function PreguntaItem({
             </select>
             <textarea
               value={respTexto} onChange={(e) => setRespTexto(e.target.value)}
-              placeholder="Escribe la respuesta..." rows={3} autoFocus
-              className="w-full text-xs border border-slate-200 rounded px-2 py-1.5 resize-none focus:outline-none focus:border-violet-400"
+              placeholder="Escribe la respuesta..." rows={5} autoFocus
+              className="w-full text-sm border border-slate-200 rounded-lg px-3 py-2 resize-y focus:outline-none focus:border-violet-400"
             />
             <div className="flex gap-1.5">
               <button
@@ -422,28 +320,134 @@ function PreguntaItem({
 
 // ─── Panel: Historia de Usuario ───────────────────────────────────────────────
 
+type Prioridad = "ALTA" | "MEDIA" | "BAJA";
+
+interface HUData {
+  codigo: string;
+  prioridad: Prioridad;
+  como: string;
+  quiero: string;
+  para: string;
+  criterios: string[];
+}
+
+function parseHU(contenido: string): HUData | null {
+  try {
+    const d = JSON.parse(contenido);
+    if (d && typeof d.codigo === "string" && d.prioridad && d.como) return d as HUData;
+  } catch { /* plain text fallback */ }
+  return null;
+}
+
+const PRIORIDAD_LABEL: Record<Prioridad, string> = { ALTA: "Alta", MEDIA: "Media", BAJA: "Baja" };
+const PRIORIDAD_COLOR: Record<Prioridad, string> = {
+  ALTA:  "bg-red-100 text-red-700 border-red-200",
+  MEDIA: "bg-amber-100 text-amber-700 border-amber-200",
+  BAJA:  "bg-green-100 text-green-700 border-green-200",
+};
+
+function HUCard({ resultado, onDelete }: { resultado: Resultado; onDelete: () => void }) {
+  const hu = parseHU(resultado.contenido);
+
+  if (!hu) {
+    return (
+      <li className="group flex gap-2 items-start bg-white border border-slate-100 rounded-lg px-3 py-2.5">
+        <p className="flex-1 text-xs text-slate-700 leading-relaxed italic">"{resultado.contenido}"</p>
+        <button onClick={onDelete} className="text-slate-300 hover:text-red-400 opacity-0 group-hover:opacity-100 shrink-0">
+          <HiTrash className="h-3.5 w-3.5" />
+        </button>
+      </li>
+    );
+  }
+
+  return (
+    <li className="group bg-white border border-slate-200 rounded-xl overflow-hidden">
+      <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-50/60 border-b border-slate-100">
+        <span className="text-xs font-bold text-violet-700 font-mono">{hu.codigo}</span>
+        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${PRIORIDAD_COLOR[hu.prioridad]}`}>
+          Prioridad: {PRIORIDAD_LABEL[hu.prioridad]}
+        </span>
+        <button onClick={onDelete} className="ml-auto text-slate-300 hover:text-red-400 opacity-0 group-hover:opacity-100">
+          <HiTrash className="h-3.5 w-3.5" />
+        </button>
+      </div>
+      <div className="px-4 py-3 space-y-2">
+        <p className="text-sm text-slate-700 leading-relaxed">
+          <span className="font-medium text-slate-900">Como</span> {hu.como},{" "}
+          <span className="font-medium text-slate-900">quiero</span> {hu.quiero},{" "}
+          <span className="font-medium text-slate-900">para que</span> {hu.para}.
+        </p>
+        {hu.criterios.length > 0 && (
+          <div>
+            <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-1.5">
+              Criterios de aceptación
+            </p>
+            <ol className="space-y-1">
+              {hu.criterios.map((c, i) => (
+                <li key={i} className="text-xs text-slate-600 flex gap-1.5">
+                  <span className="text-slate-400 shrink-0">{i + 1}.</span>
+                  <span>{c}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+      </div>
+    </li>
+  );
+}
+
 function HistoriaUsuarioPanel({ sesion, proyectoId }: { sesion: Sesion; proyectoId: string }) {
   const qc = useQueryClient();
-  const [rol, setRol] = useState("");
+  const [prioridad, setPrioridad] = useState<Prioridad>("MEDIA");
+  const [personaId, setPersonaId] = useState("");
+  const [customComo, setCustomComo] = useState("");
   const [quiero, setQuiero] = useState("");
   const [para, setPara] = useState("");
-  const [extraerDe, setExtraerDe] = useState<{ texto: string } | null>(null);
+  const [criterios, setCriterios] = useState<string[]>([""]);
 
   const { data: resultados = [] } = useQuery<Resultado[]>({
     queryKey: ["sesion", sesion.id, "resultados"],
     queryFn: () => fetch(`/api/sesiones/${sesion.id}/resultados`).then((r) => r.json()),
   });
 
+  const nextCodigo = `HU-${String(resultados.length + 1).padStart(2, "0")}`;
+  const hasParticipants = sesion.participantes.length > 0;
+  const selectedParticipant = sesion.participantes.find((p) => p.persona_id === personaId);
+  const comoValue = hasParticipants
+    ? selectedParticipant
+      ? `${selectedParticipant.persona.nombre_completo} (${selectedParticipant.persona.rol.nombre})`
+      : ""
+    : customComo;
+
+  const addCriterio = () => setCriterios((prev) => [...prev, ""]);
+  const updateCriterio = (i: number, val: string) =>
+    setCriterios((prev) => prev.map((c, idx) => (idx === i ? val : c)));
+  const removeCriterio = (i: number) =>
+    setCriterios((prev) => (prev.length > 1 ? prev.filter((_, idx) => idx !== i) : [""]));
+
   const guardar = useMutation({
     mutationFn: () => {
-      const texto = `Como ${rol.trim()}, quiero ${quiero.trim()}, para que ${para.trim()}.`;
+      const hu: HUData = {
+        codigo: nextCodigo,
+        prioridad,
+        como: comoValue,
+        quiero: quiero.trim(),
+        para: para.trim(),
+        criterios: criterios.filter((c) => c.trim()),
+      };
       return fetch(`/api/sesiones/${sesion.id}/resultados`, {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contenido: texto }),
+        body: JSON.stringify({ contenido: JSON.stringify(hu) }),
       }).then((r) => r.json());
     },
     onSuccess: () => {
-      setRol(""); setQuiero(""); setPara("");
+      setPrioridad("MEDIA");
+      setPersonaId("");
+      setCustomComo("");
+      setQuiero("");
+      setPara("");
+      setCriterios([""]);
       qc.invalidateQueries({ queryKey: ["sesion", sesion.id, "resultados"] });
       qc.invalidateQueries({ queryKey: ["sesiones", proyectoId] });
       qc.invalidateQueries({ queryKey: ["resultados", proyectoId] });
@@ -458,7 +462,8 @@ function HistoriaUsuarioPanel({ sesion, proyectoId }: { sesion: Sesion; proyecto
     },
   });
 
-  const canSave = rol.trim() && quiero.trim() && para.trim();
+  const canSave =
+    comoValue.trim() && quiero.trim() && para.trim() && criterios.some((c) => c.trim());
 
   return (
     <div>
@@ -466,76 +471,138 @@ function HistoriaUsuarioPanel({ sesion, proyectoId }: { sesion: Sesion; proyecto
         Historias de Usuario
       </h4>
 
-      <div className="space-y-2.5 border border-slate-200 rounded-lg p-3 bg-slate-50/40 mb-3">
+      {/* Form */}
+      <div className="space-y-3 border border-slate-200 rounded-xl p-4 bg-slate-50/40 mb-4">
+        {/* Código + Prioridad */}
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-medium text-slate-500 shrink-0">Código</span>
+            <span className="text-xs font-mono font-bold text-violet-700 bg-violet-50 border border-violet-100 px-2 py-1 rounded">
+              {nextCodigo}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-medium text-slate-500 shrink-0">Prioridad</span>
+            <select
+              value={prioridad}
+              onChange={(e) => setPrioridad(e.target.value as Prioridad)}
+              className="text-xs border border-slate-200 rounded-lg px-2 py-1.5 bg-white focus:outline-none focus:border-violet-400"
+            >
+              <option value="ALTA">Alta</option>
+              <option value="MEDIA">Media</option>
+              <option value="BAJA">Baja</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Como */}
         <div className="flex items-center gap-2">
           <span className="text-xs font-medium text-slate-500 w-20 shrink-0">Como</span>
-          <input
-            value={rol} onChange={(e) => setRol(e.target.value)}
-            placeholder="rol o persona..."
-            className="flex-1 text-sm border border-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:border-violet-400 bg-white"
-          />
+          {hasParticipants ? (
+            <select
+              value={personaId}
+              onChange={(e) => setPersonaId(e.target.value)}
+              className="flex-1 text-sm border border-slate-200 rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:border-violet-400"
+            >
+              <option value="">Seleccionar stakeholder...</option>
+              {sesion.participantes.map((p) => (
+                <option key={p.persona_id} value={p.persona_id}>
+                  {p.persona.nombre_completo} — {p.persona.rol.nombre}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <input
+              value={customComo}
+              onChange={(e) => setCustomComo(e.target.value)}
+              placeholder="rol o persona (agrega participantes para elegir)..."
+              className="flex-1 text-sm border border-slate-200 rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:border-violet-400"
+            />
+          )}
         </div>
+
+        {/* Quiero */}
         <div className="flex items-start gap-2">
           <span className="text-xs font-medium text-slate-500 w-20 shrink-0 mt-2">Quiero</span>
           <textarea
-            value={quiero} onChange={(e) => setQuiero(e.target.value)}
-            placeholder="poder hacer algo..." rows={2}
-            className="flex-1 text-sm border border-slate-200 rounded-lg px-3 py-1.5 resize-none focus:outline-none focus:border-violet-400 bg-white"
+            value={quiero}
+            onChange={(e) => setQuiero(e.target.value)}
+            placeholder="poder hacer algo..."
+            rows={3}
+            className="flex-1 text-sm border border-slate-200 rounded-lg px-3 py-2 resize-y focus:outline-none focus:border-violet-400 bg-white"
           />
         </div>
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-medium text-slate-500 w-20 shrink-0">Para que</span>
-          <input
-            value={para} onChange={(e) => setPara(e.target.value)}
+
+        {/* Para que */}
+        <div className="flex items-start gap-2">
+          <span className="text-xs font-medium text-slate-500 w-20 shrink-0 mt-2">Para que</span>
+          <textarea
+            value={para}
+            onChange={(e) => setPara(e.target.value)}
             placeholder="lograr algún beneficio..."
-            className="flex-1 text-sm border border-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:border-violet-400 bg-white"
+            rows={3}
+            className="flex-1 text-sm border border-slate-200 rounded-lg px-3 py-2 resize-y focus:outline-none focus:border-violet-400 bg-white"
           />
         </div>
-        <div className="flex justify-end">
+
+        {/* Criterios de aceptación */}
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-medium text-slate-500">Criterios de aceptación</span>
+            <button
+              type="button"
+              onClick={addCriterio}
+              className="text-xs text-violet-600 hover:text-violet-700 flex items-center gap-1"
+            >
+              <HiPlus className="h-3 w-3" />Agregar criterio
+            </button>
+          </div>
+          <div className="space-y-2">
+            {criterios.map((c, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <span className="text-xs text-slate-400 w-5 shrink-0 text-right">{i + 1}.</span>
+                <input
+                  value={c}
+                  onChange={(e) => updateCriterio(i, e.target.value)}
+                  placeholder={`Criterio ${i + 1}...`}
+                  className="flex-1 text-sm border border-slate-200 rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:border-violet-400"
+                />
+                <button
+                  type="button"
+                  onClick={() => removeCriterio(i)}
+                  className="text-slate-300 hover:text-red-400 shrink-0"
+                >
+                  <HiX className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-end pt-1">
           <button
             disabled={!canSave || guardar.isPending}
             onClick={() => guardar.mutate()}
-            className="text-xs bg-violet-600 text-white px-3 py-1.5 rounded-lg disabled:opacity-40 hover:bg-violet-700"
+            className="text-xs bg-violet-600 text-white px-4 py-1.5 rounded-lg disabled:opacity-40 hover:bg-violet-700"
           >
-            Guardar historia
+            {guardar.isPending ? "Guardando..." : "Guardar historia"}
           </button>
         </div>
       </div>
 
+      {/* Saved HU cards */}
       {resultados.length > 0 && (
-        <ul className="space-y-2">
+        <ul className="space-y-3">
           {resultados.map((r) => (
-            <li key={r.id} className="group flex gap-2 items-start bg-white border border-slate-100 rounded-lg px-3 py-2.5">
-              <p className="flex-1 text-xs text-slate-700 leading-relaxed italic">"{r.contenido}"</p>
-              <div className="flex gap-1 opacity-0 group-hover:opacity-100 shrink-0">
-                <button
-                  title="Extraer como requisito"
-                  onClick={() => setExtraerDe({ texto: r.contenido })}
-                  className="text-slate-300 hover:text-amber-500"
-                >
-                  <HiLightningBolt className="h-3.5 w-3.5" />
-                </button>
-                <button onClick={() => { if (confirm("¿Eliminar?")) delResultado.mutate(r.id); }}
-                  className="text-slate-300 hover:text-red-400"
-                >
-                  <HiTrash className="h-3.5 w-3.5" />
-                </button>
-              </div>
-              {r.requisito_fuentes.length > 0 && (
-                <span className="text-[10px] bg-violet-50 text-violet-600 px-1.5 py-0.5 rounded-full shrink-0">
-                  {r.requisito_fuentes[0].requisito.codigo}
-                </span>
-              )}
-            </li>
+            <HUCard
+              key={r.id}
+              resultado={r}
+              onDelete={() => {
+                if (confirm("¿Eliminar esta historia de usuario?")) delResultado.mutate(r.id);
+              }}
+            />
           ))}
         </ul>
-      )}
-
-      {extraerDe && (
-        <ExtraerRequisitoModal
-          sesionId={sesion.id} textoPropuesto={extraerDe.texto}
-          proyectoId={proyectoId} onClose={() => setExtraerDe(null)}
-        />
       )}
     </div>
   );
@@ -550,12 +617,24 @@ const LABEL_TECNICA: Partial<Record<TipoMetodo, { titulo: string; placeholder: s
   SEGUIMIENTO_TRANSACCIONAL: { titulo: "Hallazgos del seguimiento",     placeholder: "Observación del proceso/transacción..." },
 };
 
+interface HallazgoData { persona?: string; texto: string }
+
+function parseHallazgo(contenido: string): HallazgoData | null {
+  try {
+    const d = JSON.parse(contenido);
+    if (d && typeof d.texto === "string") return d as HallazgoData;
+  } catch { /* plain text */ }
+  return null;
+}
+
 function HallazgosPanel({ sesion, proyectoId }: { sesion: Sesion; proyectoId: string }) {
   const qc = useQueryClient();
   const [texto, setTexto] = useState("");
+  const [personaId, setPersonaId] = useState("");
   const [editId, setEditId] = useState<string | null>(null);
   const [editTexto, setEditTexto] = useState("");
-  const [extraerDe, setExtraerDe] = useState<{ texto: string } | null>(null);
+
+  const esFocusGroup = sesion.tecnica.tipo_metodo === "FOCUS_GROUP";
 
   const cfg = LABEL_TECNICA[sesion.tecnica.tipo_metodo] ?? {
     titulo: "Resultados", placeholder: "Describe el resultado obtenido...",
@@ -572,21 +651,36 @@ function HallazgosPanel({ sesion, proyectoId }: { sesion: Sesion; proyectoId: st
     qc.invalidateQueries({ queryKey: ["resultados", proyectoId] });
   };
 
+  const buildContenido = (t: string, pid: string) => {
+    if (esFocusGroup && pid) {
+      const p = sesion.participantes.find((x) => x.persona_id === pid);
+      const nombre = p ? `${p.persona.nombre_completo} (${p.persona.rol.nombre})` : "";
+      return JSON.stringify({ persona: nombre, texto: t.trim() });
+    }
+    return t.trim();
+  };
+
   const add = useMutation({
     mutationFn: () =>
       fetch(`/api/sesiones/${sesion.id}/resultados`, {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contenido: texto }),
+        body: JSON.stringify({ contenido: buildContenido(texto, personaId) }),
       }),
-    onSuccess: () => { setTexto(""); inv(); },
+    onSuccess: () => { setTexto(""); setPersonaId(""); inv(); },
   });
 
   const edit = useMutation({
-    mutationFn: (id: string) =>
-      fetch(`/api/resultados/${id}`, {
+    mutationFn: (id: string) => {
+      const original = resultados.find((r) => r.id === id);
+      const parsed = original ? parseHallazgo(original.contenido) : null;
+      const contenido = parsed?.persona
+        ? JSON.stringify({ persona: parsed.persona, texto: editTexto.trim() })
+        : editTexto.trim();
+      return fetch(`/api/resultados/${id}`, {
         method: "PUT", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contenido: editTexto }),
-      }),
+        body: JSON.stringify({ contenido }),
+      });
+    },
     onSuccess: () => { setEditId(null); inv(); },
   });
 
@@ -594,6 +688,12 @@ function HallazgosPanel({ sesion, proyectoId }: { sesion: Sesion; proyectoId: st
     mutationFn: (id: string) => fetch(`/api/resultados/${id}`, { method: "DELETE" }),
     onSuccess: inv,
   });
+
+  const startEdit = (r: Resultado) => {
+    const parsed = parseHallazgo(r.contenido);
+    setEditId(r.id);
+    setEditTexto(parsed ? parsed.texto : r.contenido);
+  };
 
   return (
     <div>
@@ -604,72 +704,90 @@ function HallazgosPanel({ sesion, proyectoId }: { sesion: Sesion; proyectoId: st
       )}
 
       <div className="space-y-2 mb-3">
-        {resultados.map((r, i) => (
-          <div key={r.id} className="group flex gap-2 items-start">
-            <span className="text-xs text-slate-400 shrink-0 mt-0.5">{i + 1}.</span>
-            <div className="flex-1 min-w-0">
-              {editId === r.id ? (
-                <div className="space-y-1">
-                  <textarea
-                    value={editTexto} onChange={(e) => setEditTexto(e.target.value)} rows={3} autoFocus
-                    className="w-full text-xs border border-violet-200 rounded px-2 py-1.5 resize-none focus:outline-none"
-                  />
-                  <div className="flex gap-1.5">
-                    <button onClick={() => edit.mutate(r.id)} className="text-xs bg-violet-600 text-white px-2.5 py-1 rounded hover:bg-violet-700">Guardar</button>
-                    <button onClick={() => setEditId(null)} className="text-xs text-slate-500 px-2 py-1">Cancelar</button>
+        {resultados.map((r, i) => {
+          const hallazgo = parseHallazgo(r.contenido);
+          const displayTexto = hallazgo ? hallazgo.texto : r.contenido;
+          const displayPersona = hallazgo?.persona;
+
+          return (
+            <div key={r.id} className="group flex gap-2 items-start">
+              <span className="text-xs text-slate-400 shrink-0 mt-0.5">{i + 1}.</span>
+              <div className="flex-1 min-w-0">
+                {editId === r.id ? (
+                  <div className="space-y-1">
+                    <textarea
+                      value={editTexto} onChange={(e) => setEditTexto(e.target.value)} rows={5} autoFocus
+                      className="w-full text-sm border border-violet-200 rounded-lg px-3 py-2 resize-y focus:outline-none"
+                    />
+                    <div className="flex gap-1.5">
+                      <button onClick={() => edit.mutate(r.id)} className="text-xs bg-violet-600 text-white px-2.5 py-1 rounded hover:bg-violet-700">Guardar</button>
+                      <button onClick={() => setEditId(null)} className="text-xs text-slate-500 px-2 py-1">Cancelar</button>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <p className="text-xs text-slate-700 leading-relaxed">{r.contenido}</p>
-              )}
-              {r.requisito_fuentes.length > 0 && (
-                <div className="flex flex-wrap gap-1 mt-1">
-                  {r.requisito_fuentes.map((f) => (
-                    <span key={f.requisito.id} className="text-[10px] bg-violet-50 text-violet-600 border border-violet-100 px-1.5 py-0.5 rounded-full">
-                      {f.requisito.codigo || f.requisito.nombre}
-                    </span>
-                  ))}
+                ) : (
+                  <p className="text-xs text-slate-700 leading-relaxed">
+                    {displayPersona && (
+                      <span className="font-semibold text-violet-600 mr-1">{displayPersona}:</span>
+                    )}
+                    {displayTexto}
+                  </p>
+                )}
+                {r.requisito_fuentes.length > 0 && (
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {r.requisito_fuentes.map((f) => (
+                      <span key={f.requisito.id} className="text-[10px] bg-violet-50 text-violet-600 border border-violet-100 px-1.5 py-0.5 rounded-full">
+                        {f.requisito.codigo || f.requisito.nombre}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+              {editId !== r.id && (
+                <div className="flex gap-1 opacity-0 group-hover:opacity-100 shrink-0">
+                  <button onClick={() => startEdit(r)} className="text-slate-300 hover:text-violet-500 p-0.5">
+                    <HiPencil className="h-3.5 w-3.5" />
+                  </button>
+                  <button onClick={() => { if (confirm("¿Eliminar?")) del.mutate(r.id); }} className="text-slate-300 hover:text-red-400 p-0.5">
+                    <HiTrash className="h-3.5 w-3.5" />
+                  </button>
                 </div>
               )}
             </div>
-            {editId !== r.id && (
-              <div className="flex gap-1 opacity-0 group-hover:opacity-100 shrink-0">
-                <button title="Extraer como requisito" onClick={() => setExtraerDe({ texto: r.contenido })} className="text-slate-300 hover:text-amber-500 p-0.5">
-                  <HiLightningBolt className="h-3.5 w-3.5" />
-                </button>
-                <button onClick={() => { setEditId(r.id); setEditTexto(r.contenido); }} className="text-slate-300 hover:text-violet-500 p-0.5">
-                  <HiPencil className="h-3.5 w-3.5" />
-                </button>
-                <button onClick={() => { if (confirm("¿Eliminar?")) del.mutate(r.id); }} className="text-slate-300 hover:text-red-400 p-0.5">
-                  <HiTrash className="h-3.5 w-3.5" />
-                </button>
-              </div>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </div>
 
-      <div className="flex gap-2">
-        <textarea
-          value={texto} onChange={(e) => setTexto(e.target.value)} rows={2}
-          placeholder={cfg.placeholder}
-          className="flex-1 text-xs border border-dashed border-slate-300 rounded-lg px-3 py-2 resize-none focus:outline-none focus:border-violet-400 bg-slate-50/50"
-        />
-        <button
-          disabled={!texto.trim() || add.isPending}
-          onClick={() => add.mutate()}
-          className="text-xs bg-violet-600 text-white px-3 rounded-lg disabled:opacity-40 hover:bg-violet-700 self-end py-2"
-        >
-          <HiPlus className="h-4 w-4" />
-        </button>
+      <div className="space-y-2">
+        {esFocusGroup && sesion.participantes.length > 0 && (
+          <select
+            value={personaId}
+            onChange={(e) => setPersonaId(e.target.value)}
+            className="w-full text-xs border border-slate-200 rounded-lg px-2 py-1.5 bg-white focus:outline-none focus:border-violet-400"
+          >
+            <option value="">Conclusión general (sin persona específica)</option>
+            {sesion.participantes.map((p) => (
+              <option key={p.persona_id} value={p.persona_id}>
+                {p.persona.nombre_completo} — {p.persona.rol.nombre}
+              </option>
+            ))}
+          </select>
+        )}
+        <div className="flex gap-2">
+          <textarea
+            value={texto} onChange={(e) => setTexto(e.target.value)} rows={5}
+            placeholder={cfg.placeholder}
+            className="flex-1 text-sm border border-dashed border-slate-300 rounded-lg px-3 py-2.5 resize-y focus:outline-none focus:border-violet-400 bg-slate-50/50"
+          />
+          <button
+            disabled={!texto.trim() || add.isPending}
+            onClick={() => add.mutate()}
+            className="text-xs bg-violet-600 text-white px-3 rounded-lg disabled:opacity-40 hover:bg-violet-700 self-end py-2"
+          >
+            <HiPlus className="h-4 w-4" />
+          </button>
+        </div>
       </div>
 
-      {extraerDe && (
-        <ExtraerRequisitoModal
-          sesionId={sesion.id} textoPropuesto={extraerDe.texto}
-          proyectoId={proyectoId} onClose={() => setExtraerDe(null)}
-        />
-      )}
     </div>
   );
 }
@@ -733,7 +851,10 @@ function SessionCard({ sesion, personas, proyectoId }: {
         <span className="text-slate-400 shrink-0">
           {expanded ? <HiChevronDown className="h-4 w-4" /> : <HiChevronRight className="h-4 w-4" />}
         </span>
-        <span className="text-sm font-semibold text-slate-800 min-w-[140px]">{sesion.tecnica.nombre}</span>
+        <span className="text-sm font-semibold text-slate-800 min-w-[130px]">{sesion.tecnica.nombre}</span>
+        <span className="text-xs text-slate-400 border border-slate-200 rounded-full px-2 py-0.5 truncate max-w-[180px]">
+          {sesion.subproceso.nombre}
+        </span>
         <span className="text-xs text-slate-500 flex items-center gap-1">
           <HiCalendar className="h-3.5 w-3.5" />{formatDate(sesion.fecha)}
         </span>

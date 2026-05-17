@@ -9,6 +9,8 @@ import {
   HiOutlineUsers,
   HiOutlineCollection,
   HiOutlineTag,
+  HiOutlineClipboardList,
+  HiOutlineDocumentText,
 } from "react-icons/hi";
 
 interface Proyecto {
@@ -33,6 +35,18 @@ export default function ProyectoDashboard() {
   const { data: proyecto, isLoading } = useQuery<Proyecto>({
     queryKey: ["proyecto", id],
     queryFn: () => fetch(`/api/proyectos/${id}`).then((r) => r.json()),
+    enabled: !!id,
+  });
+
+  const { data: sesiones = [] } = useQuery<{ id: string }[]>({
+    queryKey: ["sesiones", id],
+    queryFn: () => fetch(`/api/proyectos/${id}/sesiones`).then((r) => r.json()),
+    enabled: !!id,
+  });
+
+  const { data: requisitos = [] } = useQuery<{ id: string }[]>({
+    queryKey: ["requisitos", id],
+    queryFn: () => fetch(`/api/proyectos/${id}/requisitos`).then((r) => r.json()),
     enabled: !!id,
   });
 
@@ -154,7 +168,7 @@ export default function ProyectoDashboard() {
       </div>
 
       {/* Contadores */}
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-5">
         <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-100 text-violet-600">
@@ -188,6 +202,30 @@ export default function ProyectoDashboard() {
             <div>
               <p className="text-2xl font-bold text-slate-900">{proyecto.roles.length}</p>
               <p className="text-xs text-slate-500">Roles</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600">
+              <HiOutlineClipboardList size={20} />
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-slate-900">{sesiones.length}</p>
+              <p className="text-xs text-slate-500">Sesiones</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-rose-100 text-rose-600">
+              <HiOutlineDocumentText size={20} />
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-slate-900">{requisitos.length}</p>
+              <p className="text-xs text-slate-500">Requisitos</p>
             </div>
           </div>
         </div>

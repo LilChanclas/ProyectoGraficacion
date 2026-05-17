@@ -202,25 +202,53 @@ export default function ProcesosPage() {
             return (
               <div key={proceso.id} className="rounded-2xl bg-white shadow-sm ring-1 ring-black/5 overflow-hidden">
                 {/* Cabecera del proceso */}
-                <div className="flex items-center justify-between px-5 py-4">
+                <div className="flex items-center gap-2 px-5 py-4">
+                  {/* Chevron — único botón de expansión */}
                   <button
                     onClick={() => toggle(expandidos, proceso.id, setExpandidos)}
-                    className="flex items-center gap-2 text-left"
+                    className="shrink-0 text-slate-400 hover:text-violet-500 transition"
                   >
-                    {isExp ? <HiChevronDown size={18} className="text-violet-500" /> : <HiChevronRight size={18} className="text-slate-400" />}
+                    {isExp ? <HiChevronDown size={18} className="text-violet-500" /> : <HiChevronRight size={18} />}
+                  </button>
+
+                  {/* Nombre / formulario de edición — fuera del botón */}
+                  <div className="flex-1 min-w-0">
                     {isEditingProceso ? (
-                      <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                      <div className="flex items-center gap-2 flex-wrap">
                         <input
                           value={editForm.nombre}
                           onChange={(e) => setEditForm({ ...editForm, nombre: e.target.value })}
-                          className="rounded-lg bg-slate-50 px-2 py-1 text-sm ring-1 ring-black/10 focus:ring-2 focus:ring-violet-500"
+                          placeholder="Nombre del proceso"
+                          className="rounded-lg bg-slate-50 px-2 py-1 text-sm ring-1 ring-black/10 focus:ring-2 focus:ring-violet-500 min-w-[160px]"
                           autoFocus
+                          onKeyDown={(e) => {
+                            if (e.key === "Escape") setEditandoProceso(null);
+                          }}
                         />
-                        <button onClick={() => editarProcesoMut.mutate({ procesoId: proceso.id, data: editForm })} className="text-green-600 hover:bg-green-50 rounded p-1"><HiCheck size={16} /></button>
-                        <button onClick={() => setEditandoProceso(null)} className="text-slate-400 hover:bg-slate-100 rounded p-1"><HiX size={16} /></button>
+                        <input
+                          value={editForm.descripcion}
+                          onChange={(e) => setEditForm({ ...editForm, descripcion: e.target.value })}
+                          placeholder="Descripción (opcional)"
+                          className="rounded-lg bg-slate-50 px-2 py-1 text-sm ring-1 ring-black/10 focus:ring-2 focus:ring-violet-500 min-w-[200px] flex-1"
+                        />
+                        <button
+                          onClick={() => editarProcesoMut.mutate({ procesoId: proceso.id, data: editForm })}
+                          className="text-green-600 hover:bg-green-50 rounded p-1"
+                        >
+                          <HiCheck size={16} />
+                        </button>
+                        <button
+                          onClick={() => setEditandoProceso(null)}
+                          className="text-slate-400 hover:bg-slate-100 rounded p-1"
+                        >
+                          <HiX size={16} />
+                        </button>
                       </div>
                     ) : (
-                      <div>
+                      <div
+                        className="cursor-pointer"
+                        onClick={() => toggle(expandidos, proceso.id, setExpandidos)}
+                      >
                         <span className="font-semibold text-slate-900">{proceso.nombre}</span>
                         {proceso.descripcion && (
                           <span className="ml-2 text-sm text-slate-400">{proceso.descripcion}</span>
@@ -230,10 +258,11 @@ export default function ProcesosPage() {
                         </span>
                       </div>
                     )}
-                  </button>
+                  </div>
 
+                  {/* Acciones editar / eliminar */}
                   {!isEditingProceso && (
-                    <div className="flex gap-1">
+                    <div className="flex gap-1 shrink-0">
                       <button
                         onClick={() => { setEditandoProceso(proceso.id); setEditForm({ nombre: proceso.nombre, descripcion: proceso.descripcion || "" }); }}
                         className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-violet-600"

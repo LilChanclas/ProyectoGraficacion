@@ -240,11 +240,12 @@ interface CreateDialogProps {
   proyectoId: string;
   diagramas: Diagrama[];
   procesos: Proceso[];
+  personas: Persona[];
   onClose: () => void;
   onCreated: (d: Diagrama) => void;
 }
 
-function CreateDialog({ proyectoId, diagramas, procesos, onClose, onCreated }: CreateDialogProps) {
+function CreateDialog({ proyectoId, diagramas, procesos, personas, onClose, onCreated }: CreateDialogProps) {
   const [tipo, setTipo] = useState<TipoDiagrama>("SECUENCIA");
   const [nombre, setNombre] = useState("");
   const [subprocesoId, setSubprocesoId] = useState("");
@@ -264,12 +265,18 @@ function CreateDialog({ proyectoId, diagramas, procesos, onClose, onCreated }: C
 
   async function handleCreate() {
     if (!nombre.trim()) return;
-    if (tipo === "SECUENCIA" && !subprocesoId) return;
     setSaving(true);
+
+    let contenidoInicial = "";
+    if (tipo === "SECUENCIA" && subprocesoId) {
+      const sub = allSubprocesos.find((s) => s.id === subprocesoId);
+      if (sub) contenidoInicial = generarSecuencia(sub, personas);
+    }
+
     const res = await fetch(`/api/proyectos/${proyectoId}/diagramas`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ tipo, nombre: nombre.trim(), contenido: "" }),
+      body: JSON.stringify({ tipo, nombre: nombre.trim(), contenido: contenidoInicial }),
     });
     const d = await res.json();
     setSaving(false);
@@ -371,6 +378,7 @@ export default function DiagramasPage() {
   const [nameValue, setNameValue] = useState("");
   const [view, setView] = useState<"split" | "code" | "preview">("split");
   const [dirty, setDirty] = useState(false);
+  const [secuenciaSubprocesoId, setSecuenciaSubprocesoId] = useState("");
 
   const { data: proyecto } = useQuery<{ id: string; nombre: string }>({
     queryKey: ["proyecto", id],
@@ -433,10 +441,13 @@ export default function DiagramasPage() {
     },
   });
 
+  const allSubprocesos = procesos.flatMap((p) =>
+    p.subprocesos.map((s) => ({ ...s, procesoNombre: p.nombre }))
+  );
+
   function handleAutoGenerate() {
     if (!selected) return;
     let generated = "";
-    const allSubprocesos = procesos.flatMap((p) => p.subprocesos);
 
     switch (selected.tipo) {
       case "PAQUETES":
@@ -449,7 +460,9 @@ export default function DiagramasPage() {
         generated = generarCasosUso(personas, requisitos);
         break;
       case "SECUENCIA": {
-        const sub = allSubprocesos[0];
+        const sub = secuenciaSubprocesoId
+          ? allSubprocesos.find((s) => s.id === secuenciaSubprocesoId)
+          : allSubprocesos[0];
         if (sub) generated = generarSecuencia(sub, personas);
         else generated = "sequenceDiagram\n    Actor->>Sistema: Acción\n    Sistema-->>Actor: Respuesta";
         break;
@@ -594,6 +607,21 @@ export default function DiagramasPage() {
                 ))}
               </div>
 
+              {selected.tipo === "SECUENCIA" && allSubprocesos.length > 0 && (
+                <select
+                  value={secuenciaSubprocesoId}
+                  onChange={(e) => setSecuenciaSubprocesoId(e.target.value)}
+                  className="text-xs border border-slate-200 rounded-lg px-2 py-1.5 text-slate-600 bg-white max-w-[180px]"
+                  title="Subproceso para auto-generar"
+                >
+                  <option value="">— Subproceso —</option>
+                  {allSubprocesos.map((s) => (
+                    <option key={s.id} value={s.id}>
+                      {s.procesoNombre} / {s.nombre}
+                    </option>
+                  ))}
+                </select>
+              )}
               <button
                 onClick={handleAutoGenerate}
                 title="Auto-generar desde datos del proyecto"
@@ -671,6 +699,7 @@ export default function DiagramasPage() {
           proyectoId={id}
           diagramas={diagramas}
           procesos={procesos}
+          personas={personas}
           onClose={() => setShowCreate(false)}
           onCreated={handleCreated}
         />

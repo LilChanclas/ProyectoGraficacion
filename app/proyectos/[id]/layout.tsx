@@ -16,7 +16,6 @@ const tabs = [
   { label: "Stakeholders", href: "/stakeholders" },
   { label: "Procesos", href: "/procesos" },
   { label: "Sesiones", href: "/sesiones" },
-  { label: "Requisitos", href: "/requisitos" },
   { label: "Diagramas", href: "/diagramas" },
   { label: "Specs", href: "/specs" },
 ];

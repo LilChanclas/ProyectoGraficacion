@@ -12,6 +12,7 @@ import {
   HiX,
   HiCheck,
 } from "react-icons/hi";
+import { toast } from "sonner";
 
 interface Tecnica {
   id: string;
@@ -270,7 +271,7 @@ export default function ProcesosPage() {
                         <HiOutlinePencil size={16} />
                       </button>
                       <button
-                        onClick={() => { if (confirm(`¿Eliminar "${proceso.nombre}" y todos sus subprocesos?`)) eliminarProcesoMut.mutate(proceso.id); }}
+                        onClick={() => { toast.warning(`¿Eliminar "${proceso.nombre}" y todos sus subprocesos?`, { action: { label: "Eliminar", onClick: () => eliminarProcesoMut.mutate(proceso.id) }, cancel: { label: "Cancelar", onClick: () => {} } }); }}
                         className="rounded-lg p-1.5 text-slate-400 hover:bg-red-50 hover:text-red-600"
                       >
                         <HiOutlineTrash size={16} />
@@ -412,7 +413,7 @@ export default function ProcesosPage() {
                                   <HiOutlinePencil size={14} />
                                 </button>
                                 <button
-                                  onClick={() => { if (confirm(`¿Eliminar "${sub.nombre}"?`)) eliminarSubMut.mutate(sub.id); }}
+                                  onClick={() => { toast.warning(`¿Eliminar "${sub.nombre}"?`, { action: { label: "Eliminar", onClick: () => eliminarSubMut.mutate(sub.id) }, cancel: { label: "Cancelar", onClick: () => {} } }); }}
                                   className="rounded p-1 text-slate-400 hover:text-red-600 hover:bg-red-50"
                                 >
                                   <HiOutlineTrash size={14} />

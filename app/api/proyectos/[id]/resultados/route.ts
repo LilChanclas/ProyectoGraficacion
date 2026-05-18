@@ -15,7 +15,6 @@ export async function GET(_req: NextRequest, { params }: Params) {
           subproceso: { include: { proceso: true } },
         },
       },
-      requisito_fuentes: { include: { requisito: true } },
     },
     orderBy: { creado_en: "desc" },
   });

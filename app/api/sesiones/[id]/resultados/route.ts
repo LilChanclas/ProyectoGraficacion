@@ -8,11 +8,6 @@ export async function GET(_req: NextRequest, { params }: Params) {
 
   const resultados = await prisma.resultadoRecabacion.findMany({
     where: { sesion_id: id },
-    include: {
-      requisito_fuentes: {
-        include: { requisito: true },
-      },
-    },
     orderBy: { creado_en: "asc" },
   });
 
@@ -33,9 +28,6 @@ export async function POST(req: NextRequest, { params }: Params) {
       sesion_id: id,
       contenido: contenido.trim(),
       notas: notas?.trim() || null,
-    },
-    include: {
-      requisito_fuentes: { include: { requisito: true } },
     },
   });
 

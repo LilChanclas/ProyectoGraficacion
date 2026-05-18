@@ -10,8 +10,8 @@ import {
   HiOutlineCollection,
   HiOutlineTag,
   HiOutlineClipboardList,
-  HiOutlineDocumentText,
 } from "react-icons/hi";
+import { toast } from "sonner";
 
 interface Proyecto {
   id: string;
@@ -41,12 +41,6 @@ export default function ProyectoDashboard() {
   const { data: sesiones = [] } = useQuery<{ id: string }[]>({
     queryKey: ["sesiones", id],
     queryFn: () => fetch(`/api/proyectos/${id}/sesiones`).then((r) => r.json()),
-    enabled: !!id,
-  });
-
-  const { data: requisitos = [] } = useQuery<{ id: string }[]>({
-    queryKey: ["requisitos", id],
-    queryFn: () => fetch(`/api/proyectos/${id}/requisitos`).then((r) => r.json()),
     enabled: !!id,
   });
 
@@ -154,8 +148,10 @@ export default function ProyectoDashboard() {
                 </button>
                 <button
                   onClick={() => {
-                    if (confirm("¿Eliminar este proyecto? Esta acción no se puede deshacer."))
-                      deleteMutation.mutate();
+                    toast.warning("¿Eliminar este proyecto? Esta acción no se puede deshacer.", {
+                      action: { label: "Eliminar", onClick: () => deleteMutation.mutate() },
+                      cancel: { label: "Cancelar", onClick: () => {} },
+                    });
                   }}
                   className="rounded-lg p-2 text-slate-400 hover:bg-red-50 hover:text-red-600 transition"
                 >
@@ -168,7 +164,7 @@ export default function ProyectoDashboard() {
       </div>
 
       {/* Contadores */}
-      <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-100 text-violet-600">
@@ -218,17 +214,6 @@ export default function ProyectoDashboard() {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-rose-100 text-rose-600">
-              <HiOutlineDocumentText size={20} />
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-slate-900">{requisitos.length}</p>
-              <p className="text-xs text-slate-500">Requisitos</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

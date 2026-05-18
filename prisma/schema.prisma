@@ -15,7 +15,6 @@ model Proyecto {
   personas       Persona[]
   procesos       Proceso[]
   roles          Rol[]
-  requisitos     Requisito[]
   diagramas      Diagrama[]
   specs          Spec[]
 }
@@ -186,35 +185,7 @@ model ResultadoRecabacion {
   notas             String?
   creado_en         DateTime          @default(now())
   sesion            SesionRecabacion  @relation(fields: [sesion_id], references: [id], onDelete: Cascade)
-  requisito_fuentes RequisitoFuente[]
-
   @@index([sesion_id])
-}
-
-model Requisito {
-  id             String             @id @default(cuid())
-  proyecto_id    String
-  codigo         String?
-  nombre         String
-  descripcion    String?
-  prioridad      PrioridadRequisito @default(MEDIA)
-  estado         EstadoRequisito    @default(PENDIENTE)
-  creado_en      DateTime           @default(now())
-  actualizado_en DateTime           @updatedAt
-  proyecto       Proyecto           @relation(fields: [proyecto_id], references: [id], onDelete: Cascade)
-  fuentes        RequisitoFuente[]
-
-  @@index([proyecto_id])
-}
-
-model RequisitoFuente {
-  requisito_id String
-  resultado_id String
-  requisito    Requisito           @relation(fields: [requisito_id], references: [id], onDelete: Cascade)
-  resultado    ResultadoRecabacion @relation(fields: [resultado_id], references: [id], onDelete: Cascade)
-
-  @@id([requisito_id, resultado_id])
-  @@index([resultado_id])
 }
 
 enum TipoMetodoTecnica {
@@ -234,14 +205,3 @@ enum EstadoSesion {
   CANCELADA
 }
 
-enum PrioridadRequisito {
-  ALTA
-  MEDIA
-  BAJA
-}
-
-enum EstadoRequisito {
-  PENDIENTE
-  VALIDADO
-  DESCARTADO
-}

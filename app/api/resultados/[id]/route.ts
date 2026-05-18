@@ -14,9 +14,6 @@ export async function PUT(req: NextRequest, { params }: Params) {
       ...(contenido !== undefined && { contenido: contenido.trim() }),
       ...(notas !== undefined && { notas: notas?.trim() || null }),
     },
-    include: {
-      requisito_fuentes: { include: { requisito: true } },
-    },
   });
 
   return NextResponse.json(resultado);

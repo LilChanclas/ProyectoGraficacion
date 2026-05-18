@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { HiPlus, HiOutlinePencil, HiOutlineTrash, HiX, HiCheck } from "react-icons/hi";
+import { toast } from "sonner";
 
 interface Rol {
   id: string;
@@ -173,8 +174,10 @@ export default function RolesPage() {
                       {!protegido && (
                         <button
                           onClick={() => {
-                            if (confirm(`¿Eliminar el rol "${rol.nombre}"?`))
-                              eliminarMutation.mutate(rol.id);
+                            toast.warning(`¿Eliminar el rol "${rol.nombre}"?`, {
+                              action: { label: "Eliminar", onClick: () => eliminarMutation.mutate(rol.id) },
+                              cancel: { label: "Cancelar", onClick: () => {} },
+                            });
                           }}
                           className="rounded-lg p-1.5 text-slate-400 hover:bg-red-50 hover:text-red-600"
                         >

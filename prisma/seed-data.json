@@ -1,0 +1,2405 @@
+{
+  "tecnicas": [
+    {
+      "id": "entrevista",
+      "nombre": "Entrevista",
+      "tipo_metodo": "ENTREVISTA",
+      "descripcion": "Conversación estructurada o semiestructurada con stakeholders para obtener información detallada."
+    },
+    {
+      "id": "cuestionario",
+      "nombre": "Cuestionario",
+      "tipo_metodo": "CUESTIONARIO",
+      "descripcion": "Conjunto de preguntas escritas para recopilar información de múltiples personas."
+    },
+    {
+      "id": "observacion",
+      "nombre": "Observación",
+      "tipo_metodo": "OBSERVACION",
+      "descripcion": "Observación directa de procesos y actividades en el entorno del cliente."
+    },
+    {
+      "id": "historia_usuario",
+      "nombre": "Historia de Usuario",
+      "tipo_metodo": "HISTORIA_USUARIO",
+      "descripcion": "Descripción breve de una funcionalidad desde la perspectiva del usuario final."
+    },
+    {
+      "id": "focus_group",
+      "nombre": "Focus Group",
+      "tipo_metodo": "FOCUS_GROUP",
+      "descripcion": "Sesión grupal facilitada para discutir temas específicos con múltiples stakeholders."
+    },
+    {
+      "id": "documentos",
+      "nombre": "Análisis Documental",
+      "tipo_metodo": "DOCUMENTOS",
+      "descripcion": "Revisión y análisis de documentos existentes del cliente (manuales, reportes, políticas)."
+    },
+    {
+      "id": "seguimiento_transaccional",
+      "nombre": "Seguimiento Transaccional",
+      "tipo_metodo": "SEGUIMIENTO_TRANSACCIONAL",
+      "descripcion": "Rastreo y análisis de transacciones o flujos de trabajo existentes."
+    }
+  ],
+  "proyectos": [
+    {
+      "id": "cmp8r6x5g0000ywurknu6p046",
+      "nombre": "Luna de Miel",
+      "descripcion": "Lo que se busca con este proyecto es mejorar o automatizar el proceso de lista de espera del restaurante luna de miel que se encuentra sobre la calle heriberto valdez",
+      "creado_en": "2026-05-16T19:42:50.428Z",
+      "actualizado_en": "2026-05-16T19:42:50.428Z"
+    }
+  ],
+  "roles": [
+    {
+      "id": "cmp8r6x5i0001ywur28kx7eqp",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "nombre": "Product Owner"
+    },
+    {
+      "id": "cmp8r6x5i0002ywurffmseoi6",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "nombre": "Líder de Tecnología"
+    },
+    {
+      "id": "cmp8r7dph0005ywur2ju2mdeq",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "nombre": "Gerente"
+    },
+    {
+      "id": "cmp8r7pf20007ywursmnykhnj",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "nombre": "Cliente"
+    },
+    {
+      "id": "cmp8r7hcr0006ywurjgczn6dx",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "nombre": "Capitan de Meseros"
+    },
+    {
+      "id": "cmp8rdb330009ywur1zp6uylj",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "nombre": "Mesero"
+    }
+  ],
+  "personas": [
+    {
+      "id": "cmp8r6x5o0003ywurcmam8fmt",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "rol_id": "cmp8r6x5i0001ywur28kx7eqp",
+      "nombre_completo": "Priscila Margarita Vega Gutiérrez",
+      "correo": "correoejemplo@gmail.com",
+      "telefono": null,
+      "notas": null,
+      "creado_en": "2026-05-16T19:42:50.460Z"
+    },
+    {
+      "id": "cmp8rasey0008ywurwrj7b5ua",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "rol_id": "cmp8r6x5i0002ywurffmseoi6",
+      "nombre_completo": "Rosario Humberto Valenzuela Suarez",
+      "correo": "Rosariovalenzuela@gmail.com",
+      "telefono": null,
+      "notas": null,
+      "creado_en": "2026-05-16T19:45:50.913Z"
+    },
+    {
+      "id": "cmp8r6x5q0004ywur48jcc8ix",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "rol_id": "cmp8r7hcr0006ywurjgczn6dx",
+      "nombre_completo": "Eduardo Alonso Salazar Vega",
+      "correo": "SalazarVega@gmail.com",
+      "telefono": null,
+      "notas": null,
+      "creado_en": "2026-05-16T19:42:50.462Z"
+    },
+    {
+      "id": "cmp8use3l000090urpk63mevi",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "rol_id": "cmp8rdb330009ywur1zp6uylj",
+      "nombre_completo": "Sergio Chavez",
+      "correo": "sergiochavez@gmail.com",
+      "telefono": null,
+      "notas": null,
+      "creado_en": "2026-05-16T21:23:31.016Z"
+    },
+    {
+      "id": "cmp8rhcpe000bywur1sn59goj",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "rol_id": "cmp8r7dph0005ywur2ju2mdeq",
+      "nombre_completo": "Julissa Arreola",
+      "correo": "julisaarreola@gmail.com",
+      "telefono": null,
+      "notas": null,
+      "creado_en": "2026-05-16T19:50:57.148Z"
+    },
+    {
+      "id": "cmp8whmcc0001o8urktx19g1h",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "rol_id": "cmp8r7pf20007ywursmnykhnj",
+      "nombre_completo": "Santiago Trasvina Chavez",
+      "correo": null,
+      "telefono": null,
+      "notas": null,
+      "creado_en": "2026-05-16T22:11:07.717Z"
+    }
+  ],
+  "procesos": [
+    {
+      "id": "cmp8s4ml0000jywurd3pkeu69",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "nombre": "Validación y Profundización",
+      "descripcion": "Transformar la información cruda en estructuras de requisitos validados colectivamente."
+    },
+    {
+      "id": "cmp8s5iuv000kywurpgq52wsy",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "nombre": "Formalización y Síntesis",
+      "descripcion": "Documentar formalmente lo existente y mapear el proceso completo como insumo final para los specs."
+    },
+    {
+      "id": "cmp8ruq26000cywurc2k5m3vo",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "nombre": "Descubrimiento",
+      "descripcion": "Obtener información cruda y primaria sobre el negocio, sus usuarios y su operación actual."
+    }
+  ],
+  "subprocesos": [
+    {
+      "id": "cmp8rv7lk000dywur7n22fai2",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Levantamiento de contexto de negocio",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8rvoav000eywur2nxrgnfy",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Mapeo del proceso actual de lista de espera",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8rvymy000fywurfdm983rv",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Identificación de problemáticas",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8rwet6000gywurwtc7juqy",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Captura de necesidades y expectativas",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8rwp2c000hywurg3ll2r43",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Extracción de reglas de negocio",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8rx0ui000iywur7xirindd",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Definición de requisitos preliminares funcionales y no funcionales",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sfsyq0000ugurnyzksol8",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Registro de datos del encuestado",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sgeds0001ugur6z683w85",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Validación de la perspectiva del personal sobre el proceso actual",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sgpne0002ugurye95ejmy",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Medición cuantitativa de necesidades del nuevo sistema",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sh6ev0003ugurwofjfjih",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Recolección de comentarios abiertos",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8si2ib0005ugurhm4i7qk4",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Aplicación de lista de verificación",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sifru0006ugurnvx7629p",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Registro narrativo segmentado en tres momentos",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sinco0007ugursjqept7b",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Construcción del flujo cronológico",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sivr70008ugurfyq1uurb",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Síntesis de hallazgos sobre fricciones reales observadas vs. las reportadas en entrevista.",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sjcs70009ugurg6wz3hqb",
+      "proceso_id": "cmp8s5iuv000kywurpgq52wsy",
+      "nombre": "Módulo Lista de Espera",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sjldz000augur14l9x6ks",
+      "proceso_id": "cmp8s5iuv000kywurpgq52wsy",
+      "nombre": "Módulo Estado de Mesas",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sjrmu000bugurhghx6tl1",
+      "proceso_id": "cmp8s5iuv000kywurpgq52wsy",
+      "nombre": "Módulo Reservaciones",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sjxw2000cugurau34ff43",
+      "proceso_id": "cmp8s5iuv000kywurpgq52wsy",
+      "nombre": "Módulo Notificaciones",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sk4ix000dugurp4a8cwix",
+      "proceso_id": "cmp8s5iuv000kywurpgq52wsy",
+      "nombre": "Módulo Pantalla Pública",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8skac1000eugurfv6fi77y",
+      "proceso_id": "cmp8s5iuv000kywurpgq52wsy",
+      "nombre": "Módulo Acceso y Roles",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sknwp000fugur6rix09w4",
+      "proceso_id": "cmp8s5iuv000kywurpgq52wsy",
+      "nombre": "Diagnóstico colectivo de problemas con el proceso actual.",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sktbm000gugurjh70hbkr",
+      "proceso_id": "cmp8s5iuv000kywurpgq52wsy",
+      "nombre": "Expectativas mínimas para adopción del nuevo sistema.",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8skxsz000hugur0p7k8585",
+      "proceso_id": "cmp8s5iuv000kywurpgq52wsy",
+      "nombre": "Discusión sobre mecanismos de notificación al cliente.",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sl2np000iugur6ddelvr7",
+      "proceso_id": "cmp8s5iuv000kywurpgq52wsy",
+      "nombre": "Integración entre reservaciones y lista de espera.",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sl7mk000jugurglsmc2pf",
+      "proceso_id": "cmp8s5iuv000kywurpgq52wsy",
+      "nombre": "Preocupaciones, resistencias y riesgos de adopción.",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sm6ev000lugurrucinw9d",
+      "proceso_id": "cmp8s4ml0000jywurd3pkeu69",
+      "nombre": "Inventario de fuentes",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8smd71000mugurcma2xkvx",
+      "proceso_id": "cmp8s4ml0000jywurd3pkeu69",
+      "nombre": "Análisis detallado por fuente",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8smjlm000nugur98y1ksjq",
+      "proceso_id": "cmp8s4ml0000jywurd3pkeu69",
+      "nombre": "Construcción de matriz de brechas documentales",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8smo48000ougur0n48p58z",
+      "proceso_id": "cmp8s4ml0000jywurd3pkeu69",
+      "nombre": "Conclusiones sobre la oportunidad documental del nuevo sistema.",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sn22t000pugure10nrdwh",
+      "proceso_id": "cmp8s4ml0000jywurd3pkeu69",
+      "nombre": "Descomposición del proceso en 7 pasos atómicos",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8sn9sg000qugur3mktn8sq",
+      "proceso_id": "cmp8s4ml0000jywurd3pkeu69",
+      "nombre": "Análisis de tiempos por transacción",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8snepq000rugur8v1bnzyy",
+      "proceso_id": "cmp8s4ml0000jywurd3pkeu69",
+      "nombre": "Mapeo del flujo de datos",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8snm0i000sugur3yckf1vn",
+      "proceso_id": "cmp8s4ml0000jywurd3pkeu69",
+      "nombre": "Conclusiones cuantitativas sobre la reducción esperada de tiempo",
+      "descripcion": null
+    },
+    {
+      "id": "cmp8zriol000r0gurkj0r3xmg",
+      "proceso_id": "cmp8ruq26000cywurc2k5m3vo",
+      "nombre": "Captura de preferencias de interfaz y uso",
+      "descripcion": null
+    }
+  ],
+  "subprocesoTecnicas": [
+    {
+      "subproceso_id": "cmp8rv7lk000dywur7n22fai2",
+      "tecnica_id": "entrevista"
+    },
+    {
+      "subproceso_id": "cmp8rvoav000eywur2nxrgnfy",
+      "tecnica_id": "entrevista"
+    },
+    {
+      "subproceso_id": "cmp8rvymy000fywurfdm983rv",
+      "tecnica_id": "entrevista"
+    },
+    {
+      "subproceso_id": "cmp8rwet6000gywurwtc7juqy",
+      "tecnica_id": "entrevista"
+    },
+    {
+      "subproceso_id": "cmp8rwp2c000hywurg3ll2r43",
+      "tecnica_id": "entrevista"
+    },
+    {
+      "subproceso_id": "cmp8rx0ui000iywur7xirindd",
+      "tecnica_id": "entrevista"
+    },
+    {
+      "subproceso_id": "cmp8sfsyq0000ugurnyzksol8",
+      "tecnica_id": "cuestionario"
+    },
+    {
+      "subproceso_id": "cmp8sgeds0001ugur6z683w85",
+      "tecnica_id": "cuestionario"
+    },
+    {
+      "subproceso_id": "cmp8sgpne0002ugurye95ejmy",
+      "tecnica_id": "cuestionario"
+    },
+    {
+      "subproceso_id": "cmp8sh6ev0003ugurwofjfjih",
+      "tecnica_id": "cuestionario"
+    },
+    {
+      "subproceso_id": "cmp8si2ib0005ugurhm4i7qk4",
+      "tecnica_id": "observacion"
+    },
+    {
+      "subproceso_id": "cmp8sifru0006ugurnvx7629p",
+      "tecnica_id": "observacion"
+    },
+    {
+      "subproceso_id": "cmp8sivr70008ugurfyq1uurb",
+      "tecnica_id": "observacion"
+    },
+    {
+      "subproceso_id": "cmp8sjcs70009ugurg6wz3hqb",
+      "tecnica_id": "historia_usuario"
+    },
+    {
+      "subproceso_id": "cmp8sjxw2000cugurau34ff43",
+      "tecnica_id": "historia_usuario"
+    },
+    {
+      "subproceso_id": "cmp8sk4ix000dugurp4a8cwix",
+      "tecnica_id": "historia_usuario"
+    },
+    {
+      "subproceso_id": "cmp8sjrmu000bugurhghx6tl1",
+      "tecnica_id": "historia_usuario"
+    },
+    {
+      "subproceso_id": "cmp8sl7mk000jugurglsmc2pf",
+      "tecnica_id": "focus_group"
+    },
+    {
+      "subproceso_id": "cmp8sjldz000augur14l9x6ks",
+      "tecnica_id": "historia_usuario"
+    },
+    {
+      "subproceso_id": "cmp8skac1000eugurfv6fi77y",
+      "tecnica_id": "historia_usuario"
+    },
+    {
+      "subproceso_id": "cmp8sknwp000fugur6rix09w4",
+      "tecnica_id": "focus_group"
+    },
+    {
+      "subproceso_id": "cmp8sktbm000gugurjh70hbkr",
+      "tecnica_id": "focus_group"
+    },
+    {
+      "subproceso_id": "cmp8skxsz000hugur0p7k8585",
+      "tecnica_id": "focus_group"
+    },
+    {
+      "subproceso_id": "cmp8sl2np000iugur6ddelvr7",
+      "tecnica_id": "focus_group"
+    },
+    {
+      "subproceso_id": "cmp8sm6ev000lugurrucinw9d",
+      "tecnica_id": "documentos"
+    },
+    {
+      "subproceso_id": "cmp8smd71000mugurcma2xkvx",
+      "tecnica_id": "documentos"
+    },
+    {
+      "subproceso_id": "cmp8smjlm000nugur98y1ksjq",
+      "tecnica_id": "documentos"
+    },
+    {
+      "subproceso_id": "cmp8smo48000ougur0n48p58z",
+      "tecnica_id": "documentos"
+    },
+    {
+      "subproceso_id": "cmp8sn22t000pugure10nrdwh",
+      "tecnica_id": "seguimiento_transaccional"
+    },
+    {
+      "subproceso_id": "cmp8sn9sg000qugur3mktn8sq",
+      "tecnica_id": "seguimiento_transaccional"
+    },
+    {
+      "subproceso_id": "cmp8snm0i000sugur3yckf1vn",
+      "tecnica_id": "seguimiento_transaccional"
+    },
+    {
+      "subproceso_id": "cmp8snepq000rugur8v1bnzyy",
+      "tecnica_id": "seguimiento_transaccional"
+    },
+    {
+      "subproceso_id": "cmp8zriol000r0gurkj0r3xmg",
+      "tecnica_id": "cuestionario"
+    },
+    {
+      "subproceso_id": "cmp8sinco0007ugursjqept7b",
+      "tecnica_id": "observacion"
+    }
+  ],
+  "sesiones": [
+    {
+      "id": "cmp98ul5b000aokurmh6d78qb",
+      "subproceso_id": "cmp8sjxw2000cugurau34ff43",
+      "tecnica_id": "historia_usuario",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T03:57:08.111Z"
+    },
+    {
+      "id": "cmp8widm80002o8ur6jff8gyn",
+      "subproceso_id": "cmp8rv7lk000dywur7n22fai2",
+      "tecnica_id": "entrevista",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-16T22:11:43.088Z"
+    },
+    {
+      "id": "cmp98x7wo000cokurc8v1ms13",
+      "subproceso_id": "cmp8sk4ix000dugurp4a8cwix",
+      "tecnica_id": "historia_usuario",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T03:59:10.920Z"
+    },
+    {
+      "id": "cmp8xcd270009o8urdwu0izks",
+      "subproceso_id": "cmp8rvoav000eywur2nxrgnfy",
+      "tecnica_id": "entrevista",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-16T22:35:02.047Z"
+    },
+    {
+      "id": "cmp8xdc84000ao8urq3c50t8j",
+      "subproceso_id": "cmp8rvymy000fywurfdm983rv",
+      "tecnica_id": "entrevista",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-16T22:35:47.620Z"
+    },
+    {
+      "id": "cmp991i6q000eokurqn22rr25",
+      "subproceso_id": "cmp8skac1000eugurfv6fi77y",
+      "tecnica_id": "historia_usuario",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:02:30.866Z"
+    },
+    {
+      "id": "cmp8xdno2000bo8ur8430bmo7",
+      "subproceso_id": "cmp8rwet6000gywurwtc7juqy",
+      "tecnica_id": "entrevista",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-16T22:36:02.450Z"
+    },
+    {
+      "id": "cmp8xdytb000co8urg5u6bbrx",
+      "subproceso_id": "cmp8rwp2c000hywurg3ll2r43",
+      "tecnica_id": "entrevista",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-16T22:36:16.895Z"
+    },
+    {
+      "id": "cmp8xei3q000do8urqeqei23u",
+      "subproceso_id": "cmp8rx0ui000iywur7xirindd",
+      "tecnica_id": "entrevista",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-16T22:36:41.894Z"
+    },
+    {
+      "id": "cmp8xgyga000eo8ur7wkckf2t",
+      "subproceso_id": "cmp8sfsyq0000ugurnyzksol8",
+      "tecnica_id": "cuestionario",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-16T22:38:36.394Z"
+    },
+    {
+      "id": "cmp9989dl000iokur4g91ounb",
+      "subproceso_id": "cmp8sknwp000fugur6rix09w4",
+      "tecnica_id": "focus_group",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:07:46.040Z"
+    },
+    {
+      "id": "cmp8xhlpb000fo8urude9rn1o",
+      "subproceso_id": "cmp8sgeds0001ugur6z683w85",
+      "tecnica_id": "cuestionario",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-16T22:39:06.527Z"
+    },
+    {
+      "id": "cmp8xhyye000go8uryuobkw5k",
+      "subproceso_id": "cmp8sgpne0002ugurye95ejmy",
+      "tecnica_id": "cuestionario",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-16T22:39:23.702Z"
+    },
+    {
+      "id": "cmp8zs27l000s0gurfmr2f261",
+      "subproceso_id": "cmp8zriol000r0gurkj0r3xmg",
+      "tecnica_id": "cuestionario",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-16T23:43:13.712Z"
+    },
+    {
+      "id": "cmp99pvha0005mgur8wyhckuz",
+      "subproceso_id": "cmp8sktbm000gugurjh70hbkr",
+      "tecnica_id": "focus_group",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:21:27.838Z"
+    },
+    {
+      "id": "cmp8xjg0k000ho8ur7ju00gfd",
+      "subproceso_id": "cmp8sh6ev0003ugurwofjfjih",
+      "tecnica_id": "cuestionario",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-16T22:40:32.468Z"
+    },
+    {
+      "id": "cmp90ionk001q0gur1q90key4",
+      "subproceso_id": "cmp8si2ib0005ugurhm4i7qk4",
+      "tecnica_id": "observacion",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T00:03:55.856Z"
+    },
+    {
+      "id": "cmp90jdyp001r0gurkgwbvjgx",
+      "subproceso_id": "cmp8sifru0006ugurnvx7629p",
+      "tecnica_id": "observacion",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T00:04:28.657Z"
+    },
+    {
+      "id": "cmp90k52z001t0gur99skifk2",
+      "subproceso_id": "cmp8sivr70008ugurfyq1uurb",
+      "tecnica_id": "observacion",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T00:05:03.803Z"
+    },
+    {
+      "id": "cmp91ctd100280gura24x692z",
+      "subproceso_id": "cmp8sinco0007ugursjqept7b",
+      "tecnica_id": "observacion",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T00:27:21.637Z"
+    },
+    {
+      "id": "cmp99tcd1000bmgur9x1bdrig",
+      "subproceso_id": "cmp8skxsz000hugur0p7k8585",
+      "tecnica_id": "focus_group",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:24:09.684Z"
+    },
+    {
+      "id": "cmp92ahqs0001uwurc6z9wuei",
+      "subproceso_id": "cmp8sjcs70009ugurg6wz3hqb",
+      "tecnica_id": "historia_usuario",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T00:53:32.883Z"
+    },
+    {
+      "id": "cmp98fxhl0004okurg4ah4236",
+      "subproceso_id": "cmp8sjldz000augur14l9x6ks",
+      "tecnica_id": "historia_usuario",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T03:45:44.265Z"
+    },
+    {
+      "id": "cmp98o4500007okurvayt71o6",
+      "subproceso_id": "cmp8sjrmu000bugurhghx6tl1",
+      "tecnica_id": "historia_usuario",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T03:52:06.132Z"
+    },
+    {
+      "id": "cmp99wsnb000hmgurqx1sjkio",
+      "subproceso_id": "cmp8sl2np000iugur6ddelvr7",
+      "tecnica_id": "focus_group",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:26:50.758Z"
+    },
+    {
+      "id": "cmp99zoyq000mmgurwfrhfa5u",
+      "subproceso_id": "cmp8sl7mk000jugurglsmc2pf",
+      "tecnica_id": "focus_group",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:29:05.953Z"
+    },
+    {
+      "id": "cmp9a4v7n000smgur4g7vcrh1",
+      "subproceso_id": "cmp8sm6ev000lugurrucinw9d",
+      "tecnica_id": "documentos",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:33:07.330Z"
+    },
+    {
+      "id": "cmp9a6kyz000umgur97vb4fvx",
+      "subproceso_id": "cmp8smd71000mugurcma2xkvx",
+      "tecnica_id": "documentos",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:34:27.371Z"
+    },
+    {
+      "id": "cmp9aa4eq000zmgureq2ptaso",
+      "subproceso_id": "cmp8smjlm000nugur98y1ksjq",
+      "tecnica_id": "documentos",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:37:12.530Z"
+    },
+    {
+      "id": "cmp9abklw0011mgur0p6fixkm",
+      "subproceso_id": "cmp8smo48000ougur0n48p58z",
+      "tecnica_id": "documentos",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:38:20.179Z"
+    },
+    {
+      "id": "cmp9acvhh0013mguryfblulzj",
+      "subproceso_id": "cmp8sn22t000pugure10nrdwh",
+      "tecnica_id": "seguimiento_transaccional",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:39:20.932Z"
+    },
+    {
+      "id": "cmp9ahh08001bmgurvqk91tqr",
+      "subproceso_id": "cmp8sn9sg000qugur3mktn8sq",
+      "tecnica_id": "seguimiento_transaccional",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:42:55.446Z"
+    },
+    {
+      "id": "cmp9aja97001dmgurgmmn19i6",
+      "subproceso_id": "cmp8snepq000rugur8v1bnzyy",
+      "tecnica_id": "seguimiento_transaccional",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:44:20.011Z"
+    },
+    {
+      "id": "cmp9akqzx001fmgurgmbp7yug",
+      "subproceso_id": "cmp8snm0i000sugur3yckf1vn",
+      "tecnica_id": "seguimiento_transaccional",
+      "fecha": "2026-05-16T00:00:00.000Z",
+      "estado": "COMPLETADA",
+      "notas": null,
+      "creado_en": "2026-05-17T04:45:28.364Z"
+    }
+  ],
+  "participantes": [
+    {
+      "sesion_id": "cmp8widm80002o8ur6jff8gyn",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp8widm80002o8ur6jff8gyn",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp8xcd270009o8urdwu0izks",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp8xcd270009o8urdwu0izks",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp8xdno2000bo8ur8430bmo7",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp8xdno2000bo8ur8430bmo7",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp8xei3q000do8urqeqei23u",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp8xei3q000do8urqeqei23u",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp8xdc84000ao8urq3c50t8j",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp8xdc84000ao8urq3c50t8j",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp8xdytb000co8urg5u6bbrx",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp8xdytb000co8urg5u6bbrx",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp8xhyye000go8uryuobkw5k",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp8xhyye000go8uryuobkw5k",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp8xhyye000go8uryuobkw5k",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp8xgyga000eo8ur7wkckf2t",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp8xgyga000eo8ur7wkckf2t",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp8xgyga000eo8ur7wkckf2t",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp8xhlpb000fo8urude9rn1o",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp8xhlpb000fo8urude9rn1o",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp8xhlpb000fo8urude9rn1o",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp8xjg0k000ho8ur7ju00gfd",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp8xjg0k000ho8ur7ju00gfd",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp8xjg0k000ho8ur7ju00gfd",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp8zs27l000s0gurfmr2f261",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp8zs27l000s0gurfmr2f261",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp8zs27l000s0gurfmr2f261",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp90ionk001q0gur1q90key4",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp90jdyp001r0gurkgwbvjgx",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp91ctd100280gura24x692z",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp90k52z001t0gur99skifk2",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp92ahqs0001uwurc6z9wuei",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp92ahqs0001uwurc6z9wuei",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp98fxhl0004okurg4ah4236",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp98fxhl0004okurg4ah4236",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp98fxhl0004okurg4ah4236",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp98o4500007okurvayt71o6",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp98o4500007okurvayt71o6",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp98ul5b000aokurmh6d78qb",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp98ul5b000aokurmh6d78qb",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp98x7wo000cokurc8v1ms13",
+      "persona_id": "cmp8whmcc0001o8urktx19g1h"
+    },
+    {
+      "sesion_id": "cmp98x7wo000cokurc8v1ms13",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp991i6q000eokurqn22rr25",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp991i6q000eokurqn22rr25",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp991i6q000eokurqn22rr25",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp991i6q000eokurqn22rr25",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp9989dl000iokur4g91ounb",
+      "persona_id": "cmp8use3l000090urpk63mevi"
+    },
+    {
+      "sesion_id": "cmp9989dl000iokur4g91ounb",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp9989dl000iokur4g91ounb",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp9989dl000iokur4g91ounb",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp9989dl000iokur4g91ounb",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp99pvha0005mgur8wyhckuz",
+      "persona_id": "cmp8use3l000090urpk63mevi"
+    },
+    {
+      "sesion_id": "cmp99pvha0005mgur8wyhckuz",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp99pvha0005mgur8wyhckuz",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp99pvha0005mgur8wyhckuz",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp99pvha0005mgur8wyhckuz",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp99tcd1000bmgur9x1bdrig",
+      "persona_id": "cmp8use3l000090urpk63mevi"
+    },
+    {
+      "sesion_id": "cmp99tcd1000bmgur9x1bdrig",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp99tcd1000bmgur9x1bdrig",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp99tcd1000bmgur9x1bdrig",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp99tcd1000bmgur9x1bdrig",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp99wsnb000hmgurqx1sjkio",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp99wsnb000hmgurqx1sjkio",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp99wsnb000hmgurqx1sjkio",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp99wsnb000hmgurqx1sjkio",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp99zoyq000mmgurwfrhfa5u",
+      "persona_id": "cmp8use3l000090urpk63mevi"
+    },
+    {
+      "sesion_id": "cmp99zoyq000mmgurwfrhfa5u",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj"
+    },
+    {
+      "sesion_id": "cmp99zoyq000mmgurwfrhfa5u",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp99zoyq000mmgurwfrhfa5u",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix"
+    },
+    {
+      "sesion_id": "cmp99zoyq000mmgurwfrhfa5u",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt"
+    },
+    {
+      "sesion_id": "cmp9a6kyz000umgur97vb4fvx",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp9aa4eq000zmgureq2ptaso",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp9abklw0011mgur0p6fixkm",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp9acvhh0013mguryfblulzj",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp9a4v7n000smgur4g7vcrh1",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp9ahh08001bmgurvqk91tqr",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp9aja97001dmgurgmmn19i6",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    },
+    {
+      "sesion_id": "cmp9akqzx001fmgurgmbp7yug",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua"
+    }
+  ],
+  "preguntas": [
+    {
+      "id": "cmp8wpc280003o8urbcsob3qx",
+      "sesion_id": "cmp8widm80002o8ur6jff8gyn",
+      "texto": "¿Cual es la distribucion fisica del restaurante?",
+      "orden": 0,
+      "creado_en": "2026-05-16T22:17:07.664Z"
+    },
+    {
+      "id": "cmp8wq03y0004o8ur0fyd9euq",
+      "sesion_id": "cmp8widm80002o8ur6jff8gyn",
+      "texto": "¿Cuales son los horarios de operacion y los dias de mayor demanda?",
+      "orden": 1,
+      "creado_en": "2026-05-16T22:17:38.830Z"
+    },
+    {
+      "id": "cmp8y13cb00000gurk9ts45tv",
+      "sesion_id": "cmp8xcd270009o8urdwu0izks",
+      "texto": "¿El restaurante cuenta con algun sistema o metodo de registro para gestionar la lista de espera?",
+      "orden": 0,
+      "creado_en": "2026-05-16T22:54:15.849Z"
+    },
+    {
+      "id": "cmp8y3ufp00040gurvcherxmn",
+      "sesion_id": "cmp8xcd270009o8urdwu0izks",
+      "texto": "Al momento de registrar a un cliente, ¿Cuales seran los datos necesarios para llevar acabo dicho registro?",
+      "orden": 1,
+      "creado_en": "2026-05-16T22:56:24.276Z"
+    },
+    {
+      "id": "cmp8y5dg000060gurjc9h241d",
+      "sesion_id": "cmp8xcd270009o8urdwu0izks",
+      "texto": "¿Cual es el criterio para la asignacion de mesas?",
+      "orden": 2,
+      "creado_en": "2026-05-16T22:57:35.568Z"
+    },
+    {
+      "id": "cmp8yaxin00080gurr76se95c",
+      "sesion_id": "cmp8xcd270009o8urdwu0izks",
+      "texto": "¿Como se planea notificar al cliente que es su turno?",
+      "orden": 3,
+      "creado_en": "2026-05-16T23:01:54.862Z"
+    },
+    {
+      "id": "cmp8ybyum000a0gurbrsm9hdv",
+      "sesion_id": "cmp8xcd270009o8urdwu0izks",
+      "texto": "¿Como estimarias los tiempos de espera?",
+      "orden": 4,
+      "creado_en": "2026-05-16T23:02:43.246Z"
+    },
+    {
+      "id": "cmp8yqqct000c0gurj9cazlhk",
+      "sesion_id": "cmp8xdc84000ao8urq3c50t8j",
+      "texto": "¿Que problematicas se tienen con el metodo actual para manejar la lista de espera?",
+      "orden": 0,
+      "creado_en": "2026-05-16T23:14:12.076Z"
+    },
+    {
+      "id": "cmp8ysjde000e0gurhmlovhu4",
+      "sesion_id": "cmp8xdno2000bo8ur8430bmo7",
+      "texto": "¿Como espera que funcione el nuevo sistema?",
+      "orden": 0,
+      "creado_en": "2026-05-16T23:15:36.338Z"
+    },
+    {
+      "id": "cmp8ytr9t000g0gurcr6exoqk",
+      "sesion_id": "cmp8xdno2000bo8ur8430bmo7",
+      "texto": "¿Que usuarios o roles seran los que convivan con el sistema?",
+      "orden": 1,
+      "creado_en": "2026-05-16T23:16:33.233Z"
+    },
+    {
+      "id": "cmp8yw4k2000j0gurc9nx2bc4",
+      "sesion_id": "cmp8xdno2000bo8ur8430bmo7",
+      "texto": "¿En que plataforma o dispositivo sera empleado el sistema?",
+      "orden": 2,
+      "creado_en": "2026-05-16T23:18:23.761Z"
+    },
+    {
+      "id": "cmp8yxvu0000l0gurez03kbcr",
+      "sesion_id": "cmp8xdytb000co8urg5u6bbrx",
+      "texto": "¿Cuales seran las reglas estipuladas del negocio?",
+      "orden": 0,
+      "creado_en": "2026-05-16T23:19:45.768Z"
+    },
+    {
+      "id": "cmp8z9rgb000n0guryqymfbmc",
+      "sesion_id": "cmp8xei3q000do8urqeqei23u",
+      "texto": "Segun la entrevista, ¿Que requisitos funcionales se pudieron recabar?",
+      "orden": 0,
+      "creado_en": "2026-05-16T23:28:59.962Z"
+    },
+    {
+      "id": "cmp8zjibc000p0gurgh8issf6",
+      "sesion_id": "cmp8xei3q000do8urqeqei23u",
+      "texto": "Segun la entrevista, ¿Que requisitos NO funcionales se pudieron recabar?",
+      "orden": 1,
+      "creado_en": "2026-05-16T23:36:34.679Z"
+    },
+    {
+      "id": "cmp8zvdmc000t0gurhfi8pn1d",
+      "sesion_id": "cmp8xgyga000eo8ur7wkckf2t",
+      "texto": "Datos de los encuestados:",
+      "orden": 0,
+      "creado_en": "2026-05-16T23:45:48.467Z"
+    },
+    {
+      "id": "cmp901lqz000v0gurpgfpxtk2",
+      "sesion_id": "cmp8xhlpb000fo8urude9rn1o",
+      "texto": "¿Con qué frecuencia el restaurante llega a su capacidad máxima y se forma lista de  espera?",
+      "orden": 0,
+      "creado_en": "2026-05-16T23:50:38.938Z"
+    },
+    {
+      "id": "cmp9021pi000x0gur19cs638p",
+      "sesion_id": "cmp8xhlpb000fo8urude9rn1o",
+      "texto": "¿Alguna vez se han perdido datos de clientes por usar la libreta?",
+      "orden": 2,
+      "creado_en": "2026-05-16T23:50:59.622Z"
+    },
+    {
+      "id": "cmp90281m000y0gur223kqslc",
+      "sesion_id": "cmp8xhlpb000fo8urude9rn1o",
+      "texto": "¿Qué tan preciso es el tiempo de espera que  se comunica actualmente al cliente?",
+      "orden": 3,
+      "creado_en": "2026-05-16T23:51:07.833Z"
+    },
+    {
+      "id": "cmp902e4b000z0gursq6dgey3",
+      "sesion_id": "cmp8xhlpb000fo8urude9rn1o",
+      "texto": "¿Cómo reacciona el cliente cuando el tiempo real de espera supera el estimado?",
+      "orden": 4,
+      "creado_en": "2026-05-16T23:51:15.707Z"
+    },
+    {
+      "id": "cmp901qvc000w0gur0qp1ahuc",
+      "sesion_id": "cmp8xhlpb000fo8urude9rn1o",
+      "texto": "¿El proceso actual de lista de espera es claro y consistente para todo el personal?",
+      "orden": 1,
+      "creado_en": "2026-05-16T23:50:45.576Z"
+    },
+    {
+      "id": "cmp906o7300150gurg4dew5v5",
+      "sesion_id": "cmp8xhyye000go8uryuobkw5k",
+      "texto": "¿Qué tan necesario considera tener una lista  de espera digital en lugar de la libreta actual?",
+      "orden": 0,
+      "creado_en": "2026-05-16T23:54:35.390Z"
+    },
+    {
+      "id": "cmp906v9z00160gurhdbtw1i3",
+      "sesion_id": "cmp8xhyye000go8uryuobkw5k",
+      "texto": "¿Cuáles considera las 3 funciones más urgentes del nuevo sistema?",
+      "orden": 1,
+      "creado_en": "2026-05-16T23:54:44.567Z"
+    },
+    {
+      "id": "cmp9070h600170gurbqgl6zis",
+      "sesion_id": "cmp8xhyye000go8uryuobkw5k",
+      "texto": "¿Qué tan útil sería que el sistema notificara al  cliente por SMS cuando su mesa esté lista?",
+      "orden": 2,
+      "creado_en": "2026-05-16T23:54:51.305Z"
+    },
+    {
+      "id": "cmp9075mw00180guragkstlf0",
+      "sesion_id": "cmp8xhyye000go8uryuobkw5k",
+      "texto": "¿Las pantallas en recepción mostrando la lista  de espera mejorarían la experiencia del cliente?",
+      "orden": 3,
+      "creado_en": "2026-05-16T23:54:57.992Z"
+    },
+    {
+      "id": "cmp907eyx00190gurcmaza36u",
+      "sesion_id": "cmp8xhyye000go8uryuobkw5k",
+      "texto": "¿Qué tan fácil le resultaría al equipo  adaptarse a un sistema digital para gestionar la  lista de espera?",
+      "orden": 4,
+      "creado_en": "2026-05-16T23:55:10.089Z"
+    },
+    {
+      "id": "cmp90d2rr001g0gur4bfzyy27",
+      "sesion_id": "cmp8zs27l000s0gurfmr2f261",
+      "texto": "¿Desde qué dispositivo preferiría usar el sistema?",
+      "orden": 0,
+      "creado_en": "2026-05-16T23:59:34.215Z"
+    },
+    {
+      "id": "cmp90d8js001h0gurrjkhp8z9",
+      "sesion_id": "cmp8zs27l000s0gurfmr2f261",
+      "texto": "¿Qué información debe verse de forma inmediata al abrir el sistema?",
+      "orden": 1,
+      "creado_en": "2026-05-16T23:59:41.704Z"
+    },
+    {
+      "id": "cmp90ddg7001i0gur4adm9jkz",
+      "sesion_id": "cmp8zs27l000s0gurfmr2f261",
+      "texto": "¿Hay alguna función que NO debería incluirse para mantener el sistema simple?",
+      "orden": 2,
+      "creado_en": "2026-05-16T23:59:48.054Z"
+    },
+    {
+      "id": "cmp90fges001m0gurgjinsz5b",
+      "sesion_id": "cmp8xjg0k000ho8ur7ju00gfd",
+      "texto": "Comentarios del encuestado 1",
+      "orden": 0,
+      "creado_en": "2026-05-17T00:01:25.204Z"
+    },
+    {
+      "id": "cmp90fmwd001n0gur7hja6jvj",
+      "sesion_id": "cmp8xjg0k000ho8ur7ju00gfd",
+      "texto": "Comentarios del encuestado 2",
+      "orden": 1,
+      "creado_en": "2026-05-17T00:01:33.613Z"
+    }
+  ],
+  "respuestas": [
+    {
+      "id": "cmp8yb6lm00090gur9a9ars5b",
+      "pregunta_id": "cmp8yaxin00080gurr76se95c",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "Los clientes en espera permanecen principalmente en el lobby o recepción del restaurante. Si \nun cliente decide aguardar en su vehículo, el personal lo contacta telefónicamente cuando su \nmesa está disponible. Una vez notificado, el cliente dispone de aproximadamente 2 a 3 minutos \npara presentarse; de lo contrario, su turno es cancelado y se pasa al siguiente en la lista.",
+      "creado_en": "2026-05-16T23:02:06.609Z"
+    },
+    {
+      "id": "cmp8yc5j4000b0gura68jenw0",
+      "pregunta_id": "cmp8ybyum000a0gurbrsm9hdv",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "El restaurante cuenta con un sistema de software existente que registra un temporizador por \nmesa desde el momento en que el cliente es sentado. Sin embargo, la estimación del tiempo \nde espera que se comunica a los clientes en lista es aproximada (generalmente 30 a 40 \nminutos) y no resulta precisa, ya que no se considera el estado real de la comanda ni el flujo de \nservicio en cocina.",
+      "creado_en": "2026-05-16T23:02:51.903Z"
+    },
+    {
+      "id": "cmp8yr1da000d0gurv6ngoy5h",
+      "pregunta_id": "cmp8yqqct000c0gurj9cazlhk",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "Problemas detectados \n• Registro manual en libreta sin formato definido, lo que genera ilegibilidad y pérdida de \ninformación. \n• La libreta puede extraviarse durante el servicio. \n• No hay visibilidad en tiempo real del estado de las mesas (libres, ocupadas, reservadas). \n• Las estimaciones de tiempo de espera son imprecisas, lo que genera inconformidad en los \nclientes. \n• No existe un registro histórico de la lista de espera; los datos se desechan al final del día. \n• La coordinación entre el personal que gestiona la espera y los meseros es informal. \n• No hay una política formal de tiempo máximo de espera; los clientes simplemente se van \nsin control.",
+      "creado_en": "2026-05-16T23:14:26.326Z"
+    },
+    {
+      "id": "cmp8y1h0n00010gur4wskav53",
+      "pregunta_id": "cmp8y13cb00000gurk9ts45tv",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "Actualmente el restaurante no cuenta con un sistema formal ni un proceso estandarizado para \ngestionar la lista de espera. El personal utiliza una libreta física de forma manual, sin ningún \ntipo de formato especial. Los registros son desechados al final de cada jornada, por lo que no \nexiste historial acumulado de datos.",
+      "creado_en": "2026-05-16T22:54:33.551Z"
+    },
+    {
+      "id": "cmp8y20ka00020gur09rqbh32",
+      "pregunta_id": "cmp8wq03y0004o8ur0fyd9euq",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "Lunes, miércoles, jueves, viernes y sábado se abre en un horario de 7:30 a.m. --- 1:00 p.m. Domingo se abre en un horario de 8:30 a.m. --- 1:30 p.m. Martes se permanece cerrado",
+      "creado_en": "2026-05-16T22:54:58.884Z"
+    },
+    {
+      "id": "cmp8y2d3200030gurow24n9u7",
+      "pregunta_id": "cmp8wpc280003o8urbcsob3qx",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "El restaurante Luna de Miel cuenta con un total de 15 mesas distribuidas en dos plantas y áreas adicionales, con una capacidad máxima aproximada de 65 personas en condiciones cómodas. A continuación se detalla la distribución por zona: Terraza: el numero de mesas son 4, caben 4 personas por mesa (16 total). Lobby / Barra: el numero de mesas es 1, caben 2 personas. Planta Baja: el numero de mesas es 4, caben 2×6 + 1×4 + 1×2 (20 total). Planta Alta — Habitación Privada: el numero de mesas es de 2, caben 9 por mesa (máx. 20 apretados). Planta Alta — 2a Habitación: el numero de mesas es 4, caben 4 por mesa (16 total). Observaciones: Terraza: Area exterior Lobby / Barra: Espacio de recepcion Planta Baja: Area principal de comensales Planta Alta — Habitación Privada: Reservación con mín. 1 día; mín. 8 personas; sin reserva en días festivos Planta Alta — 2a Habitación: Reservable el mismo dia",
+      "creado_en": "2026-05-16T22:55:15.133Z"
+    },
+    {
+      "id": "cmp8y44kp00050gur4uksxca1",
+      "pregunta_id": "cmp8y3ufp00040gurvcherxmn",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "Al momento de registrar a un cliente en la lista de espera, el personal anota los siguientes \ndatos: \n• Nombre del cliente \n• Número de personas del grupo \n• Número de teléfono de contacto (en caso de que el cliente decida retirarse) \n• Hora de llegada al establecimiento",
+      "creado_en": "2026-05-16T22:56:37.393Z"
+    },
+    {
+      "id": "cmp8y5kpw00070gurhqbmlstp",
+      "pregunta_id": "cmp8y5dg000060gurjc9h241d",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "La asignación de mesas no sigue estrictamente el orden de llegada; el criterio principal es la \ncompatibilidad entre la capacidad de la mesa disponible y el tamaño del grupo. A continuación \nse describe la lógica aplicada: \n• Si se desocupa una mesa cuya capacidad coincide con el tamaño de un grupo que no es el \nprimero en la lista, se le da prioridad a ese grupo por eficiencia. \n• Si hay múltiples grupos pequeños en espera y solo se libera una mesa grande, se asigna al \nprimer grupo en la lista sin importar que la mesa tenga capacidad sobrante. \n• Las reservaciones previas tienen prioridad de asignación, salvo en fechas especiales donde no \nse aceptan reservaciones para el área privada.",
+      "creado_en": "2026-05-16T22:57:44.996Z"
+    },
+    {
+      "id": "cmp8yswld000f0gurgl5iy4ox",
+      "pregunta_id": "cmp8ysjde000e0gurhmlovhu4",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "• Lista de espera digital, ordenada y con visualización profesional en tiempo real. \n• Visualización del estado de todas las mesas: libres, ocupadas y reservadas. \n• Indicación del tiempo que lleva cada mesa ocupada, apoyándose en el sistema existente. \n• Notificación al cliente por mensaje de texto (SMS) cuando su mesa esté lista, indicando que \npuede presentarse a la recepción. \n• Pantallas en el área de recepción, conectadas al sistema, que muestren la lista de espera de \nforma pública (similar al modelo de turnos en bancos), para que los clientes monitoreen su \nposición. \n• Aprovechar la información que el sistema de software actual del restaurante (sistema de \ncomandas y control de gastos) ya provee, como el temporizador por mesa, como apoyo \ncomplementario al nuevo sistema sin necesidad de fusionarlos.",
+      "creado_en": "2026-05-16T23:15:53.445Z"
+    },
+    {
+      "id": "cmp8yv913000i0gurfj57ob0m",
+      "pregunta_id": "cmp8ytr9t000g0gurcr6exoqk",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "Dueña: Acceso total al sistema; supervisión general del estado del restaurante y la lista de espera. Gerente:Gestión operativa de la lista de espera; asignación de mesas; supervisión del flujo de servicio. Capitan de Meseros: Consulta del estado de mesas y lista de espera para coordinación del servicio en sala.",
+      "creado_en": "2026-05-16T23:17:42.902Z"
+    },
+    {
+      "id": "cmp8ywc92000k0gur58zx7yov",
+      "pregunta_id": "cmp8yw4k2000j0gurc9nx2bc4",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "El sistema se utilizará principalmente desde una computadora ubicada en el área de recepción. \nAdicionalmente, el restaurante cuenta con dos televisiones en esa zona que podrían ser \nutilizadas como pantallas de visualización pública de la lista de espera para los clientes en \nespera.",
+      "creado_en": "2026-05-16T23:18:33.734Z"
+    },
+    {
+      "id": "cmp8z45aq000m0gur1b62k8ip",
+      "pregunta_id": "cmp8yxvu0000l0gurez03kbcr",
+      "persona_id": "cmp8r6x5o0003ywurcmam8fmt",
+      "respuesta": "RN-01: Las reservaciones tienen prioridad de asignación sobre los clientes de lista de espera, excepto en fechas festivas donde no se aceptan reservaciones para la habitación privada. AREA Reservaciones \nRN-02: La habitación privada (planta alta) requiere reservación con al menos 1 día de antelación y un mínimo de 8 personas. AREA Reservaciones \nRN-03: En días festivos o fechas especiales no se aceptan reservaciones para la habitación privada. AREA Reservaciones \nRN-04: La asignación de mesa prioriza la compatibilidad entre capacidad de la mesa y tamaño del grupo sobre el orden estricto de llegada. AREA Lista de espera \nRN-05: Si varios grupos pequeños esperan y la única mesa disponible es grande, se asigna al primero en la lista por orden de llegada. AREA Lista de espera \nRN-06: Un cliente dispone de 2 a 3 minutos después de ser notificado para ocupar su mesa; de lo contrario, pierde su turno y se elimina de la lista. AREA Lista de espera \nRN-07: El sistema no debe eliminar automáticamente un turno sin que el personal confirme que el cliente no se presentó. AREA Lista de espera \nRN-08: Todas las mesas fuera del área privada (planta baja, terraza, lobby y 2da habitación de planta alta) pueden reservarse el mismo día sin restricciones adicionales.  AREA Reservaciones",
+      "creado_en": "2026-05-16T23:24:37.943Z"
+    },
+    {
+      "id": "cmp8zj080000o0gur9keqelbl",
+      "pregunta_id": "cmp8z9rgb000n0guryqymfbmc",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua",
+      "respuesta": "RF-01: Registrar clientes en lista de espera con nombre, número de personas, teléfono y hora de llegada. Prioridad: Alta\nRF-02:Mostrar el estado en tiempo real de todas las mesas del restaurante (libre, ocupada, reservada). \nPrioridad: Alta\nRF-03:Asignar una mesa disponible a un cliente en espera según el criterio de compatibilidad de capacidad y orden de llegada. Prioridad: Alta\nRF-04:Registrar y visualizar reservaciones con sus datos: fecha, hora, nombre, número de personas y zona solicitada. Prioridad: Alta\nRF-05:Notificar al cliente por SMS cuando su mesa esté disponible. Prioridad: Alta\nRF-06:Mostrar un temporizador por mesa que indique el tiempo transcurrido desde que fue ocupada. \nPrioridad: Media\nRF-07:Permitir eliminar un turno de la lista de espera con confirmación del personal. Prioridad: Alta\nRF-08:Mostrar la lista de espera en pantallas externas (TV en recepción) en modo de visualización pública.\nPrioridad:  Media\nRF-09:Gestionar el acceso diferenciado por roles: dueña, gerente y capitán de meseros. Prioridad: Media\nRF-10:Validar que la habitación privada no acepte reservaciones en fechas festivas configuradas. \nPrioridad: Media",
+      "creado_en": "2026-05-16T23:36:11.209Z"
+    },
+    {
+      "id": "cmp8zmz9b000q0gurvralu6zy",
+      "pregunta_id": "cmp8zjibc000p0gurgh8issf6",
+      "persona_id": "cmp8rasey0008ywurwrj7b5ua",
+      "respuesta": "RF-01: El sistema debe ser accesible desde navegador web en una computadora de escritorio ubicada en recepción. Prioridad: Alta RF-02:La interfaz debe ser simple e intuitiva para personal sin perfil técnico avanzado. Prioridad: Alta RF-03:El sistema debe actualizarse en tiempo real sin necesidad de recargar la página manualmente. Prioridad: Alta RF-04:El modo de pantalla pública (TV) debe ser de solo lectura y actualizarse automáticamente. Prioridad: Media RF-05:El sistema debe poder apoyarse en la información visible del software de comandas existente (como el temporizador por mesa), consultándola como referencia complementaria sin requerir fusión o conexión directa entre sistemas.Prioridad: Baja",
+      "creado_en": "2026-05-16T23:39:16.579Z"
+    },
+    {
+      "id": "cmp8zz9ld000u0gur30qmrrjs",
+      "pregunta_id": "cmp8zvdmc000t0gurhfi8pn1d",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj",
+      "respuesta": "Nombre: Julissa Arreola\nCargo: Gerente\nAntiguedad: 3 años\nTurno: Apertura Completa\n---------------------------------\nNombre: Eduardo Alonso Salazar Vega\nCargo: Capitan de Meseros\nAntiguedad: 1.5 años\nTurno: Apertura Completa",
+      "creado_en": "2026-05-16T23:48:49.847Z"
+    },
+    {
+      "id": "cmp90337b00100gurspd1izhy",
+      "pregunta_id": "cmp901lqz000v0gurpgfpxtk2",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix",
+      "respuesta": "Todos los fines de semana (viernes a domingo) y en fechas especiales como el Día de las Madres. Aproximadamente 3 a 4 veces por semana en temporada alta.",
+      "creado_en": "2026-05-16T23:51:48.191Z"
+    },
+    {
+      "id": "cmp903ez400110gur59l493p8",
+      "pregunta_id": "cmp901qvc000w0gur0qp1ahuc",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix",
+      "respuesta": "No del todo. Solo quien está en recepción lo maneja y no siempre hay consistencia entre una persona y otra.",
+      "creado_en": "2026-05-16T23:52:03.448Z"
+    },
+    {
+      "id": "cmp903pal00120gur2s03i9gu",
+      "pregunta_id": "cmp9021pi000x0gur19cs638p",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj",
+      "respuesta": "Sí, con frecuencia. La libreta se extravía, la letra es ilegible, o se mojan las hojas durante el servicio.",
+      "creado_en": "2026-05-16T23:52:16.820Z"
+    },
+    {
+      "id": "cmp9049zj00130gur0eg15x4h",
+      "pregunta_id": "cmp90281m000y0gur223kqslc",
+      "persona_id": null,
+      "respuesta": "Rara vez. La estimación es al tanteo. Muchas veces el cliente termina esperando más de lo dicho y se molesta.",
+      "creado_en": "2026-05-16T23:52:43.638Z"
+    },
+    {
+      "id": "cmp904qe200140guro81jcldz",
+      "pregunta_id": "cmp902e4b000z0gursq6dgey3",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj",
+      "respuesta": "Muchos se muestran inconformes. Algunos simplemente se van sin esperar, lo que genera pérdida de clientes potenciales.",
+      "creado_en": "2026-05-16T23:53:04.899Z"
+    },
+    {
+      "id": "cmp908jdv001b0gurbejmcdng",
+      "pregunta_id": "cmp906o7300150gurg4dew5v5",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix",
+      "respuesta": "Siempre. Es sumamente necesario. La libreta genera más problemas que beneficios en horas pico.",
+      "creado_en": "2026-05-16T23:56:02.442Z"
+    },
+    {
+      "id": "cmp9099mc001c0gurlgcdt895",
+      "pregunta_id": "cmp906v9z00160gurhdbtw1i3",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj",
+      "respuesta": "-Ver el estado de las mesas en tiempo real  -Registrar clientes digitalmente     \n-Estimar el tiempo de espera con mayor precisión",
+      "creado_en": "2026-05-16T23:56:36.447Z"
+    },
+    {
+      "id": "cmp90adbv001d0gurpcndgpfm",
+      "pregunta_id": "cmp9070h600170gurbqgl6zis",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix",
+      "respuesta": "Siempre. Muy útil. Ahorraría llamadas manuales y reduciría la saturación en el área de recepción durante el servicio.",
+      "creado_en": "2026-05-16T23:57:27.908Z"
+    },
+    {
+      "id": "cmp90b33a001e0gurudvbym84",
+      "pregunta_id": "cmp9075mw00180guragkstlf0",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj",
+      "respuesta": "Siempre. Definitivamente. Los clientes preguntan constantemente cuánto falta. Ver su posición en pantalla reduciría interrupciones al personal.",
+      "creado_en": "2026-05-16T23:58:01.282Z"
+    },
+    {
+      "id": "cmp90bowz001f0gurhi1u6e97",
+      "pregunta_id": "cmp907eyx00190gurcmaza36u",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj",
+      "respuesta": "Frecuentemente. El equipo está dispuesto. Solo se necesita que la interfaz sea simple, en español y con pocos pasos por acción.",
+      "creado_en": "2026-05-16T23:58:29.577Z"
+    },
+    {
+      "id": "cmp90dq97001j0gur104xx1r5",
+      "pregunta_id": "cmp90d2rr001g0gur4bfzyy27",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix",
+      "respuesta": "Principalmente desde la computadora en recepción. También sería útil poder consultarlo desde un celular cuando se está en sala atendiendo mesas.",
+      "creado_en": "2026-05-17T00:00:04.620Z"
+    },
+    {
+      "id": "cmp90e4yd001k0gur9kp2yu7a",
+      "pregunta_id": "cmp90d8js001h0gurrjkhp8z9",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj",
+      "respuesta": "Estado de todas las mesas (libre / ocupada / reservada), la lista de espera con el número de turno de cada cliente y cuánto tiempo lleva cada mesa ocupada.",
+      "creado_en": "2026-05-17T00:00:23.677Z"
+    },
+    {
+      "id": "cmp90encq001l0guryodw00ho",
+      "pregunta_id": "cmp90ddg7001i0gur4adm9jkz",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj",
+      "respuesta": "No se debe intentar integrar ni depender del sistema de comandas de la otra empresa. Preferimos que sea un sistema independiente de apoyo, no que esté conectado al otro.",
+      "creado_en": "2026-05-17T00:00:47.523Z"
+    },
+    {
+      "id": "cmp90g7rv001o0gurijyjfw8o",
+      "pregunta_id": "cmp90fges001m0gurgjinsz5b",
+      "persona_id": "cmp8rhcpe000bywur1sn59goj",
+      "respuesta": "Lo más importante es que el sistema sea rápido de usar. En horas pico no hay tiempo para aprender complicaciones. Mientras menos pasos para registrar a un cliente en espera, mejor para todos.",
+      "creado_en": "2026-05-17T00:02:00.644Z"
+    },
+    {
+      "id": "cmp90gnw8001p0guroocj53s5",
+      "pregunta_id": "cmp90fmwd001n0gur7hja6jvj",
+      "persona_id": "cmp8r6x5q0004ywur48jcc8ix",
+      "respuesta": "Me gustaría poder ver desde la sala si hay mesas libres sin tener que ir a recepción a preguntar. Si el sistema tuviera esa vista rápida desde el celular sería de mucha ayuda para coordinar con los meseros durante el servicio.",
+      "creado_en": "2026-05-17T00:02:21.531Z"
+    }
+  ],
+  "resultados": [
+    {
+      "id": "cmp8x8wy40007o8urgvvciku1",
+      "sesion_id": "cmp8widm80002o8ur6jff8gyn",
+      "contenido": "El restaurante Luna de Miel cuenta con un total de 15 mesas distribuidas en dos plantas y \náreas adicionales, con una capacidad máxima aproximada de 65 personas en condiciones \ncómodas. A continuación se detalla la distribución por zona:\n\nTerraza: el numero de mesas son 4, caben 4 personas por mesa (16 total).\nLobby / Barra: el numero de mesas es 1, caben 2 personas.\nPlanta Baja: el numero de mesas es 4, caben 2×6 + 1×4 + 1×2 (20 total). \nPlanta Alta — Habitación Privada: el numero de mesas es de 2, caben 9 por mesa (máx. 20 apretados).  \nPlanta Alta — 2a Habitación: el numero de mesas es 4, caben 4 por mesa (16 total).\nObservaciones:\nTerraza: Area exterior\nLobby / Barra: Espacio de recepcion\nPlanta Baja:  Area principal de comensales\nPlanta Alta — Habitación Privada:  Reservación con mín. 1 día; mín. 8 personas; sin reserva en días festivos\nPlanta Alta — 2a Habitación: Reservable el mismo dia",
+      "notas": null,
+      "creado_en": "2026-05-16T22:32:21.196Z"
+    },
+    {
+      "id": "cmp90swml001v0gur56i7ukgi",
+      "sesion_id": "cmp90ionk001q0gur1q90key4",
+      "contenido": "ELEMENTO OBSERVADO:\n✖ Existe un proceso visible y estandarizado para la lista de espera \nOBSERVACION: \nNo existe proceso formal. Cada miembro del personal actúa de forma distinta.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:11:52.728Z"
+    },
+    {
+      "id": "cmp91945l00270gurohjknals",
+      "sesion_id": "cmp90jdyp001r0gurkgwbvjgx",
+      "contenido": "-Asignacion de la mesa-\nCuando se libera una mesa, el personal verifica físicamente qué mesa quedó disponible \n(recorriendo la sala), luego consulta la libreta para identificar al siguiente cliente compatible. El \nproceso de identificar al cliente, notificarlo y llevarlo a la mesa tomó en promedio entre 3 y 5 \nminutos. En un caso el cliente ya no estaba presente y se perdió el turno, requiriendo volver a \nconsultar la libreta para el siguiente en la lista. \n \nSe observó también que las reservaciones no están anotadas en la misma libreta que la lista de \nespera, lo que en un momento generó confusión cuando llegó un cliente con reservación y la \nmesa que le correspondía ya había sido asignada a alguien de la lista.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:24:28.878Z"
+    },
+    {
+      "id": "cmp90u70w001w0gursb2m344g",
+      "sesion_id": "cmp90ionk001q0gur1q90key4",
+      "contenido": "ELEMENTO OBSERVADO: ✔ Se utiliza algún formato físico o digital para registrar la espera.\n OBSERVACION: Se usa una libreta sin formato. En un momento se observó que el personal buscaba la\nlibreta por varios minutos.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:12:52.852Z"
+    },
+    {
+      "id": "cmp90vtc0001x0gurti3udml3",
+      "sesion_id": "cmp90ionk001q0gur1q90key4",
+      "contenido": "ELEMENTO OBSERVADO: ✔ El personal comunica activamente el tiempo de espera al cliente OBSERVACION: Solo cuando el cliente pregunta. No hay comunicación proactiva del tiempo estimado.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:14:08.423Z"
+    },
+    {
+      "id": "cmp90wr3n001y0gurdhyx837e",
+      "sesion_id": "cmp90ionk001q0gur1q90key4",
+      "contenido": "ELEMENTO OBSERVADO: ✔ Los clientes esperan en un área específica y organizada \nOBSERVACION: La mayoría espera en el lobby, pero varios se sientan en la banqueta exterior o esperan en sus autos.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:14:52.187Z"
+    },
+    {
+      "id": "cmp90z8oe001z0gur7bc174qq",
+      "sesion_id": "cmp90ionk001q0gur1q90key4",
+      "contenido": "ELEMENTO OBSERVADO: ✔ El personal puede ver el estado de todas las mesas con facilidad  OBSERVACION: El personal debe desplazarse físicamente a cada zona para verificar qué mesas están libres.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:16:48.276Z"
+    },
+    {
+      "id": "cmp910m3k00200gur0nvyhf7p",
+      "sesion_id": "cmp90ionk001q0gur1q90key4",
+      "contenido": "ELEMENTO OBSERVADO: ✔ Las reservaciones están registradas y son visibles para quien recibe clientes OBSERVACION: Las reservaciones se manejan verbalmente o en otra libreta. No hay un punto de consulta unificado.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:17:52.328Z"
+    },
+    {
+      "id": "cmp911g1t00210gurvv1ixfgs",
+      "sesion_id": "cmp90ionk001q0gur1q90key4",
+      "contenido": "ELEMENTO OBSERVADO: ✔ Se usa el sistema de comandas para apoyar la gestión de la lista de espera OBSERVACION: El sistema de comandas está en uso pero solo el personal de cocina/gerente lo consulta. No se integra con la lista de espera.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:18:31.143Z"
+    },
+    {
+      "id": "cmp912cxc00220gurerukl3cp",
+      "sesion_id": "cmp90ionk001q0gur1q90key4",
+      "contenido": "ELEMENTO OBSERVADO: ✔ Los clientes son notificados de forma oportuna cuando su mesa está lista  OBSERVACION: Se notifica verbalmente en el lobby. Para clientes en el estacionamiento se llama por teléfono, con demoras.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:19:13.747Z"
+    },
+    {
+      "id": "cmp913kcg00230gurns0hbnxz",
+      "sesion_id": "cmp90ionk001q0gur1q90key4",
+      "contenido": "ELEMENTO OBSERVADO: ✖ Existe un tiempo de gracia definido y aplicado consistentemente OBSERVACION: El tiempo varía: en momentos tranquilos se espera más, en horas pico se cancela el turno más rápido.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:20:10.019Z"
+    },
+    {
+      "id": "cmp914d8o00240gurt1chhq2r",
+      "sesion_id": "cmp90ionk001q0gur1q90key4",
+      "contenido": "ELEMENTO OBSERVADO: ✖ El sistema de turnos es visible para los clientes en espera        OBSERVACION: No existe visualización alguna. Los clientes no saben su posición en la lista sin preguntar.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:20:47.473Z"
+    },
+    {
+      "id": "cmp918ajx00260gurnv6cz5mr",
+      "sesion_id": "cmp90jdyp001r0gurkgwbvjgx",
+      "contenido": "-Gestion de la espera y comunicacion con el cliente-\nUna vez registrado, el cliente no recibe ningún comprobante ni número de turno. No existe una \nforma visual de que el cliente sepa en qué posición de la lista se encuentra. Durante los 120 \nminutos de observación, se contaron al menos 7 ocasiones en que un cliente se acercó a \npreguntar cuánto tiempo faltaba para su mesa. \nEl tiempo de espera que se comunicó varió entre 15 y 40 minutos dependiendo de quién \natendió. En dos casos el tiempo real superó el estimado en más de 20 minutos, lo que generó \ninconformidad visible en los clientes. Uno de ellos decidió retirarse.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:23:50.493Z"
+    },
+    {
+      "id": "cmp91795v00250gurc7m7yygn",
+      "sesion_id": "cmp90jdyp001r0gurkgwbvjgx",
+      "contenido": "-Llegada y registro del cliente en espera-\nAl llegar al restaurante, el cliente es recibido por quien esté disponible en recepción (puede ser el gerente, el capitán de meseros o incluso un mesero). No existe una persona dedicada exclusivamente a la recepción en todo momento. Cuando el restaurante está lleno, se le informa al cliente verbalmente y se le pregunta si desea esperar. \nDurante la observación se registraron los siguientes comportamientos: el personal busca la libreta debajo del mostrador, pregunta el nombre del cliente, el número de personas y el teléfono, y anota todo con bolígrafo. En un caso se observó que la libreta no estaba en su lugar habitual y se tardó aproximadamente 3 minutos en localizarla, dejando al cliente esperando sin atención.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:23:02.152Z"
+    },
+    {
+      "id": "cmp91er8y00290gur6eig0t10",
+      "sesion_id": "cmp90k52z001t0gur99skifk2",
+      "contenido": "Hallazgos principales \n• El proceso de lista de espera es completamente reactivo e improvisado, sin guía \nestándar para el personal. \n• La libreta como herramienta genera fricciones visibles: búsqueda del instrumento, \nilegibilidad, desorganización. \n• La falta de visibilidad del turno para el cliente genera interrupciones frecuentes al \npersonal. \n• La desconexión entre lista de espera y reservaciones provoca conflictos de asignación \nde mesas. \n• El sistema de comandas existente no es consultado para gestionar tiempos de espera, \naunque tiene información útil (timer por mesa). \n• La ausencia de un sistema de visualización pública (pantalla tipo turno) es una brecha \nclara en la experiencia del cliente.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:28:52.210Z"
+    },
+    {
+      "id": "cmp993z3h000fokurxtg80phi",
+      "sesion_id": "cmp991i6q000eokurqn22rr25",
+      "contenido": "{\"codigo\":\"HU-01\",\"prioridad\":\"ALTA\",\"como\":\"Priscila Margarita Vega Gutiérrez (Product Owner)\",\"quiero\":\"tener acceso completo al sistema con todas las funciones disponibles.\",\"para\":\"supervisar el funcionamiento general y tener control total sobre la información.\",\"criterios\":[\"El rol de dueña debe tener acceso a todas las funcionalidades del sistema.\",\"Solo la dueña debe poder configurar fechas festivas y parámetros del sistema.\",\"El acceso debe estar protegido por contraseña.\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:04:26.070Z"
+    },
+    {
+      "id": "cmp9298610000uwurpqz6broa",
+      "sesion_id": "cmp91ctd100280gura24x692z",
+      "contenido": "Hora: 10:38, El cliente llega y pregunta si hay mesa, Involucrado(Gerente), Observacion: El restaurante estaba lleno. Se registra en libreta.\nHora: 10:41, Otro cliente llega, se busca la libreta por ~3 min, Involucrado (Capitán de meseros) La libreta no estaba en su lugar habitual.\nHora: 10:55, Cliente en estacionamiento es llamado por teléfono, Involucrado (Gerente) La llamada no fue contestada. Se pasó al siguiente en lista.\nHora: 11:10, Cliente pregunta por tercera vez cuánto falta, Involucrado (Mesero) Estimación dada: 10 min. Tiempo real: 25 min más. \nHora: 11:22, Se libera mesa para 4. Cliente en lista necesita mesa para 6, involucrado (Capitan de meseros), Se saltó al siguiente grupo compatible (2 personas), ocupando mesa de 4. \nHora: 11:35, Cliente con reservación llega, su mesa ya estaba ocupada, Involucrado (Gerente), Confusión por no tener reservaciones en la misma lista. Se resolvió en ~8 min. \nHora: 12:05, 3 clientes se retiran sin esperar mas, no habia estimacion actualizada disponible para ellos.",
+      "notas": null,
+      "creado_en": "2026-05-17T00:52:33.791Z"
+    },
+    {
+      "id": "cmp987zgx0000okurbprbtj7e",
+      "sesion_id": "cmp92ahqs0001uwurc6z9wuei",
+      "contenido": "{\"codigo\":\"HU-01\",\"prioridad\":\"ALTA\",\"como\":\"Julissa Arreola (Gerente)\",\"quiero\":\"Quiero registrar a un cliente en la lista de espera de forma digital\",\"para\":\"Para no perder información y tener un registro ordenado y accesible durante todo el servicio.\",\"criterios\":[\"El sistema debe solicitar: nombre, número de personas, teléfono y hora de llegada.\",\"El registro debe guardarse inmediatamente y aparecer en la lista visible para el personal.\",\"El sistema no debe permitir guardar un registro sin nombre y número de personas.\",\"El proceso de registro no debe tomar más de 30 segundos.\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T03:39:33.559Z"
+    },
+    {
+      "id": "cmp98a6hn0001okur205otn56",
+      "sesion_id": "cmp92ahqs0001uwurc6z9wuei",
+      "contenido": "{\"codigo\":\"HU-02\",\"prioridad\":\"ALTA\",\"como\":\"Julissa Arreola (Gerente)\",\"quiero\":\"Quiero ver la lista de espera completa en tiempo real desde la computadora de recepción.\",\"para\":\"Para tener visibilidad total de cuántos clientes están esperando y en qué orden sin necesidad de consultar la libreta.\",\"criterios\":[\"La lista debe mostrar: número de turno, nombre del cliente, número de personas, hora de  llegada y tiempo transcurrido en espera.\",\"La lista debe actualizarse automáticamente sin necesidad de recargar la página.\",\"Los clientes deben estar ordenados por hora de llegada de forma predeterminada.\",\"Debe ser posible ver la lista completa en una sola pantalla sin desplazarse horizontalmente.\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T03:41:15.973Z"
+    },
+    {
+      "id": "cmp98btn10002okur9o12s42j",
+      "sesion_id": "cmp92ahqs0001uwurc6z9wuei",
+      "contenido": "{\"codigo\":\"HU-03\",\"prioridad\":\"ALTA\",\"como\":\"Julissa Arreola (Gerente)\",\"quiero\":\"Quiero eliminar o cancelar el turno de un cliente de la lista de espera.\",\"para\":\"Para mantener la lista limpia cuando un cliente decide no esperar o no se presenta\",\"criterios\":[\"El sistema debe pedir confirmación antes de eliminar un turno.\",\"Al eliminar, el resto de la lista debe reordenarse automáticamente.\",\"Debe quedar un registro de los turnos cancelados con la razón (se fue / no se presentó).\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T03:42:32.628Z"
+    },
+    {
+      "id": "cmp98f1d40003okur5eyqjebr",
+      "sesion_id": "cmp92ahqs0001uwurc6z9wuei",
+      "contenido": "{\"codigo\":\"HU-04\",\"prioridad\":\"ALTA\",\"como\":\"Julissa Arreola (Gerente)\",\"quiero\":\"Asignar una mesa disponible a un cliente en espera desde el sistema.\",\"para\":\"Hacer la asignación de forma rápida y sin confusiones entre el personal.\",\"criterios\":[\"El sistema debe mostrar solo las mesas disponibles compatibles con el número de personas  del grupo.\",\"Al asignar una mesa, el turno debe eliminarse de la lista de espera automáticamente.\",\"El sistema debe registrar la hora de asignación.\",\"Si ninguna mesa es exactamente compatible, el sistema debe mostrar las opciones más cercanas.\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T03:45:02.608Z"
+    },
+    {
+      "id": "cmp98l0tx0005okur0t4m0o9d",
+      "sesion_id": "cmp98fxhl0004okurg4ah4236",
+      "contenido": "{\"codigo\":\"HU-01\",\"prioridad\":\"ALTA\",\"como\":\"Eduardo Alonso Salazar Vega (Capitan de Meseros)\",\"quiero\":\"ver el estado de todas las mesas del restaurante en tiempo real.\",\"para\":\"saber sin recorrer la sala qué mesas están libres, ocupadas o reservadas.\",\"criterios\":[\"Cada mesa debe mostrar su estado: Libre, Ocupada o Reservada.\",\"Las mesas ocupadas deben mostrar cuánto tiempo llevan en ese estado.\",\"El mapa de mesas debe reflejar la distribución real del restaurante (terraza, lobby, planta  baja, planta alta).\",\"El estado debe actualizarse en tiempo real.\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T03:49:41.854Z"
+    },
+    {
+      "id": "cmp98n8c00006okuryb9y3jw6",
+      "sesion_id": "cmp98fxhl0004okurg4ah4236",
+      "contenido": "{\"codigo\":\"HU-02\",\"prioridad\":\"ALTA\",\"como\":\"Eduardo Alonso Salazar Vega (Capitan de Meseros)\",\"quiero\":\"cambiar el estado de una mesa manualmente (libre, ocupada, reservada).\",\"para\":\"reflejar la situación real del restaurante en todo momento.\",\"criterios\":[\"El cambio de estado debe aplicarse con máximo 2 clics o acciones.\",\"Al marcar una mesa como libre, el sistema debe sugerir asignarla al siguiente cliente en espera si hay lista activa.\",\"El sistema debe registrar la hora de cada cambio de estado.\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T03:51:24.876Z"
+    },
+    {
+      "id": "cmp98qanm0008okuri8icufqt",
+      "sesion_id": "cmp98o4500007okurvayt71o6",
+      "contenido": "{\"codigo\":\"HU-01\",\"prioridad\":\"ALTA\",\"como\":\"Julissa Arreola (Gerente)\",\"quiero\":\"registrar una reservación con los datos del cliente y la zona solicitada.\",\"para\":\"evitar conflictos entre clientes con reservación y la lista de espera general.\",\"criterios\":[\"El sistema debe solicitar: nombre, teléfono, número de personas, zona preferida, fecha y  hora de la reservación.\",\"Las reservaciones del área privada deben validar que sean con al menos 1 día de antelación  y mínimo 8 personas.\",\"En fechas festivas configuradas, el sistema no debe permitir reservaciones para la habitación  privada.\",\"Las reservaciones deben ser visibles desde la misma pantalla que la lista de espera.\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T03:53:47.860Z"
+    },
+    {
+      "id": "cmp98txgb0009okuricnrofe2",
+      "sesion_id": "cmp98o4500007okurvayt71o6",
+      "contenido": "{\"codigo\":\"HU-02\",\"prioridad\":\"MEDIA\",\"como\":\"Julissa Arreola (Gerente)\",\"quiero\":\"consultar y gestionar las reservaciones del día desde una sola pantalla.\",\"para\":\"no depender de otra libreta separada y tener toda la información centralizada.\",\"criterios\":[\"La pantalla principal debe mostrar las reservaciones del día actual.\",\"Deben poder marcarse como 'Confirmada', 'En curso' o 'Cancelada'.\",\"Al llegar el cliente con reservación, debe poder convertirse directamente en asignación de  mesa. \"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T03:56:37.372Z"
+    },
+    {
+      "id": "cmp98we6q000bokurtecp4ykw",
+      "sesion_id": "cmp98ul5b000aokurmh6d78qb",
+      "contenido": "{\"codigo\":\"HU-01\",\"prioridad\":\"ALTA\",\"como\":\"Julissa Arreola (Gerente)\",\"quiero\":\"enviar una notificación por SMS al cliente cuando su mesa esté lista.\",\"para\":\"evitar llamadas manuales y reducir la saturación del área de recepción.\",\"criterios\":[\"El sistema debe enviar un SMS automático al número registrado cuando el personal asigne  la mesa.\",\"El mensaje debe indicar que el cliente puede presentarse a recepción para ser atendido.\",\"Debe quedar registro de que la notificación fue enviada exitosamente.\",\"En caso de fallo en el envío, el sistema debe alertar al personal para notificar manualmente.\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T03:58:32.379Z"
+    },
+    {
+      "id": "cmp990j15000dokurbea2yv75",
+      "sesion_id": "cmp98x7wo000cokurc8v1ms13",
+      "contenido": "{\"codigo\":\"HU-01\",\"prioridad\":\"MEDIA\",\"como\":\"Santiago Trasvina Chavez (Cliente)\",\"quiero\":\"ver mi posición en la lista de espera en las pantallas del restaurante sin tener que preguntar al personal.\",\"para\":\"saber cuántos turnos faltan para el mío sin interrumpir al personal.\",\"criterios\":[\"Las pantallas en recepción deben mostrar los primeros turnos activos de la lista.\",\"La pantalla debe actualizarse automáticamente en tiempo real.\",\"La visualización debe ser de solo lectura; el cliente no puede interactuar con ella.\",\"Deben mostrarse: número de turno, nombre del cliente y número de personas del grupo.\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:01:45.270Z"
+    },
+    {
+      "id": "cmp994vll000gokurq8g5g0l2",
+      "sesion_id": "cmp991i6q000eokurqn22rr25",
+      "contenido": "{\"codigo\":\"HU-02\",\"prioridad\":\"ALTA\",\"como\":\"Julissa Arreola (Gerente)\",\"quiero\":\"acceder al sistema para gestionar la lista de espera, mesas y reservaciones del día.\",\"para\":\"operar el restaurante sin necesidad de pedir permiso o acceso especial en cada acción.\",\"criterios\":[\"El gerente debe poder registrar, editar y cancelar entradas en la lista de espera.\",\"El gerente debe poder cambiar el estado de las mesas.\",\"El gerente no debe tener acceso a la configuración general del sistema.\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:05:08.192Z"
+    },
+    {
+      "id": "cmp9967yt000hokur9aiko5ti",
+      "sesion_id": "cmp991i6q000eokurqn22rr25",
+      "contenido": "{\"codigo\":\"HU-03\",\"prioridad\":\"MEDIA\",\"como\":\"Eduardo Alonso Salazar Vega (Capitan de Meseros)\",\"quiero\":\"consultar el estado de las mesas y la lista de espera sin modificar datos.\",\"para\":\"coordinar con el equipo de meseros sin interferir con la gestión de recepción.\",\"criterios\":[\"El capitán debe tener acceso de solo lectura al estado de mesas y lista de espera.\",\"No debe poder registrar, editar ni eliminar clientes de la lista.\",\"La vista del capitán debe ser optimizada para consultarse rápidamente desde sala.\"]}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:06:10.879Z"
+    },
+    {
+      "id": "cmp99nirl0000mgurwz8y2rwo",
+      "sesion_id": "cmp9989dl000iokur4g91ounb",
+      "contenido": "{\"persona\":\"Priscila Margarita Vega Gutiérrez (Product Owner)\",\"texto\":\"\\\"El mayor problema es que no sabemos qué está pasando con las mesas si no estamos físicamente en el restaurante. Y la libreta... muchas veces no entiendo lo que escribieron o simplemente no aparece.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:19:38.025Z"
+    },
+    {
+      "id": "cmp99nw2t0001mgurfirbsqjc",
+      "sesion_id": "cmp9989dl000iokur4g91ounb",
+      "contenido": "{\"persona\":\"Julissa Arreola (Gerente)\",\"texto\":\"\\\"Para mí el problema principal es el tiempo perdido. Cuando hay lista de espera también hay mesas llenas, comandas volando y meseros corriendo. Ponerse a buscar la libreta y anotar a mano en ese momento es un caos.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:19:55.277Z"
+    },
+    {
+      "id": "cmp99ogip0002mgurd1py5i3n",
+      "sesion_id": "cmp9989dl000iokur4g91ounb",
+      "contenido": "{\"persona\":\"Eduardo Alonso Salazar Vega (Capitan de Meseros)\",\"texto\":\"\\\"Yo sufro cuando tengo que ir desde la sala hasta recepción solo para saber si ya \\nhay una mesa libre. A veces me dice el gerente 'pregúntale al dueño' y el dueño \\nestá ocupado. No hay una fuente de información clara.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:20:21.770Z"
+    },
+    {
+      "id": "cmp99osky0003mgurd1zvanpm",
+      "sesion_id": "cmp9989dl000iokur4g91ounb",
+      "contenido": "{\"persona\":\"Sergio Chavez (Mesero)\",\"texto\":\"\\\"Los clientes me preguntan a mí cuánto falta para su mesa y yo no sé qué decirles. Termino inventando tiempos o mandándolos a preguntar a recepción, lo cual los molesta.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:20:37.402Z"
+    },
+    {
+      "id": "cmp99p6rt0004mgurjqxasuur",
+      "sesion_id": "cmp9989dl000iokur4g91ounb",
+      "contenido": "Todos los participantes coinciden en que el proceso actual es desorganizado, que la libreta \nes insuficiente y que la falta de información compartida en tiempo real genera fricción tanto \npara el personal como para los clientes.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:20:55.793Z"
+    },
+    {
+      "id": "cmp99rh530006mgurju3bazse",
+      "sesion_id": "cmp99pvha0005mgur8wyhckuz",
+      "contenido": "{\"persona\":\"Priscila Margarita Vega Gutiérrez (Product Owner)\",\"texto\":\"\\\"Para mí lo mínimo es que pueda ver desde cualquier parte qué mesas están ocupadas, cuáles libres y quién está esperando. Con eso ya sería un avance enorme.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:22:42.543Z"
+    },
+    {
+      "id": "cmp99rr8q0007mgurl7ucfsrk",
+      "sesion_id": "cmp99pvha0005mgur8wyhckuz",
+      "contenido": "{\"persona\":\"Julissa Arreola (Gerente)\",\"texto\":\"\\\"Que sea rápido. Si registrar a un cliente me toma más de 30 segundos, no lo voy a usar en horas pico. Tiene que ser simple: nombre, personas, teléfono y listo.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:22:55.635Z"
+    },
+    {
+      "id": "cmp99s4880008mgurv9hg5hpy",
+      "sesion_id": "cmp99pvha0005mgur8wyhckuz",
+      "contenido": "{\"persona\":\"Eduardo Alonso Salazar Vega (Capitan de Meseros)\",\"texto\":\"\\\"Que yo pueda ver el estado de las mesas desde mi teléfono o desde una pantalla en sala. No quiero tener que ir a recepción cada vez.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:23:12.464Z"
+    },
+    {
+      "id": "cmp99sevw0009mguryzfngg62",
+      "sesion_id": "cmp99pvha0005mgur8wyhckuz",
+      "contenido": "{\"persona\":\"Sergio Chavez (Mesero)\",\"texto\":\"\\\"Que haya algo en recepción que los clientes puedan ver solos, como un número de turno. Así ya no me preguntan a mí.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:23:26.273Z"
+    },
+    {
+      "id": "cmp99smah000amgurblybvacz",
+      "sesion_id": "cmp99pvha0005mgur8wyhckuz",
+      "contenido": "• El sistema debe ser rápido y simple de usar en horas de alta demanda. \n• Visibilidad del estado de mesas en tiempo real para todos los roles. \n• Pantalla pública de turnos en recepción para reducir interrupciones al personal.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:23:35.897Z"
+    },
+    {
+      "id": "cmp99ulzi000cmgurbenv6p87",
+      "sesion_id": "cmp99tcd1000bmgur9x1bdrig",
+      "contenido": "{\"persona\":\"Priscila Margarita Vega Gutiérrez (Product Owner)\",\"texto\":\"\\\"Me gusta la idea del SMS. Muchas personas esperan en su carro y llamarles toma tiempo, a veces no contestan. Un mensaje llega directo.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:25:08.791Z"
+    },
+    {
+      "id": "cmp99uxbg000dmgurzxzudjx7",
+      "sesion_id": "cmp99tcd1000bmgur9x1bdrig",
+      "contenido": "{\"persona\":\"Julissa Arreola (Gerente)\",\"texto\":\"\\\"Estoy de acuerdo. El SMS está bien siempre y cuando el mensaje sea claro y no genere confusión. Que diga algo simple como: 'Tu mesa en Luna de Miel está lista, puedes presentarte a recepción.'\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:25:23.362Z"
+    },
+    {
+      "id": "cmp99v98n000emgurgnyny73x",
+      "sesion_id": "cmp99tcd1000bmgur9x1bdrig",
+      "contenido": "{\"persona\":\"Eduardo Alonso Salazar Vega (Capitan de Meseros)\",\"texto\":\"\\\"¿Y si el cliente no tiene señal o no lee el mensaje a tiempo? Debería seguir existiendo la opción de llamar si el SMS no funcionó.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:25:38.926Z"
+    },
+    {
+      "id": "cmp99vkfm000fmgur7g8z7r8e",
+      "sesion_id": "cmp99tcd1000bmgur9x1bdrig",
+      "contenido": "{\"persona\":\"Sergio Chavez (Mesero)\",\"texto\":\"\\\"También podría haber algo visual en la pantalla pública, tipo que aparezca el nombre del cliente con un ícono o color distinto cuando su turno llega.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:25:53.434Z"
+    },
+    {
+      "id": "cmp99vvqd000gmguro4em4vz2",
+      "sesion_id": "cmp99tcd1000bmgur9x1bdrig",
+      "contenido": "Consenso: el SMS es el medio preferido como notificación principal. Se acepta que debe \nexistir un mecanismo alternativo (llamada manual) cuando el SMS falle o no sea leído. \nPropuesta adicional de Miguel: resaltar visualmente en la pantalla pública el turno que está \nsiendo llamado. Esta idea fue bien recibida por el grupo.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:26:08.079Z"
+    },
+    {
+      "id": "cmp99xthh000imgur8vuzexdc",
+      "sesion_id": "cmp99wsnb000hmgurqx1sjkio",
+      "contenido": "{\"persona\":\"Priscila Margarita Vega Gutiérrez (Product Owner)\",\"texto\":\"\\\"El problema hoy es que las reservaciones están en otra libreta. Alguien llega con \\nreservación y la mesa ya está ocupada porque no lo vimos. Necesitamos que todo \\nesté en el mismo lugar.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:27:38.479Z"
+    },
+    {
+      "id": "cmp99y33a000jmgurnxkzvwsb",
+      "sesion_id": "cmp99wsnb000hmgurqx1sjkio",
+      "contenido": "{\"persona\":\"Julissa Arreola (Gerente)\",\"texto\":\"\\\"Exacto. Y que el sistema avise cuando está llegando la hora de una reservación para \\npreparar la mesa a tiempo.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:27:50.925Z"
+    },
+    {
+      "id": "cmp99ydb8000kmgurpf55zewt",
+      "sesion_id": "cmp99wsnb000hmgurqx1sjkio",
+      "contenido": "{\"persona\":\"Eduardo Alonso Salazar Vega (Capitan de Meseros)\",\"texto\":\"\\\"También que sea claro para el personal quién tiene reservación y quién está en \\nlista normal, para no generar confusiones ni favoritismos a la vista del cliente.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:28:04.172Z"
+    },
+    {
+      "id": "cmp99z5zo000lmgur5iq851kp",
+      "sesion_id": "cmp99wsnb000hmgurqx1sjkio",
+      "contenido": "• Las reservaciones deben integrarse en la misma pantalla que la lista de espera. \n• El sistema debe alertar cuando se acerca la hora de una reservación. \n• Debe distinguirse visualmente entre clientes con reservación y clientes en espera \ngeneral.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:28:41.342Z"
+    },
+    {
+      "id": "cmp9a0ias000nmgurqha9pazj",
+      "sesion_id": "cmp99zoyq000mmgurwfrhfa5u",
+      "contenido": "{\"persona\":\"Priscila Margarita Vega Gutiérrez (Product Owner)\",\"texto\":\"\\\"Mi preocupación es que si el sistema falla, nos quedemos sin nada. Necesitamos \\nsaber qué hacer si internet se cae o hay un problema técnico.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:29:43.941Z"
+    },
+    {
+      "id": "cmp9a0oq7000omguryolovo39",
+      "sesion_id": "cmp99zoyq000mmgurwfrhfa5u",
+      "contenido": "{\"persona\":\"Julissa Arreola (Gerente)\",\"texto\":\"\\\"También me preocupa la capacitación. Si es complicado de aprender, el personal va a \\nseguir usando la libreta por comodidad.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:29:52.303Z"
+    },
+    {
+      "id": "cmp9a0vng000pmgur8juo2nb5",
+      "sesion_id": "cmp99zoyq000mmgurwfrhfa5u",
+      "contenido": "{\"persona\":\"Eduardo Alonso Salazar Vega (Capitan de Meseros)\",\"texto\":\"\\\"Yo creo que el equipo se va a adaptar rápido si el sistema es visual y fácil. Lo que \\nno queremos es tener que escribir mucho texto.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:30:01.276Z"
+    },
+    {
+      "id": "cmp9a121e000qmgur57io1erw",
+      "sesion_id": "cmp99zoyq000mmgurwfrhfa5u",
+      "contenido": "{\"persona\":\"Sergio Chavez (Mesero)\",\"texto\":\"\\\"¿Qué pasa si un cliente da un número de teléfono equivocado y el SMS no llega? \\nDebería haber algún indicador de que el mensaje no se entregó.\\\"\"}",
+      "notas": null,
+      "creado_en": "2026-05-17T04:30:09.552Z"
+    },
+    {
+      "id": "cmp9a1f8u000rmgurmqx4ze7j",
+      "sesion_id": "cmp99zoyq000mmgurwfrhfa5u",
+      "contenido": "Fallo del sistema o internet Definir un protocolo de contingencia manual para esos casos. \nResistencia al cambio por \ncomplejidad \nDiseñar la interfaz con el mínimo de pasos posibles y capacitar al \npersonal antes del lanzamiento. \nSMS no entregado por número \nincorrecto \nEl sistema debe mostrar el estado del envío del SMS y alertar si no \nfue entregado.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:30:26.545Z"
+    },
+    {
+      "id": "cmp9a5bi0000tmgurmznyj1ro",
+      "sesion_id": "cmp9a4v7n000smgur4g7vcrh1",
+      "contenido": "FD\n01 \nLibreta de lista de espera Registro manual físico En uso activo. Sin formato \ndefinido. \nFD\n02 \nSistema de software de \ncomandas y control de gastos \nSistema digital externo \n(tercero) \nEn uso activo. Propiedad de \nempresa externa. \nFD\n03 \nRegistro verbal / informal de \nreservaciones \nProceso oral sin \nsoporte físico/digital \nEn uso activo. Sin respaldo escrito \nconsistente. \nFD\n04 \nPolítica de reservaciones del \nrestaurante \nReglas internas no \ndocumentadas \nConocimiento implícito del \npersonal. No está escrito \nformalmente.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:33:28.414Z"
+    },
+    {
+      "id": "cmp9a7us2000vmgurtlx7vi85",
+      "sesion_id": "cmp9a6kyz000umgur97vb4fvx",
+      "contenido": "FD-01  |  Libreta de Lista de Espera  —  Registro manual físico \nDescripción:  \nLibreta de papel usada por el personal de recepción para anotar a mano los clientes en espera. \nNo tiene ningún formato predefinido; cada persona que la usa escribe los datos a su propio \ncriterio. Los registros son desechados al final de cada jornada. \nHallazgos del análisis: \n• Los datos que se registran varían según quién atiende: nombre, número de personas y teléfono \nson los más comunes, pero no siempre se anotan todos. \n• La hora de llegada no siempre se registra, lo que dificulta determinar el orden real de espera. \n• No existe distinción entre clientes de lista de espera y clientes con reservación; a veces se \nmezclan. \n• Al no guardarse los registros, no es posible generar ningún tipo de estadística histórica. \n• La letra ilegible y el extravío de la libreta son problemas frecuentes reportados por el personal. \nImplicación para el sistema: \nEl nuevo sistema debe digitalizar completamente este registro con campos obligatorios definidos \n(nombre, número de personas, teléfono, hora de llegada) y mantener un historial de los turnos \ndel día.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:35:26.713Z"
+    },
+    {
+      "id": "cmp9a84av000wmgur8u21q7o3",
+      "sesion_id": "cmp9a6kyz000umgur97vb4fvx",
+      "contenido": "FD-02  |  Sistema de Software de Comandas y Control de Gastos  —  Sistema digital \nexterno \nDescripción:  \nSoftware de gestión de restaurante adquirido a una empresa externa. Permite generar \ncomandas de cocina, controlar gastos e ingresos y, de forma relevante para este proyecto, \nregistra el estado de cada mesa con un temporizador que indica cuánto tiempo lleva ocupada. \nEl personal de cocina y el gerente son quienes lo consultan principalmente. \nHallazgos del análisis: \n• Contiene información valiosa y en tiempo real sobre el estado de las mesas (tiempo de \nocupación), que actualmente no se aprovecha para gestionar la lista de espera. \n• El temporizador por mesa es el dato más útil que este sistema provee para estimar tiempos de \nespera. \n• No fue diseñado para gestionar listas de espera ni reservaciones de manera visual para los \nclientes. \n• Al ser propiedad de una empresa externa, no es posible modificarlo ni fusionarlo con el nuevo \nsistema. \n• Su información puede ser consultada visualmente por el personal como referencia \ncomplementaria. \nImplicación para el sistema: \nEl nuevo sistema no debe depender técnicamente del software externo. Sin embargo, el \npersonal puede apoyarse en los tiempos que ese sistema muestra para mejorar la estimación \ncomunicada al cliente. Ambos sistemas operarán de forma independiente.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:35:39.047Z"
+    },
+    {
+      "id": "cmp9a8a0c000xmgurkjjrxwon",
+      "sesion_id": "cmp9a6kyz000umgur97vb4fvx",
+      "contenido": "FD-03  |  Registro de Reservaciones  —  Proceso oral sin soporte consistente \nDescripción:  \nLas reservaciones del restaurante se gestionan principalmente por llamada telefónica o de \nforma presencial. En algunos casos se anotan en la misma libreta de lista de espera, en otros \nen una hoja aparte, y en varios casos solo se recuerdan verbalmente por el personal que \natendió la llamada. No existe una libreta o sistema dedicado a reservaciones. \nHallazgos del análisis: \n• Las reservaciones del área privada (planta alta) requieren datos adicionales: fecha, hora, \nnúmero de personas (mínimo 8) y al menos 1 día de antelación. \n• Las reservaciones de mesas regulares pueden hacerse el mismo día y no requieren \ncondiciones especiales. \n• En fechas festivas no se aceptan reservaciones para el área privada, pero esta restricción no \nestá documentada de forma accesible para todo el personal. \n• Al no existir un registro centralizado, es frecuente que se produzcan conflictos entre \nreservaciones y clientes de lista de espera. \nImplicación para el sistema: \nEl sistema debe incluir un módulo de reservaciones integrado con la lista de espera. Debe \nvalidar automáticamente las restricciones del área privada y distinguir visualmente entre \nreservaciones y clientes en espera general.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:35:46.476Z"
+    },
+    {
+      "id": "cmp9a8gkq000ymgury3vt5bzo",
+      "sesion_id": "cmp9a6kyz000umgur97vb4fvx",
+      "contenido": "FD-04  |  Política de Reservaciones y Reglas Operativas  —  Conocimiento implícito no \ndocumentado \nDescripción:  \nEl restaurante tiene reglas de operación claras que son conocidas por el personal con más \ntiempo, pero que nunca han sido escritas formalmente. Estas incluyen criterios de asignación de \nmesas, tiempos de gracia, políticas de fechas festivas y el manejo del área privada. \nHallazgos del análisis: \n• La asignación de mesas se rige por compatibilidad de capacidad, no por orden estricto de \nllegada. \n• El tiempo de gracia para que un cliente ocupe su mesa es de 2 a 3 minutos desde la \nnotificación. \n• En fechas festivas no se aceptan reservaciones para el área privada con el fin de mantener el \nflujo de clientes. \n• No existe una política documentada de tiempo máximo de espera antes de cancelar un turno \nvoluntariamente. \n• El nuevo personal aprende estas reglas de forma oral, lo que genera inconsistencias. \nImplicación para el sistema: \nEl nuevo sistema debe tener configuradas estas reglas de negocio de forma que guíen al \npersonal en sus decisiones. Las restricciones deben ser aplicadas automáticamente donde sea \nposible (por ejemplo, no permitir reservación del área privada en fechas festivas configuradas).",
+      "notas": null,
+      "creado_en": "2026-05-17T04:35:54.985Z"
+    },
+    {
+      "id": "cmp9aalvx0010mgurfu4bo4fn",
+      "sesion_id": "cmp9aa4eq000zmgureq2ptaso",
+      "contenido": "Registro de clientes \nen espera \nSí, en libreta Manual, sin formato Datos incompletos, ilegibles y \nsin historial \nEstado en tiempo real \nde las mesas \nParcial, en sistema \nexterno \nNo se vincula con la \nlista de espera \nInformación no aprovechada \npara gestión de espera \nRegistro de \nreservaciones \nParcial, de forma \noral \nSin soporte \nconsistente \nConflictos frecuentes con lista \nde espera \nReglas y políticas \noperativas \nNo documentadas Transmisión oral \nentre personal \nInconsistencias operativas y \ndependencia de personas clave \nHistorial de lista de \nespera \nNo existe Se destruye al final \ndel día \nImposibilidad de análisis o \nmejora del proceso \nTiempos promedio de \nespera real \nNo registrados Solo estimaciones \nverbales \nComunicación imprecisa al \ncliente",
+      "notas": null,
+      "creado_en": "2026-05-17T04:37:35.157Z"
+    },
+    {
+      "id": "cmp9abzt60012mgurobmiqkzu",
+      "sesion_id": "cmp9abklw0011mgur0p6fixkm",
+      "contenido": "Conclusiones principales \n• La principal brecha documental es la ausencia de un registro estructurado y \ncentralizado: lista de espera, reservaciones y reglas de negocio existen de forma \nfragmentada y no documentada. \n• El sistema de comandas externo es una fuente de información valiosa (especialmente \nel timer por mesa) que puede ser consultada de forma complementaria sin requerir \nintegración técnica. \n• Las reglas de negocio implícitas deben formalizarse y configurarse en el nuevo \nsistema para garantizar su aplicación consistente. \n• El nuevo sistema tiene la oportunidad de ser la primera fuente documental formal del \nrestaurante en cuanto a gestión de espera y reservaciones.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:38:39.850Z"
+    },
+    {
+      "id": "cmp9aehxy0014mgur0zvobnop",
+      "sesion_id": "cmp9acvhh0013mguryfblulzj",
+      "contenido": "PASO 1 — Llegada del cliente y verificación de disponibilidad  |  Actor: Personal de \nrecepción (gerente o capitán) \nDescripción: \nEl cliente llega al restaurante. El personal verifica visualmente si hay mesas disponibles. Si no \nlas hay, informa al cliente verbalmente y le pregunta si desea esperar. \nDatos capturados / consultados: \nNo hay datos capturados en este paso. La verificación es visual y no hay registro del momento \nexacto de llegada. \nProblema actual: \nEl personal debe recorrer físicamente el salón o preguntar a los meseros para saber si hay \nmesas disponibles. No existe una fuente centralizada del estado de las mesas.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:40:36.692Z"
+    },
+    {
+      "id": "cmp9aemz00015mguriip7ayfz",
+      "sesion_id": "cmp9acvhh0013mguryfblulzj",
+      "contenido": "PASO 2 — Registro del cliente en lista de espera  |  Actor: Personal de recepción \nDescripción: \nSi el cliente acepta esperar, el personal busca la libreta y anota los datos del cliente a mano. Se \nle asigna un número de turno verbal (no oficial) según el orden de llegada. \nDatos capturados / consultados: \nNombre del cliente, número de personas, número de teléfono, hora de llegada (no siempre \nregistrada). \nProblema actual: \nLa libreta puede no estar a la mano, la letra puede ser ilegible, se omiten campos con \nfrecuencia. No hay número de turno visible para el cliente. El proceso puede tomar de 1 a 4 \nminutos dependiendo de la situación.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:40:43.212Z"
+    },
+    {
+      "id": "cmp9aesyd0016mgur6js6d6vo",
+      "sesion_id": "cmp9acvhh0013mguryfblulzj",
+      "contenido": "PASO 3 — Gestión del tiempo de espera  |  Actor: Personal de recepción + sistema de comandas \nexterno \nDescripción: \nEl personal estima el tiempo de espera consultando mentalmente cuánto llevan las mesas \nocupadas. El sistema de comandas muestra un timer por mesa pero no se consulta de forma \nsistemática para esta estimación. \nDatos capturados / consultados: \nTiempo aproximado de ocupación de las mesas (consultado verbalmente con meseros o de \nmemoria). Información del timer del sistema de comandas (consultada ocasionalmente). \nProblema actual: \nLa estimación es imprecisa. El tiempo comunicado al cliente no refleja el estado real de las \ncomandas en cocina. Esto genera inconformidad cuando el tiempo real supera el estimado.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:40:50.964Z"
+    },
+    {
+      "id": "cmp9aex8g0017mgurvali5ybl",
+      "sesion_id": "cmp9acvhh0013mguryfblulzj",
+      "contenido": "PASO 4 — Monitoreo y actualización de la lista  |  Actor: Personal de recepción \nDescripción: \nEl personal revisa periódicamente la libreta para recordar quiénes están en espera. Cuando un \ncliente decide retirarse, se tacha de la libreta. No hay ningún mecanismo automático de \nactualización. \nDatos capturados / consultados: \nEstado de la libreta (consulta manual). Posición de cada cliente en la lista. \nProblema actual: \nSi alguien más del personal necesita consultar la lista, debe ir físicamente donde está la libreta. \nNo hay una vista compartida del estado de la lista para el equipo. Los cambios no se comunican \nautomáticamente.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:40:56.511Z"
+    },
+    {
+      "id": "cmp9af4ue0018mgur1jkqlkut",
+      "sesion_id": "cmp9acvhh0013mguryfblulzj",
+      "contenido": "PASO 5 — Identificación de mesa disponible  |  Actor: Personal de recepción o capitán de \nmeseros \nDescripción: \nCuando un cliente termina y desocupa su mesa, el mesero limpia la mesa y avisa verbalmente a \nrecepción que está disponible. El personal de recepción o el capitán confirma visualmente que \nla mesa está lista. \nDatos capturados / consultados: \nZona donde se liberó la mesa, capacidad de la mesa, hora en que quedó disponible. \nProblema actual: \nEl aviso de mesa libre es verbal y puede perderse en momentos de alta actividad. No existe una \nnotificación automática al sistema cuando una mesa se desocupa. A veces recepción no se \nentera a tiempo.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:41:06.373Z"
+    },
+    {
+      "id": "cmp9afdnn0019mgurbz0tkndt",
+      "sesion_id": "cmp9acvhh0013mguryfblulzj",
+      "contenido": "PASO 6 — Selección del siguiente cliente en espera y asignación  |  Actor: Personal de \nrecepción \nDescripción: \nEl personal revisa la libreta para encontrar al siguiente cliente cuyo grupo sea compatible con la \nmesa disponible. Se aplica el criterio de compatibilidad de capacidad. Se identifica al cliente y \nse le notifica. \nDatos capturados / consultados: \nNombre del cliente, número de personas, número de teléfono (para llamar si está en su carro). \nCapacidad de la mesa disponible. \nProblema actual: \nEl proceso de encontrar al cliente correcto en la libreta puede tomar varios minutos. Si el cliente \nestá en el estacionamiento, se requiere llamada telefónica que puede no ser contestada. No hay \nun proceso automatizado de matching entre mesas y clientes.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:41:17.766Z"
+    },
+    {
+      "id": "cmp9afisw001amgurw6g75i9k",
+      "sesion_id": "cmp9acvhh0013mguryfblulzj",
+      "contenido": "PASO 7 — Notificación al cliente y cierre del turno  |  Actor: Personal de recepción \nDescripción: \nSe notifica al cliente verbalmente (en el lobby) o por llamada telefónica (si está en el carro). El \ncliente tiene 2 a 3 minutos para presentarse. Si se presenta, se le conduce a su mesa y se \nelimina de la libreta. Si no se presenta, se cancela el turno. \nDatos capturados / consultados: \nConfirmación de que el cliente recibió la notificación. Hora de asignación. Estado final del turno \n(asignado / cancelado). \nProblema actual: \nLa notificación es manual y no queda registro de si fue exitosa. Si el cliente no contesta el \nteléfono, el personal pierde tiempo valioso. No existe confirmación de lectura ni tiempo de gracia \nconsistente.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:41:24.464Z"
+    },
+    {
+      "id": "cmp9ai54c001cmgurgfcl3v9o",
+      "sesion_id": "cmp9ahh08001bmgurvqk91tqr",
+      "contenido": "1 Verificación de disponibilidad de \nmesa \n2 a 5 minutos \n(recorrido físico) \n< 10 segundos (consulta en \npantalla) \n2 Registro del cliente en lista de \nespera \n1 a 4 minutos < 30 segundos \n3 Estimación y comunicación del \ntiempo de espera \n1 a 2 minutos \n(consulta informal) \n< 20 segundos (dato visible en \nsistema) \n4 Actualización de la lista de \nespera \nManual, sin tiempo \ndefinido \nAutomático en tiempo real \n5 Identificación de mesa libre 1 a 3 minutos (aviso \nverbal) \n< 5 segundos (notificación \nautomática en sistema) \n6 Selección del cliente compatible \ny matching \n2 a 5 minutos < 15 segundos (sugerencia \nautomática del sistema) \n7 Notificación al cliente 1 a 3 minutos \n(llamada manual) \n< 5 segundos (SMS automático)",
+      "notas": null,
+      "creado_en": "2026-05-17T04:43:26.700Z"
+    },
+    {
+      "id": "cmp9ak1p7001emgurv6uu9b0g",
+      "sesion_id": "cmp9aja97001dmgurgmmn19i6",
+      "contenido": "Nombre del \ncliente \nDicho por el \ncliente \nLibreta (a mano) Ilegible o \nincompleto \nCampo de texto digital \nobligatorio \nN.° de personas Dicho por el \ncliente \nLibreta (a mano) Omitido en \nocasiones \nCampo numérico \nobligatorio \nTeléfono de \ncontacto \nDicho por el \ncliente \nLibreta (a mano) Omitido si el \ncliente no quiere \nesperar \nCampo de texto, \nopcional pero visible \nHora de llegada No siempre \nregistrada \nLibreta \n(inconsistente) \nSe pierde el \norden real de \nespera \nCapturada \nautomáticamente al \nregistrar \nEstado de las \nmesas \nObservación \nvisual del \npersonal \nNo registrado \nformalmente \nInformación no \ncompartida \nPanel en tiempo real \nvisible para todos los \nroles \nTiempo de \nocupación por \nmesa \nTimer del \nsistema de \ncomandas \nexterno \nNo vinculado a \nlista de espera \nNo se usa para \nestimar tiempos \nConsultado como \nreferencia visual \ncomplementaria \nReservaciones Llamada \ntelefónica / \nverbal \nOtra libreta o \nmemoria \nConflictos con \nlista de espera \nMódulo integrado de \nreservaciones \nNotificación al \ncliente \nLlamada manual No hay registro Sin confirmación \nde entrega \nSMS automático con \nestado de envío",
+      "notas": null,
+      "creado_en": "2026-05-17T04:44:55.555Z"
+    },
+    {
+      "id": "cmp9alaj5001gmgur2cgqua6j",
+      "sesion_id": "cmp9akqzx001fmgurgmbp7yug",
+      "contenido": "Conclusiones del seguimiento transaccional \n• El proceso actual tiene 7 pasos con un tiempo total estimado entre 10 y 25 minutos por \nturno completo, debido a las fricciones en cada transacción. \n• Los pasos con mayor tiempo perdido son: verificación de mesa disponible (recorrido \nfísico), registro en libreta y notificación al cliente (llamada manual). \n• La mayor pérdida de datos ocurre en los pasos 2 y 7: registro incompleto y notificación \nsin confirmación. \n• Con el nuevo sistema, se estima que el tiempo total del proceso podría reducirse a \nmenos de 2 minutos por turno completo. \n• El dato del timer por mesa del sistema de comandas externo es el único dato digital \nexistente que puede aprovecharse como referencia sin necesidad de integración \ntécnica. \n• La formalización del proceso transaccional será la base para el diseño de la base de \ndatos y la lógica de negocio del nuevo sistema.",
+      "notas": null,
+      "creado_en": "2026-05-17T04:45:53.655Z"
+    }
+  ],
+  "diagramas": [
+    {
+      "id": "cmp9b9we1001kmgur5lwbmndq",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "CLASES",
+      "nombre": "Diagrama de Clases LDM",
+      "contenido": "classDiagram\n    class Usuario {\n        <<abstract>>\n        +id int\n        +nombre string\n        +password_hash string\n        +rol Rol\n        +autenticar(password) bool\n    }\n\n    class ProductOwner {\n        +configurarFechaFestiva(fecha)\n        +configurarParametros()\n        +accesoTotal() bool\n        +supervisarSistema()\n    }\n\n    class Gerente {\n        +registrarTurno(cliente)\n        +asignarMesa(turno, mesa)\n        +cambiarEstadoMesa(mesa, estado)\n        +cancelarTurno(turno, razon)\n        +gestionarReservacion(res)\n    }\n\n    class CapitanMeseros {\n        +consultarMesas() List~Mesa~\n        +consultarListaEspera() List~Turno~\n        +coordinarServicioSala()\n    }\n\n    class Mesero {\n        +marcarMesaLibre(mesa)\n        +consultarEstadoMesas() List~Mesa~\n        +consultarListaEspera() List~Turno~\n    }\n\n    class Cliente {\n        +id int\n        +nombre string\n        +telefono string\n        +numero_personas int\n        +verPantallaPublica()\n        +recibirSMS()\n    }\n\n    class Turno {\n        +id int\n        +numero_turno int\n        +cliente Cliente\n        +hora_llegada datetime\n        +tiempo_transcurrido int\n        +estado EstadoTurno\n        +calcularTiempoEspera() int\n        +cancelar(razon)\n        +asignarMesa(mesa)\n    }\n\n    class EstadoTurno {\n        <<enumeration>>\n        EN_ESPERA\n        NOTIFICADO\n        ASIGNADO\n        CANCELADO_SE_FUE\n        CANCELADO_NO_PRESENTO\n    }\n\n    class Mesa {\n        +id int\n        +numero int\n        +capacidad int\n        +zona Zona\n        +estado EstadoMesa\n        +hora_ocupacion datetime\n        +tiempoOcupada() int\n        +liberarMesa()\n        +ocuparMesa()\n        +reservarMesa()\n    }\n\n    class EstadoMesa {\n        <<enumeration>>\n        LIBRE\n        OCUPADA\n        RESERVADA\n    }\n\n    class Zona {\n        <<enumeration>>\n        TERRAZA\n        LOBBY\n        PLANTA_BAJA\n        HABITACION_PRIVADA\n        SEGUNDA_HABITACION\n    }\n\n    class Reservacion {\n        +id int\n        +cliente Cliente\n        +zona Zona\n        +fecha date\n        +hora time\n        +numero_personas int\n        +estado EstadoReservacion\n        +validarReglas() bool\n        +confirmar()\n        +cancelar()\n        +convertirAAsignacion() Turno\n    }\n\n    class EstadoReservacion {\n        <<enumeration>>\n        CONFIRMADA\n        EN_CURSO\n        CANCELADA\n    }\n\n    class NotificacionSMS {\n        +id int\n        +turno Turno\n        +mensaje string\n        +hora_envio datetime\n        +estado_envio EstadoEnvio\n        +enviar() bool\n        +verificarEntrega() bool\n    }\n\n    class EstadoEnvio {\n        <<enumeration>>\n        PENDIENTE\n        ENVIADO\n        ENTREGADO\n        FALLIDO\n    }\n\n    class ReglasNegocio {\n        <<service>>\n        +validarReservacionPrivada(res) bool\n        +validarFechaFestiva(fecha) bool\n        +validarCompatibilidadMesa(mesa, grupo) bool\n        +aplicarTiempoGracia(turno) bool\n    }\n\n    class PantallaPublica {\n        +turnos_visibles List~Turno~\n        +actualizar()\n        +resaltarTurnoActivo(turno)\n    }\n\n    class FechaFestiva {\n        +fecha date\n        +descripcion string\n        +bloqueaReservacionPrivada bool\n    }\n\n    Usuario <|-- ProductOwner\n    Usuario <|-- Gerente\n    Usuario <|-- CapitanMeseros\n    Usuario <|-- Mesero\n\n    Cliente \"1\" --> \"0..*\" Turno : genera\n    Cliente \"1\" --> \"0..*\" Reservacion : realiza\n\n    Turno \"0..1\" --> \"0..1\" Mesa : asignada_a\n    Turno \"1\" --> \"0..*\" NotificacionSMS : tiene\n\n    Mesa \"1\" --> \"1\" Zona : pertenece_a\n    Mesa \"0..1\" --> \"0..1\" Reservacion : reservada_por\n\n    Reservacion \"1\" --> \"1\" Zona : solicita\n    Reservacion ..> ReglasNegocio : valida_con\n\n    PantallaPublica \"1\" --> \"0..*\" Turno : muestra\n\n    ReglasNegocio \"1\" --> \"0..*\" FechaFestiva : consulta\n\n    ProductOwner ..> FechaFestiva : configura\n    Gerente ..> Turno : gestiona\n    Gerente ..> Mesa : gestiona\n    Gerente ..> Reservacion : gestiona\n    CapitanMeseros ..> Mesa : consulta\n    CapitanMeseros ..> Turno : consulta\n    Mesero ..> Mesa : libera\n    Mesero ..> Turno : consulta",
+      "creado_en": "2026-05-17T05:05:01.753Z",
+      "actualizado_en": "2026-05-17T05:05:53.410Z"
+    },
+    {
+      "id": "cmp9b8db4001jmgurs0q9eaof",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "CASOS_USO",
+      "nombre": "Diagramas de casos de uso LDM",
+      "contenido": "graph TB\n    subgraph SISTEMA[\"Sistema de Gestion de Lista de Espera\"]\n        UC01((\"UC01 Iniciar sesion\"))\n        UC02((\"UC02 Registrar cliente en lista de espera\"))\n        UC03((\"UC03 Ver lista de espera en tiempo real\"))\n        UC04((\"UC04 Cancelar turno\"))\n        UC05((\"UC05 Asignar mesa a cliente\"))\n        UC06((\"UC06 Ver estado de mesas\"))\n        UC07((\"UC07 Cambiar estado de mesa\"))\n        UC08((\"UC08 Registrar reservacion\"))\n        UC09((\"UC09 Gestionar reservaciones del dia\"))\n        UC10((\"UC10 Convertir reservacion en asignacion\"))\n        UC11((\"UC11 Enviar SMS notificacion\"))\n        UC12((\"UC12 Ver pantalla publica\"))\n        UC13((\"UC13 Configurar fechas festivas\"))\n        UC14((\"UC14 Configurar parametros del sistema\"))\n        UC15((\"UC15 Consultar timer mesa - referencia visual\"))\n        UC16((\"UC16 Alertar fallo envio SMS\"))\n        UC17((\"UC17 Resaltar turno activo en pantalla\"))\n        UC18((\"UC18 Marcar mesa como libre\"))\n    end\n\n    PO([\"Product Owner\"])\n    GER([\"Gerente\"])\n    CAP([\"Capitan de Meseros\"])\n    MES([\"Mesero\"])\n    CLI([\"Cliente\"])\n    SMS_EXT([\"Gateway SMS\"])\n    COM_EXT([\"Sistema Comandas Externo\"])\n\n    PO --> UC01\n    PO --> UC02\n    PO --> UC03\n    PO --> UC04\n    PO --> UC05\n    PO --> UC06\n    PO --> UC07\n    PO --> UC08\n    PO --> UC09\n    PO --> UC13\n    PO --> UC14\n\n    GER --> UC01\n    GER --> UC02\n    GER --> UC03\n    GER --> UC04\n    GER --> UC05\n    GER --> UC06\n    GER --> UC07\n    GER --> UC08\n    GER --> UC09\n    GER --> UC10\n\n    CAP --> UC01\n    CAP --> UC03\n    CAP --> UC06\n\n    MES --> UC01\n    MES --> UC06\n    MES --> UC18\n\n    CLI --> UC12\n\n    UC05 -.->|include| UC11\n    UC10 -.->|include| UC05\n    UC11 -.->|include| SMS_EXT\n    UC11 -.->|extend| UC16\n    UC12 -.->|extend| UC17\n    UC06 -.->|extend| UC15\n    UC15 -.->|consulta_visual| COM_EXT\n    UC08 -.->|include| UC13\n    UC18 -.->|extend| UC07\n\n    style SISTEMA fill:#f9f9f9\n    style PO fill:#ffe6cc\n    style GER fill:#cce6ff\n    style CAP fill:#ccffcc\n    style MES fill:#fff5cc\n    style CLI fill:#ffcccc\n    style SMS_EXT fill:#e6e6e6\n    style COM_EXT fill:#e6e6e6",
+      "creado_en": "2026-05-17T05:03:50.368Z",
+      "actualizado_en": "2026-05-17T05:05:59.494Z"
+    },
+    {
+      "id": "cmp9bt75s001nmgurow5s0nfn",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Cerrar sesion",
+      "contenido": "sequenceDiagram\n    actor U as Usuario\n    participant UI as UI Sistema\n    participant AUTH as Modulo Auth\n    participant DB as Base de Datos\n\n    U->>UI: Click \"Cerrar sesion\"\n    UI-->>U: Solicita confirmacion\n    U->>UI: Confirma cierre\n    UI->>AUTH: cerrarSesion(token)\n    AUTH->>DB: UPDATE sesion SET activa=false\n    DB-->>AUTH: ok\n    AUTH-->>UI: sesion finalizada\n    UI-->>U: Redirige a pantalla Login",
+      "creado_en": "2026-05-17T05:20:02.176Z",
+      "actualizado_en": "2026-05-17T05:20:19.973Z"
+    },
+    {
+      "id": "cmp9bap5p001lmgur6bd38yf3",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "PAQUETES",
+      "nombre": "Diagrama de Paquetes LDM",
+      "contenido": "graph TB\n    subgraph SLE[\"Sistema de Gestion de Lista de Espera - Luna de Miel\"]\n\n        subgraph PRES[\"Presentacion\"]\n            UI_REC[\"UI Recepcion - Web Desktop\"]\n            UI_SALA[\"UI Sala - Mobile\"]\n            UI_PUB[\"UI Pantalla Publica - TV\"]\n        end\n\n        subgraph APP[\"Aplicacion / Logica de Negocio\"]\n            MOD_ESPERA[\"Modulo Lista de Espera\"]\n            MOD_MESAS[\"Modulo Estado de Mesas\"]\n            MOD_RESERV[\"Modulo Reservaciones\"]\n            MOD_NOTIF[\"Modulo Notificaciones\"]\n            MOD_PUB[\"Modulo Pantalla Publica\"]\n            MOD_AUTH[\"Modulo Acceso y Roles\"]\n        end\n\n        subgraph DOM[\"Dominio\"]\n            ENT_CLI[\"Entidades Cliente\"]\n            ENT_MESA[\"Entidades Mesa\"]\n            ENT_TURNO[\"Entidades Turno\"]\n            ENT_RES[\"Entidades Reservacion\"]\n            ENT_USR[\"Entidades Usuario\"]\n            REGLAS[\"Reglas de Negocio RN01-RN08\"]\n        end\n\n        subgraph INFRA[\"Infraestructura\"]\n            DB[\"Base de Datos\"]\n            SMS_GW[\"Gateway SMS\"]\n            RT_SVC[\"Servicio Tiempo Real\"]\n        end\n\n        subgraph EXT[\"Sistemas Externos - Referencia\"]\n            COM_EXT[\"Sistema de Comandas Externo\"]\n        end\n    end\n\n    UI_REC --> MOD_ESPERA\n    UI_REC --> MOD_MESAS\n    UI_REC --> MOD_RESERV\n    UI_REC --> MOD_NOTIF\n    UI_REC --> MOD_AUTH\n    UI_SALA --> MOD_MESAS\n    UI_SALA --> MOD_ESPERA\n    UI_PUB --> MOD_PUB\n\n    MOD_ESPERA --> ENT_TURNO\n    MOD_ESPERA --> ENT_CLI\n    MOD_MESAS --> ENT_MESA\n    MOD_RESERV --> ENT_RES\n    MOD_RESERV --> REGLAS\n    MOD_NOTIF --> SMS_GW\n    MOD_PUB --> ENT_TURNO\n    MOD_AUTH --> ENT_USR\n\n    ENT_CLI --> DB\n    ENT_MESA --> DB\n    ENT_TURNO --> DB\n    ENT_RES --> DB\n    ENT_USR --> DB\n\n    MOD_MESAS -.consulta_visual.-> COM_EXT\n    MOD_ESPERA --> RT_SVC\n    MOD_MESAS --> RT_SVC\n    MOD_PUB --> RT_SVC\n\n    style EXT fill:#ffe6e6\n    style PRES fill:#e6f3ff\n    style APP fill:#fff4e6\n    style DOM fill:#e6ffe6\n    style INFRA fill:#f0e6ff",
+      "creado_en": "2026-05-17T05:05:39.037Z",
+      "actualizado_en": "2026-05-17T05:06:24.135Z"
+    },
+    {
+      "id": "cmp9bqm79001mmgurfmdxpn4h",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Inicio de sesion",
+      "contenido": "sequenceDiagram\n    actor U as Usuario (PO/Gerente/Capitan/Mesero)\n    participant UI as UI Login\n    participant AUTH as Modulo Auth\n    participant DB as Base de Datos\n\n    U->>UI: Ingresa credenciales\n    UI->>AUTH: validarCredenciales(user, pass)\n    AUTH->>DB: SELECT usuario WHERE user=?\n    DB-->>AUTH: datos usuario + rol\n    AUTH->>AUTH: verificarHash(pass)\n\n    alt Credenciales validas\n        AUTH-->>UI: sesion + rol\n        UI-->>U: Mostrar dashboard segun rol\n    else Credenciales invalidas\n        AUTH-->>UI: error autenticacion\n        UI-->>U: Mensaje \"Credenciales incorrectas\"\n    end",
+      "creado_en": "2026-05-17T05:18:01.701Z",
+      "actualizado_en": "2026-05-17T05:19:17.027Z"
+    },
+    {
+      "id": "cmp9bu68i001omgur8roea9zd",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Verificar permisos por rol",
+      "contenido": "sequenceDiagram\n    actor U as Usuario\n    participant UI as UI Sistema\n    participant AUTH as Modulo Auth\n    participant DB as Base de Datos\n\n    U->>UI: Intenta acceder a funcionalidad X\n    UI->>AUTH: verificarPermiso(user_id, accion)\n    AUTH->>DB: SELECT rol y permisos del usuario\n    DB-->>AUTH: permisos\n\n    alt Permiso concedido\n        AUTH-->>UI: autorizado\n        UI-->>U: Muestra funcionalidad\n    else Permiso denegado\n        AUTH-->>UI: no_autorizado\n        UI-->>U: \"No tienes permisos para esta accion\"\n    end",
+      "creado_en": "2026-05-17T05:20:47.634Z",
+      "actualizado_en": "2026-05-17T05:20:59.989Z"
+    },
+    {
+      "id": "cmp9bvi2o001pmgurltem6gpu",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Registrar cliente en lista de espera",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Recepcion\n    participant ESP as Modulo Lista Espera\n    participant DB as Base de Datos\n    participant RT as Servicio Tiempo Real\n\n    G->>UI: Click \"Nuevo cliente en espera\"\n    UI-->>G: Formulario (nombre, personas, telefono)\n    G->>UI: Completa y envia datos\n    UI->>ESP: registrarTurno(datos)\n    ESP->>ESP: capturarHoraLlegada()\n    ESP->>ESP: generarNumeroTurno()\n    ESP->>DB: INSERT Cliente y Turno\n    DB-->>ESP: turno creado\n    ESP->>RT: broadcast(nuevo_turno)\n    RT-->>UI: actualizar lista\n    ESP-->>UI: confirmacion\n    UI-->>G: \"Cliente registrado, turno #X\"",
+      "creado_en": "2026-05-17T05:21:49.632Z",
+      "actualizado_en": "2026-05-17T05:22:15.068Z"
+    },
+    {
+      "id": "cmp9bwg96001qmgurugbdqgj1",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Validar campos obligatorios del turno",
+      "contenido": "sequenceDiagram\n    participant UI as UI Recepcion\n    participant ESP as Modulo Lista Espera\n    actor G as Gerente\n\n    G->>UI: Envia formulario\n    UI->>ESP: validarCampos(datos)\n    ESP->>ESP: verificar nombre no vacio\n    ESP->>ESP: verificar numero_personas > 0\n    ESP->>ESP: verificar formato telefono\n\n    alt Todos los campos validos\n        ESP-->>UI: validacion_ok\n        UI-->>G: Permite continuar registro\n    else Campos faltantes o invalidos\n        ESP-->>UI: error con lista de campos\n        UI-->>G: Resalta campos en rojo\n        UI-->>G: Mensaje \"Completa los campos obligatorios\"\n    end",
+      "creado_en": "2026-05-17T05:22:33.930Z",
+      "actualizado_en": "2026-05-17T05:22:53.934Z"
+    },
+    {
+      "id": "cmp9bx53h001rmgurkxse7ldw",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Visualizar lista de espera en tiempo real",
+      "contenido": "sequenceDiagram\n    actor U as Gerente/Capitan/Mesero\n    participant UI as UI Dashboard\n    participant ESP as Modulo Lista Espera\n    participant RT as Servicio Tiempo Real\n    participant DB as Base de Datos\n\n    U->>UI: Abre pantalla principal\n    UI->>ESP: obtenerListaActiva()\n    ESP->>DB: SELECT turnos WHERE estado=EN_ESPERA ORDER BY hora_llegada\n    DB-->>ESP: lista de turnos\n    ESP-->>UI: lista ordenada\n    UI-->>U: Renderiza tabla\n\n    UI->>RT: suscribir(canal_lista_espera)\n\n    loop Cada actualizacion\n        RT-->>UI: evento turno_actualizado\n        UI->>UI: actualizar fila correspondiente\n        UI->>UI: recalcular tiempo transcurrido\n        UI-->>U: Vista refrescada\n    end",
+      "creado_en": "2026-05-17T05:23:06.125Z",
+      "actualizado_en": "2026-05-17T05:23:14.621Z"
+    },
+    {
+      "id": "cmp9bxn42001smgur3ilf0i5v",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Editar datos de turno existente",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Recepcion\n    participant ESP as Modulo Lista Espera\n    participant DB as Base de Datos\n    participant RT as Servicio Tiempo Real\n\n    G->>UI: Click \"Editar\" en turno X\n    UI->>ESP: obtenerTurno(turno_id)\n    ESP->>DB: SELECT turno\n    DB-->>ESP: datos\n    ESP-->>UI: datos del turno\n    UI-->>G: Formulario con datos actuales\n    G->>UI: Modifica datos y guarda\n    UI->>ESP: actualizarTurno(turno_id, datos)\n    ESP->>DB: UPDATE turno\n    DB-->>ESP: ok\n    ESP->>RT: broadcast(turno_actualizado)\n    RT-->>UI: refresca lista\n    ESP-->>UI: confirmacion\n    UI-->>G: \"Datos actualizados\"",
+      "creado_en": "2026-05-17T05:23:29.474Z",
+      "actualizado_en": "2026-05-17T05:23:38.196Z"
+    },
+    {
+      "id": "cmp9by4an001tmgurot32pu4g",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Cancelar turno - cliente se fue",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Recepcion\n    participant ESP as Modulo Lista Espera\n    participant DB as Base de Datos\n    participant RT as Servicio Tiempo Real\n\n    G->>UI: Click \"Cancelar\" en turno X\n    UI-->>G: Modal: seleccionar razon\n    G->>UI: Selecciona \"Cliente se fue\"\n    UI-->>G: Confirmar accion\n    G->>UI: Confirma\n    UI->>ESP: cancelarTurno(turno_id, SE_FUE)\n    ESP->>DB: UPDATE turno estado=CANCELADO_SE_FUE\n    DB-->>ESP: ok\n    ESP->>ESP: reordenarLista()\n    ESP->>RT: broadcast(lista_actualizada)\n    RT-->>UI: refresca\n    ESP-->>UI: confirmacion\n    UI-->>G: \"Turno cancelado\"",
+      "creado_en": "2026-05-17T05:23:51.743Z",
+      "actualizado_en": "2026-05-17T05:23:58.372Z"
+    },
+    {
+      "id": "cmp9byo7a001umgurh8jfj3tv",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Cancelar turno - no se presentó",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Recepcion\n    participant ESP as Modulo Lista Espera\n    participant DB as Base de Datos\n    participant RT as Servicio Tiempo Real\n\n    Note over G: Turno notificado pero cliente no llego\n    G->>UI: Click \"No se presento\" en turno X\n    UI-->>G: Confirmar cancelacion\n    G->>UI: Confirma\n    UI->>ESP: cancelarTurno(turno_id, NO_SE_PRESENTO)\n    ESP->>DB: UPDATE turno estado=CANCELADO_NO_PRESENTO\n    DB-->>ESP: ok\n    ESP->>ESP: reordenarLista()\n    ESP->>RT: broadcast(lista_actualizada)\n    RT-->>UI: refresca\n    ESP-->>UI: confirmacion\n    UI-->>G: \"Turno marcado como no presentado\"",
+      "creado_en": "2026-05-17T05:24:17.542Z",
+      "actualizado_en": "2026-05-17T05:24:26.808Z"
+    },
+    {
+      "id": "cmp9bz9dg001vmgur9lvi63zv",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Reordenar lista tras cancelación",
+      "contenido": "sequenceDiagram\n    participant ESP as Modulo Lista Espera\n    participant DB as Base de Datos\n    participant RT as Servicio Tiempo Real\n    participant UI as UI Recepcion\n\n    Note over ESP: Turno X cancelado\n    ESP->>DB: SELECT turnos WHERE estado=EN_ESPERA ORDER BY hora_llegada\n    DB-->>ESP: turnos restantes\n\n    loop Para cada turno\n        ESP->>ESP: asignar nuevo numero_turno secuencial\n    end\n\n    ESP->>DB: UPDATE numeros_turno\n    DB-->>ESP: ok\n    ESP->>RT: broadcast(lista_reordenada)\n    RT-->>UI: refresca posiciones\n    UI->>UI: anima cambio de orden",
+      "creado_en": "2026-05-17T05:24:44.980Z",
+      "actualizado_en": "2026-05-17T05:24:55.125Z"
+    },
+    {
+      "id": "cmp9bztjs001wmgurv0y9eb27",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Calcular tiempo transcurrido en espera",
+      "contenido": "sequenceDiagram\n    participant UI as UI Dashboard\n    participant ESP as Modulo Lista Espera\n    participant DB as Base de Datos\n\n    loop Cada 30 segundos\n        UI->>ESP: solicitarTiemposActualizados()\n        ESP->>DB: SELECT hora_llegada de turnos activos\n        DB-->>ESP: timestamps\n        ESP->>ESP: calcular (NOW - hora_llegada) por turno\n        ESP-->>UI: tiempos transcurridos\n        UI->>UI: actualizar columna \"tiempo en espera\"\n    end",
+      "creado_en": "2026-05-17T05:25:11.128Z",
+      "actualizado_en": "2026-05-17T05:25:23.792Z"
+    },
+    {
+      "id": "cmp9c0cgx001xmgur8hdxl83s",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Asignar mesa a cliente en espera",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Recepcion\n    participant ESP as Modulo Lista Espera\n    participant MES as Modulo Mesas\n    participant NOT as Modulo Notificaciones\n    participant DB as Base de Datos\n\n    G->>UI: Click \"Asignar mesa\" en turno X\n    UI->>MES: obtenerMesasCompatibles(num_personas)\n    MES->>DB: SELECT mesas LIBRE AND capacidad>=personas\n    DB-->>MES: mesas compatibles\n    MES-->>UI: opciones\n    UI-->>G: Muestra mesas disponibles\n    G->>UI: Selecciona mesa Y\n    UI->>ESP: asignarMesa(turno_id, mesa_id)\n    ESP->>DB: UPDATE turno estado=ASIGNADO\n    ESP->>MES: cambiarEstado(mesa_id, OCUPADA)\n    MES->>DB: UPDATE mesa\n    ESP->>NOT: enviarSMS(turno_id)\n    ESP-->>UI: confirmacion\n    UI-->>G: \"Mesa asignada y SMS enviado\"",
+      "creado_en": "2026-05-17T05:25:35.649Z",
+      "actualizado_en": "2026-05-17T05:25:48.074Z"
+    },
+    {
+      "id": "cmp9c0t55001ymgurozcor487",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Sugerir mesa compatible automáticamente",
+      "contenido": "sequenceDiagram\n    participant MES as Modulo Mesas\n    participant ESP as Modulo Lista Espera\n    participant DB as Base de Datos\n    participant UI as UI Recepcion\n    actor G as Gerente\n\n    Note over MES: Mesa X cambia a LIBRE\n    MES->>ESP: hayListaActiva()\n    ESP->>DB: SELECT primer turno compatible con capacidad de mesa X\n    DB-->>ESP: turno sugerido\n\n    alt Existe turno compatible\n        ESP-->>MES: turno N\n        MES->>UI: notificar sugerencia\n        UI-->>G: \"Sugerencia: asignar mesa X al turno #N?\"\n        G->>UI: Acepta sugerencia\n        UI->>ESP: confirmarSugerencia(turno_n, mesa_x)\n    else No hay turnos compatibles\n        ESP-->>MES: ninguno\n        MES->>UI: mesa libre sin sugerencia\n    end",
+      "creado_en": "2026-05-17T05:25:57.257Z",
+      "actualizado_en": "2026-05-17T05:26:05.573Z"
+    },
+    {
+      "id": "cmp9c17jo001zmgurg6jewdpw",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Manejar caso sin mesa exactamente compatible",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Recepcion\n    participant MES as Modulo Mesas\n    participant RN as Reglas de Negocio\n    participant DB as Base de Datos\n\n    G->>UI: Solicita asignar mesa al turno X (8 personas)\n    UI->>MES: obtenerMesasCompatibles(8)\n    MES->>DB: SELECT mesas LIBRE AND capacidad>=8\n    DB-->>MES: sin resultados exactos\n\n    alt No hay mesa de exactamente esa capacidad\n        MES->>RN: aplicarReglaCompatibilidad(8)\n        RN->>RN: buscar mesas con capacidad mayor disponibles\n        RN-->>MES: opciones cercanas (ej. mesa de 9, mesa de 6+2)\n        MES-->>UI: mesas alternativas + advertencia\n        UI-->>G: \"No hay mesa exacta. Opciones cercanas: ...\"\n        G->>UI: Selecciona alternativa\n    end",
+      "creado_en": "2026-05-17T05:26:15.924Z",
+      "actualizado_en": "2026-05-17T05:26:26.460Z"
+    },
+    {
+      "id": "cmp9c1qsz0020mgur3ltxaozn",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Visualizar mapa de mesas en tiempo real",
+      "contenido": "sequenceDiagram\n    actor U as Gerente/Capitan/Mesero\n    participant UI as UI Mapa de Mesas\n    participant MES as Modulo Mesas\n    participant RT as Servicio Tiempo Real\n    participant DB as Base de Datos\n\n    U->>UI: Abre vista \"Mapa de mesas\"\n    UI->>MES: obtenerEstadoTodasMesas()\n    MES->>DB: SELECT * FROM mesas\n    DB-->>MES: mesas con estados\n    MES->>MES: calcularTiempoOcupacion por mesa\n    MES-->>UI: mapa de mesas\n    UI-->>U: Renderiza por zonas\n\n    UI->>RT: suscribir(canal_mesas)\n\n    loop Tiempo real\n        RT-->>UI: evento mesa_cambio_estado\n        UI->>UI: actualizar mesa especifica\n        UI-->>U: Vista refrescada\n    end",
+      "creado_en": "2026-05-17T05:26:40.883Z",
+      "actualizado_en": "2026-05-17T05:26:49.828Z"
+    },
+    {
+      "id": "cmp9c274x0021mgurb54lv5on",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Cambiar estado de mesa manualmente",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Mapa de Mesas\n    participant MES as Modulo Mesas\n    participant DB as Base de Datos\n    participant RT as Servicio Tiempo Real\n\n    G->>UI: Click en mesa X\n    UI-->>G: Opciones LIBRE / OCUPADA / RESERVADA\n    G->>UI: Selecciona nuevo estado\n    UI->>MES: cambiarEstado(mesa_id, nuevo_estado)\n    MES->>DB: UPDATE mesa SET estado=?, hora_cambio=NOW\n    DB-->>MES: ok\n    MES->>RT: broadcast(mesa_cambio)\n    RT-->>UI: refresca mapa\n    MES-->>UI: confirmacion\n    UI-->>G: \"Estado actualizado\"",
+      "creado_en": "2026-05-17T05:27:02.049Z",
+      "actualizado_en": "2026-05-17T05:27:06.447Z"
+    },
+    {
+      "id": "cmp9c2h2a0022mgurlywahik0",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Mesero libera mesa desde sala",
+      "contenido": "sequenceDiagram\n    actor M as Mesero\n    participant MOV as UI Mobile Sala\n    participant AUTH as Modulo Auth\n    participant MES as Modulo Mesas\n    participant ESP as Modulo Lista Espera\n    participant RT as Servicio Tiempo Real\n    participant DB as Base de Datos\n    actor G as Gerente\n\n    Note over M: Cliente termino, mesa limpia\n    M->>MOV: Selecciona mesa X y marca \"Libre\"\n    MOV->>AUTH: verificarRol(mesero)\n    AUTH-->>MOV: autorizado\n    MOV->>MES: solicitarLiberacion(mesa_id, mesero_id)\n    MES->>DB: UPDATE mesa SET estado=LIBRE\n    DB-->>MES: ok\n    MES->>RT: broadcast(mesa_libre)\n\n    par Notificacion a recepcion\n        RT-->>G: \"Mesa X disponible\"\n    and Sugerencia automatica\n        MES->>ESP: hayListaActiva()\n        ESP-->>MES: turno compatible\n        MES->>RT: broadcast(sugerencia)\n        RT-->>G: \"Asignar mesa X al turno #N?\"\n    end\n\n    MES-->>MOV: confirmacion\n    MOV-->>M: \"Mesa marcada como libre\"",
+      "creado_en": "2026-05-17T05:27:14.914Z",
+      "actualizado_en": "2026-05-17T05:27:24.112Z"
+    },
+    {
+      "id": "cmp9c31fy0023mgurevg7oq5u",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Calcular tiempo de ocupación de mesa",
+      "contenido": "sequenceDiagram\n    participant UI as UI Mapa de Mesas\n    participant MES as Modulo Mesas\n    participant DB as Base de Datos\n\n    loop Cada 30 segundos\n        UI->>MES: solicitarTimersMesas()\n        MES->>DB: SELECT hora_ocupacion de mesas OCUPADAS\n        DB-->>MES: timestamps\n        MES->>MES: calcular (NOW - hora_ocupacion) por mesa\n        MES-->>UI: tiempos de ocupacion\n        UI->>UI: actualizar timer visible en cada mesa\n    end",
+      "creado_en": "2026-05-17T05:27:41.326Z",
+      "actualizado_en": "2026-05-17T05:27:48.879Z"
+    },
+    {
+      "id": "cmp9c3nr50024mgurahkbdomn",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Consultar timer de mesa - referencia comandas",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Recepcion\n    participant MES as Modulo Mesas\n    participant COM as Sistema Comandas Externo\n\n    Note over G,COM: Sistema externo NO se integra tecnicamente\n    G->>UI: Quiere estimar tiempo de espera para nuevo cliente\n    UI->>MES: obtenerTimersMesas()\n    MES-->>UI: tiempos propios del sistema\n    UI-->>G: Muestra timers internos\n    G->>COM: Consulta visual al sistema de comandas\n    COM-->>G: Estado de comandas en cocina\n    G->>G: Combina ambas referencias mentalmente\n    G->>UI: Comunica al cliente estimacion mas precisa",
+      "creado_en": "2026-05-17T05:28:10.241Z",
+      "actualizado_en": "2026-05-17T05:28:20.936Z"
+    },
+    {
+      "id": "cmp9c47xw0025mgurhj81oob8",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Registrar reservación zona normal",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Reservaciones\n    participant RES as Modulo Reservaciones\n    participant DB as Base de Datos\n\n    G->>UI: \"Nueva reservacion\"\n    UI-->>G: Formulario\n    G->>UI: Completa (zona=TERRAZA/LOBBY/PLANTA_BAJA, datos)\n    UI->>RES: registrarReservacion(datos)\n    RES->>RES: validarCamposBasicos()\n\n    alt Zona normal (no privada)\n        RES->>DB: INSERT reservacion\n        DB-->>RES: ok\n        RES-->>UI: confirmacion\n        UI-->>G: \"Reservacion registrada para el mismo dia\"\n    end",
+      "creado_en": "2026-05-17T05:28:36.404Z",
+      "actualizado_en": "2026-05-17T05:28:44.471Z"
+    },
+    {
+      "id": "cmp9c4o6f0026mgurfjc3rk9p",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Registrar reservación zona privada con validación",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Reservaciones\n    participant RES as Modulo Reservaciones\n    participant RN as Reglas de Negocio\n    participant DB as Base de Datos\n\n    G->>UI: Selecciona zona HABITACION_PRIVADA\n    UI-->>G: Formulario extendido\n    G->>UI: Completa datos\n    UI->>RES: registrarReservacionPrivada(datos)\n    RES->>RN: validarReservacionPrivada(fecha, personas)\n    RN->>RN: fecha >= hoy + 1 dia?\n    RN->>RN: personas >= 8?\n    RN->>DB: fecha esta marcada como festiva?\n    DB-->>RN: resultado\n\n    alt Todas las reglas cumplidas\n        RN-->>RES: valido\n        RES->>DB: INSERT reservacion\n        DB-->>RES: ok\n        RES-->>UI: confirmacion\n        UI-->>G: \"Reservacion privada registrada\"\n    else Alguna regla violada\n        RN-->>RES: error especifico\n        RES-->>UI: error con detalle\n        UI-->>G: \"No permitida: [razon: antelacion/personas/festivo]\"\n    end",
+      "creado_en": "2026-05-17T05:28:57.447Z",
+      "actualizado_en": "2026-05-17T05:29:08.263Z"
+    },
+    {
+      "id": "cmp9c54c70027mgurp617iw7w",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Validar fecha festiva en reservación",
+      "contenido": "sequenceDiagram\n    participant RES as Modulo Reservaciones\n    participant RN as Reglas de Negocio\n    participant DB as Base de Datos\n\n    RES->>RN: validarFechaFestiva(fecha, zona)\n    RN->>DB: SELECT fecha_festiva WHERE fecha=?\n    DB-->>RN: registro festivo o null\n\n    alt Fecha es festiva\n        RN->>RN: zona == HABITACION_PRIVADA?\n\n        alt Si es zona privada\n            RN-->>RES: bloqueada por fecha festiva\n        else No es zona privada\n            RN-->>RES: permitida\n        end\n    else Fecha no es festiva\n        RN-->>RES: permitida\n    end",
+      "creado_en": "2026-05-17T05:29:18.391Z",
+      "actualizado_en": "2026-05-17T05:29:27.866Z"
+    },
+    {
+      "id": "cmp9c5jb20028mgurpkowex6n",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Visualizar reservaciones del día",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Reservaciones del Dia\n    participant RES as Modulo Reservaciones\n    participant DB as Base de Datos\n\n    G->>UI: Abre \"Reservaciones de hoy\"\n    UI->>RES: obtenerReservacionesHoy()\n    RES->>DB: SELECT reservaciones WHERE fecha=TODAY ORDER BY hora\n    DB-->>RES: lista\n    RES-->>UI: reservaciones del dia\n    UI-->>G: Muestra junto a lista de espera con distincion visual",
+      "creado_en": "2026-05-17T05:29:37.790Z",
+      "actualizado_en": "2026-05-17T05:29:47.014Z"
+    },
+    {
+      "id": "cmp9c5xe60029mgur0ash1vh5",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Cambiar estado de reservación",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Reservaciones del Dia\n    participant RES as Modulo Reservaciones\n    participant DB as Base de Datos\n\n    G->>UI: Cambia estado de reservacion Y\n    UI-->>G: Opciones CONFIRMADA / EN_CURSO / CANCELADA\n    G->>UI: Selecciona nuevo estado\n    UI->>RES: actualizarEstado(res_id, nuevo_estado)\n    RES->>DB: UPDATE reservacion\n    DB-->>RES: ok\n    RES-->>UI: confirmacion\n    UI-->>G: Vista actualizada",
+      "creado_en": "2026-05-17T05:29:56.046Z",
+      "actualizado_en": "2026-05-17T05:30:02.775Z"
+    },
+    {
+      "id": "cmp9c6cug002amgur4jx6vyp0",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Convertir reservación en asignación de mesa",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Recepcion\n    participant RES as Modulo Reservaciones\n    participant MES as Modulo Mesas\n    participant DB as Base de Datos\n\n    Note over G: Cliente con reservacion llega\n    G->>UI: Click \"Acomodar\" en reservacion X\n    UI->>RES: obtenerReservacion(id)\n    RES->>DB: SELECT reservacion\n    DB-->>RES: datos\n    RES->>MES: obtenerMesasCompatibles(zona, personas)\n    MES->>DB: SELECT mesas LIBRE AND zona=? AND capacidad>=?\n    DB-->>MES: mesas\n    MES-->>UI: opciones\n    G->>UI: Selecciona mesa\n    UI->>RES: convertirEnAsignacion(res_id, mesa_id)\n    RES->>DB: UPDATE reservacion estado=EN_CURSO\n    RES->>MES: cambiarEstado(mesa, OCUPADA)\n    MES->>DB: UPDATE mesa\n    RES-->>UI: ok\n    UI-->>G: \"Cliente acomodado\"",
+      "creado_en": "2026-05-17T05:30:16.072Z",
+      "actualizado_en": "2026-05-17T05:30:29.660Z"
+    },
+    {
+      "id": "cmp9c6ufj002bmgurqh4ztxx6",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Alertar próxima reservación",
+      "contenido": "sequenceDiagram\n    participant SCH as Scheduler Sistema\n    participant RES as Modulo Reservaciones\n    participant DB as Base de Datos\n    participant RT as Servicio Tiempo Real\n    participant UI as UI Recepcion\n    actor G as Gerente\n\n    loop Cada 5 minutos\n        SCH->>RES: revisarProximasReservaciones()\n        RES->>DB: SELECT reservaciones WHERE hora entre NOW y NOW+30min\n        DB-->>RES: proximas reservaciones\n\n        loop Por cada reservacion proxima\n            RES->>RT: broadcast(alerta_reservacion, datos)\n            RT-->>UI: notificacion visual\n            UI-->>G: \"Reservacion en 30 min - preparar mesa zona X\"\n        end\n    end",
+      "creado_en": "2026-05-17T05:30:38.863Z",
+      "actualizado_en": "2026-05-17T05:30:49.493Z"
+    },
+    {
+      "id": "cmp9c7a1l002cmgurzh1ngjgd",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Enviar SMS automático al asignar mesa",
+      "contenido": "sequenceDiagram\n    participant ESP as Modulo Lista Espera\n    participant NOT as Modulo Notificaciones\n    participant SMS as Gateway SMS\n    participant DB as Base de Datos\n\n    ESP->>NOT: solicitarEnvio(turno_id)\n    NOT->>DB: SELECT cliente.telefono\n    DB-->>NOT: numero\n    NOT->>NOT: construirMensaje(\"Tu mesa en Luna de Miel esta lista. Pasa a recepcion.\")\n    NOT->>SMS: enviar(telefono, mensaje)\n    SMS-->>NOT: id_mensaje + status inicial\n    NOT->>DB: INSERT notificacion estado=ENVIADO\n    DB-->>NOT: ok\n    NOT-->>ESP: notificacion enviada",
+      "creado_en": "2026-05-17T05:30:59.097Z",
+      "actualizado_en": "2026-05-17T05:31:07.067Z"
+    },
+    {
+      "id": "cmp9c7mpw002dmgur42hq1912",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Confirmar entrega de SMS",
+      "contenido": "sequenceDiagram\n    participant SMS as Gateway SMS\n    participant NOT as Modulo Notificaciones\n    participant DB as Base de Datos\n    participant RT as Servicio Tiempo Real\n    participant UI as UI Recepcion\n\n    SMS-->>NOT: webhook entrega(id_mensaje, status)\n\n    alt Status = ENTREGADO\n        NOT->>DB: UPDATE notificacion estado=ENTREGADO\n        DB-->>NOT: ok\n        NOT->>RT: broadcast(sms_entregado, turno_id)\n        RT-->>UI: indicador visual verde\n    else Status = FALLIDO\n        NOT->>DB: UPDATE notificacion estado=FALLIDO\n        NOT->>RT: broadcast(sms_fallido, turno_id)\n        RT-->>UI: indicador visual rojo\n    end",
+      "creado_en": "2026-05-17T05:31:15.524Z",
+      "actualizado_en": "2026-05-17T05:31:23.509Z"
+    },
+    {
+      "id": "cmp9c80ld002emgurdg7qzypi",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Alertar fallo en envío de SMS",
+      "contenido": "sequenceDiagram\n    participant NOT as Modulo Notificaciones\n    participant RT as Servicio Tiempo Real\n    participant UI as UI Recepcion\n    actor G as Gerente\n\n    Note over NOT: Detectado fallo en envio\n    NOT->>RT: broadcast(alerta_sms_fallido, turno_id)\n    RT-->>UI: notificacion visual urgente\n    UI-->>G: \"SMS no entregado al turno #N. Notificar manualmente.\"\n    G->>UI: Reconoce alerta\n    UI->>NOT: marcarAlertaVista(turno_id)\n    NOT-->>UI: ok",
+      "creado_en": "2026-05-17T05:31:33.505Z",
+      "actualizado_en": "2026-05-17T05:31:41.650Z"
+    },
+    {
+      "id": "cmp9c8ebf002fmgur34iydbxu",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Registrar notificación manual de respaldo",
+      "contenido": "sequenceDiagram\n    actor G as Gerente\n    participant UI as UI Recepcion\n    participant NOT as Modulo Notificaciones\n    participant DB as Base de Datos\n\n    Note over G: SMS fallo, llamar por telefono\n    G->>G: Llama manualmente al cliente\n    G->>UI: Marca turno como \"Notificado manualmente\"\n    UI->>NOT: registrarNotificacionManual(turno_id, gerente_id)\n    NOT->>DB: INSERT notificacion (tipo=MANUAL, usuario=gerente)\n    DB-->>NOT: ok\n    NOT-->>UI: confirmacion\n    UI-->>G: \"Notificacion manual registrada\"",
+      "creado_en": "2026-05-17T05:31:51.290Z",
+      "actualizado_en": "2026-05-17T05:31:59.552Z"
+    },
+    {
+      "id": "cmp9c8tlb002gmguruorwgba0",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Visualizar pantalla pública de turnos",
+      "contenido": "sequenceDiagram\n    actor C as Cliente\n    participant TV as Pantalla Publica TV\n    participant PUB as Modulo Pantalla Publica\n    participant RT as Servicio Tiempo Real\n    participant DB as Base de Datos\n\n    TV->>PUB: inicializar()\n    PUB->>DB: SELECT primeros N turnos activos\n    DB-->>PUB: turnos\n    PUB-->>TV: render solo lectura\n    TV-->>C: Muestra turnos visibles\n\n    TV->>RT: suscribir(canal_pantalla_publica)\n\n    loop Tiempo real\n        RT-->>TV: evento lista_cambio\n        TV->>TV: actualizar vista\n        TV-->>C: Posicion actualizada\n    end",
+      "creado_en": "2026-05-17T05:32:11.087Z",
+      "actualizado_en": "2026-05-17T05:32:19.047Z"
+    },
+    {
+      "id": "cmp9c98n0002hmgur8cdel1f5",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Resaltar turno activo en pantalla pública",
+      "contenido": "sequenceDiagram\n    participant ESP as Modulo Lista Espera\n    participant PUB as Modulo Pantalla Publica\n    participant RT as Servicio Tiempo Real\n    participant TV as Pantalla Publica\n    actor C as Cliente\n\n    ESP->>ESP: turno X cambia a NOTIFICADO\n    ESP->>PUB: marcarTurnoActivo(turno_x)\n    PUB->>RT: broadcast(resaltar_turno, X)\n    RT-->>TV: evento highlight\n    TV->>TV: aplica color destacado e icono\n    TV-->>C: \"Turno #X - Tu mesa esta lista\"",
+      "creado_en": "2026-05-17T05:32:30.588Z",
+      "actualizado_en": "2026-05-17T05:32:38.604Z"
+    },
+    {
+      "id": "cmp9c9mzg002imgur4ojdwuv6",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Aplicar tiempo de gracia tras notificación",
+      "contenido": "sequenceDiagram\n    participant NOT as Modulo Notificaciones\n    participant ESP as Modulo Lista Espera\n    participant UI as UI Recepcion\n    actor G as Gerente\n\n    NOT->>ESP: turno X notificado a las HH:MM\n    ESP->>ESP: iniciarTimerGracia(turno_x, 3min)\n\n    alt Cliente se presenta antes de 3 min\n        G->>UI: Marca turno X como \"Presente\"\n        UI->>ESP: confirmarPresencia(turno_x)\n        ESP->>ESP: cancelarTimerGracia()\n        ESP-->>UI: turno asignado\n    else Pasan 3 min sin presencia\n        ESP->>UI: alerta \"Tiempo de gracia expirado para turno X\"\n        UI-->>G: \"Cancelar turno?\"\n        Note over G,ESP: Sistema NO cancela automaticamente (RN07)\n        G->>UI: Confirma cancelacion\n        UI->>ESP: cancelarTurno(turno_x, NO_SE_PRESENTO)\n        ESP-->>UI: lista reordenada\n    end",
+      "creado_en": "2026-05-17T05:32:49.180Z",
+      "actualizado_en": "2026-05-17T05:32:56.492Z"
+    },
+    {
+      "id": "cmp9ca6hy002jmguriiynxnzf",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Configurar fecha festiva (Product Owner)",
+      "contenido": "sequenceDiagram\n    actor PO as Product Owner\n    participant UI as UI Configuracion\n    participant AUTH as Modulo Auth\n    participant CFG as Modulo Configuracion\n    participant DB as Base de Datos\n\n    PO->>UI: Accede a \"Configuracion\"\n    UI->>AUTH: verificarRol(product_owner)\n    AUTH-->>UI: autorizado\n    UI-->>PO: Pantalla \"Fechas festivas\"\n    PO->>UI: Agrega fecha + descripcion\n    UI->>CFG: registrarFechaFestiva(fecha, desc)\n    CFG->>DB: INSERT fecha_festiva (bloquea_privada=true)\n    DB-->>CFG: ok\n    CFG-->>UI: confirmacion\n    UI-->>PO: \"Fecha guardada. No se aceptaran reservaciones privadas ese dia.\"",
+      "creado_en": "2026-05-17T05:33:14.470Z",
+      "actualizado_en": "2026-05-17T05:33:23.709Z"
+    },
+    {
+      "id": "cmp9cak7j002kmgurzudi0k3h",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Configurar parámetros del sistema",
+      "contenido": "sequenceDiagram\n    actor PO as Product Owner\n    participant UI as UI Configuracion\n    participant AUTH as Modulo Auth\n    participant CFG as Modulo Configuracion\n    participant DB as Base de Datos\n\n    PO->>UI: Accede a \"Parametros del sistema\"\n    UI->>AUTH: verificarRol(product_owner)\n    AUTH-->>UI: autorizado\n    UI->>CFG: obtenerParametrosActuales()\n    CFG->>DB: SELECT configuracion\n    DB-->>CFG: parametros\n    CFG-->>UI: valores actuales\n    UI-->>PO: Formulario (tiempo_gracia, plantilla_SMS, N_turnos_TV, etc.)\n    PO->>UI: Modifica valores y guarda\n    UI->>CFG: actualizarParametros(datos)\n    CFG->>DB: UPDATE configuracion\n    DB-->>CFG: ok\n    CFG-->>UI: confirmacion\n    UI-->>PO: \"Parametros actualizados\"",
+      "creado_en": "2026-05-17T05:33:32.239Z",
+      "actualizado_en": "2026-05-17T05:33:40.523Z"
+    },
+    {
+      "id": "cmp9caz76002lmgurtlqkq3e4",
+      "proyecto_id": "cmp8r6x5g0000ywurknu6p046",
+      "tipo": "SECUENCIA",
+      "nombre": "Vista de consulta del Capitán desde sala",
+      "contenido": "sequenceDiagram\n    actor C as Capitan de Meseros\n    participant MOV as UI Mobile Sala\n    participant AUTH as Modulo Auth\n    participant MES as Modulo Mesas\n    participant ESP as Modulo Lista Espera\n    participant RT as Servicio Tiempo Real\n\n    C->>MOV: Abre app en celular\n    MOV->>AUTH: autenticar(capitan)\n    AUTH-->>MOV: sesion solo_lectura\n    MOV->>MES: obtenerEstadoMesas()\n    MOV->>ESP: obtenerListaEspera()\n    MES-->>MOV: mesas\n    ESP-->>MOV: lista\n    MOV-->>C: Vista compacta optimizada movil\n\n    MOV->>RT: suscribir(canales_lectura)\n\n    loop Tiempo real\n        RT-->>MOV: actualizaciones\n        MOV-->>C: refresca vista\n    end\n\n    Note over C,MOV: Capitan NO puede modificar (HU-13 CA-45)",
+      "creado_en": "2026-05-17T05:33:51.666Z",
+      "actualizado_en": "2026-05-17T05:34:03.052Z"
+    }
+  ],
+  "specs": []
+}

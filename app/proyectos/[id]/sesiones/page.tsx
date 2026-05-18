@@ -7,6 +7,7 @@ import {
   HiPlus, HiTrash, HiPencil, HiChevronDown, HiChevronRight,
   HiX, HiCheck, HiCalendar, HiDocumentText,
 } from "react-icons/hi";
+import { toast } from "sonner";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -34,7 +35,6 @@ interface PreguntaSesion {
 }
 interface Resultado {
   id: string; contenido: string; notas: string | null; creado_en: string;
-  requisito_fuentes: { requisito: { id: string; nombre: string; codigo: string | null } }[];
 }
 interface Sesion {
   id: string; subproceso_id: string; tecnica_id: string;
@@ -121,7 +121,7 @@ function EntrevistaPanel({
             onSaveEdit={(id) => editPregunta.mutate(id)}
             onCancelEdit={() => setEditandoId(null)}
             onChangeEditTexto={setEditTexto}
-            onDelete={(id) => { if (confirm("¿Eliminar pregunta y sus respuestas?")) delPregunta.mutate(id); }}
+            onDelete={(id) => { toast.warning("¿Eliminar pregunta y sus respuestas?", { action: { label: "Eliminar", onClick: () => delPregunta.mutate(id) }, cancel: { label: "Cancelar", onClick: () => {} } }); }}
           />
         ))}
       </div>
@@ -598,7 +598,7 @@ function HistoriaUsuarioPanel({ sesion, proyectoId }: { sesion: Sesion; proyecto
               key={r.id}
               resultado={r}
               onDelete={() => {
-                if (confirm("¿Eliminar esta historia de usuario?")) delResultado.mutate(r.id);
+                toast.warning("¿Eliminar esta historia de usuario?", { action: { label: "Eliminar", onClick: () => delResultado.mutate(r.id) }, cancel: { label: "Cancelar", onClick: () => {} } });
               }}
             />
           ))}
@@ -732,22 +732,13 @@ function HallazgosPanel({ sesion, proyectoId }: { sesion: Sesion; proyectoId: st
                     {displayTexto}
                   </p>
                 )}
-                {r.requisito_fuentes.length > 0 && (
-                  <div className="flex flex-wrap gap-1 mt-1">
-                    {r.requisito_fuentes.map((f) => (
-                      <span key={f.requisito.id} className="text-[10px] bg-violet-50 text-violet-600 border border-violet-100 px-1.5 py-0.5 rounded-full">
-                        {f.requisito.codigo || f.requisito.nombre}
-                      </span>
-                    ))}
-                  </div>
-                )}
               </div>
               {editId !== r.id && (
                 <div className="flex gap-1 opacity-0 group-hover:opacity-100 shrink-0">
                   <button onClick={() => startEdit(r)} className="text-slate-300 hover:text-violet-500 p-0.5">
                     <HiPencil className="h-3.5 w-3.5" />
                   </button>
-                  <button onClick={() => { if (confirm("¿Eliminar?")) del.mutate(r.id); }} className="text-slate-300 hover:text-red-400 p-0.5">
+                  <button onClick={() => { toast.warning("¿Eliminar hallazgo?", { action: { label: "Eliminar", onClick: () => del.mutate(r.id) }, cancel: { label: "Cancelar", onClick: () => {} } }); }} className="text-slate-300 hover:text-red-400 p-0.5">
                     <HiTrash className="h-3.5 w-3.5" />
                   </button>
                 </div>
@@ -885,7 +876,7 @@ function SessionCard({ sesion, personas, proyectoId }: {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                if (confirm("¿Eliminar esta sesión y todos sus datos?")) deleteSesion.mutate();
+                toast.warning("¿Eliminar esta sesión y todos sus datos?", { action: { label: "Eliminar", onClick: () => deleteSesion.mutate() }, cancel: { label: "Cancelar", onClick: () => {} } });
               }}
               className="ml-auto text-xs text-red-500 hover:text-red-700 flex items-center gap-1"
             >

@@ -4,6 +4,9 @@ import { useParams } from "next/navigation";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
+import JSZip from "jszip";
+import { toast } from "sonner";
+import { generateAllSpecs } from "@/lib/spec-generators";
 import {
   HiPlus,
   HiOutlineTrash,
@@ -52,19 +55,11 @@ interface Persona {
   rol: { nombre: string };
 }
 
-interface Requisito {
-  id: string;
-  codigo: string | null;
-  nombre: string;
-  descripcion: string | null;
-  prioridad: string;
-  estado: string;
-}
-
 interface Diagrama {
   id: string;
   tipo: string;
   nombre: string;
+  contenido: string;
 }
 
 interface ResultadoRecabacion {
@@ -81,7 +76,6 @@ interface ResultadoRecabacion {
 interface GenConfig {
   featureName: string;
   featureDesc: string;
-  includeRequisitos: string[];
   includeProcesos: string[];
   targetStack: string;
   extraContext: string;
@@ -92,13 +86,9 @@ function generateSpec(
   proyecto: { nombre: string; descripcion: string | null },
   procesos: Proceso[],
   personas: Persona[],
-  requisitos: Requisito[],
   diagramas: Diagrama[],
   resultados: ResultadoRecabacion[]
 ): string {
-  const selectedReqs = requisitos.filter((r) =>
-    config.includeRequisitos.includes(r.id)
-  );
   const selectedProcs = procesos.filter((p) =>
     config.includeProcesos.includes(p.id)
   );
@@ -187,28 +177,6 @@ function generateSpec(
     diagramas.forEach((d) => {
       lines.push(`- ${d.tipo}: ${d.nombre}`);
     });
-    lines.push("");
-  }
-
-  // ── Requisitos ──
-  if (selectedReqs.length) {
-    lines.push("## Requisitos a implementar");
-    lines.push("");
-    lines.push(
-      "| Código | Nombre | Descripción | Prioridad |"
-    );
-    lines.push("|--------|--------|-------------|-----------|");
-    selectedReqs
-      .sort((a, b) => {
-        const order = { ALTA: 0, MEDIA: 1, BAJA: 2 };
-        return (order[a.prioridad as keyof typeof order] ?? 1) - (order[b.prioridad as keyof typeof order] ?? 1);
-      })
-      .forEach((r) => {
-        const desc = r.descripcion?.replace(/\|/g, "\\|") || "—";
-        lines.push(
-          `| ${r.codigo || "—"} | ${r.nombre} | ${desc} | ${r.prioridad} |`
-        );
-      });
     lines.push("");
   }
 
@@ -357,16 +325,10 @@ function generateSpec(
   );
   lines.push("");
 
-  if (selectedReqs.length) {
-    selectedReqs.forEach((r) => {
-      lines.push(`- [ ] **${r.codigo || r.nombre}** — ${r.nombre}${r.descripcion ? `: ${r.descripcion}` : ""}`);
-    });
-  } else {
-    lines.push("- [ ] El CRUD completo funciona sin errores de consola");
-    lines.push("- [ ] La página aparece correctamente en la tab del proyecto");
-    lines.push("- [ ] Los datos persisten al recargar la página");
-    lines.push("- [ ] Los estados vacíos y de carga se muestran correctamente");
-  }
+  lines.push("- [ ] El CRUD completo funciona sin errores de consola");
+  lines.push("- [ ] La página aparece correctamente en la tab del proyecto");
+  lines.push("- [ ] Los datos persisten al recargar la página");
+  lines.push("- [ ] Los estados vacíos y de carga se muestran correctamente");
 
   lines.push("- [ ] `npx tsc --noEmit` pasa sin errores");
   lines.push("- [ ] La navegación entre tabs no rompe nada (no hay errores en otras páginas)");
@@ -401,7 +363,6 @@ interface GenerateDialogProps {
   proyecto: { nombre: string; descripcion: string | null };
   procesos: Proceso[];
   personas: Persona[];
-  requisitos: Requisito[];
   diagramas: Diagrama[];
   resultados: ResultadoRecabacion[];
   onClose: () => void;
@@ -413,7 +374,6 @@ function GenerateDialog({
   proyecto,
   procesos,
   personas,
-  requisitos,
   diagramas,
   resultados,
   onClose,
@@ -423,21 +383,11 @@ function GenerateDialog({
   const [config, setConfig] = useState<GenConfig>({
     featureName: "",
     featureDesc: "",
-    includeRequisitos: requisitos.filter((r) => r.prioridad === "ALTA").map((r) => r.id),
     includeProcesos: procesos.map((p) => p.id),
     targetStack: "",
     extraContext: "",
   });
   const [saving, setSaving] = useState(false);
-
-  function toggleReq(id: string) {
-    setConfig((c) => ({
-      ...c,
-      includeRequisitos: c.includeRequisitos.includes(id)
-        ? c.includeRequisitos.filter((x) => x !== id)
-        : [...c.includeRequisitos, id],
-    }));
-  }
 
   function toggleProc(id: string) {
     setConfig((c) => ({
@@ -456,7 +406,6 @@ function GenerateDialog({
       proyecto,
       procesos,
       personas,
-      requisitos,
       diagramas,
       resultados
     );
@@ -584,52 +533,6 @@ function GenerateDialog({
                 </div>
               </div>
 
-              {/* Requisitos */}
-              <div>
-                <h4 className="text-sm font-semibold text-slate-700 mb-2">
-                  Requisitos a incluir ({config.includeRequisitos.length}/{requisitos.length})
-                </h4>
-                {requisitos.length === 0 && (
-                  <p className="text-xs text-slate-400">No hay requisitos en este proyecto.</p>
-                )}
-                <div className="space-y-1 max-h-48 overflow-y-auto">
-                  {requisitos.map((r) => (
-                    <label
-                      key={r.id}
-                      className="flex items-start gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={config.includeRequisitos.includes(r.id)}
-                        onChange={() => toggleReq(r.id)}
-                        className="mt-0.5"
-                      />
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2">
-                          {r.codigo && (
-                            <span className="text-xs font-mono text-slate-500">{r.codigo}</span>
-                          )}
-                          <p className="text-sm text-slate-800">{r.nombre}</p>
-                          <span
-                            className={`ml-auto text-[10px] font-medium px-1.5 py-0.5 rounded ${
-                              r.prioridad === "ALTA"
-                                ? "bg-red-100 text-red-700"
-                                : r.prioridad === "MEDIA"
-                                ? "bg-amber-100 text-amber-700"
-                                : "bg-slate-100 text-slate-600"
-                            }`}
-                          >
-                            {r.prioridad}
-                          </span>
-                        </div>
-                        {r.descripcion && (
-                          <p className="text-xs text-slate-500 mt-0.5">{r.descripcion}</p>
-                        )}
-                      </div>
-                    </label>
-                  ))}
-                </div>
-              </div>
             </div>
           )}
         </div>
@@ -690,6 +593,7 @@ export default function SpecsPage() {
   const [rawContent, setRawContent] = useState("");
   const [dirty, setDirty] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [generatingZip, setGeneratingZip] = useState(false);
 
   const { data: proyecto } = useQuery<{ id: string; nombre: string; descripcion: string | null }>({
     queryKey: ["proyecto", id],
@@ -715,11 +619,6 @@ export default function SpecsPage() {
   const { data: personas = [] } = useQuery<Persona[]>({
     queryKey: ["personas", id],
     queryFn: () => fetch(`/api/proyectos/${id}/personas`).then((r) => r.json()),
-  });
-
-  const { data: requisitos = [] } = useQuery<Requisito[]>({
-    queryKey: ["requisitos", id],
-    queryFn: () => fetch(`/api/proyectos/${id}/requisitos`).then((r) => r.json()),
   });
 
   const { data: diagramas = [] } = useQuery<Diagrama[]>({
@@ -784,6 +683,27 @@ export default function SpecsPage() {
     URL.revokeObjectURL(url);
   }
 
+  async function handleExportZip() {
+    if (!proyecto || diagramas.length === 0) return;
+    setGeneratingZip(true);
+    try {
+      const specs = generateAllSpecs(diagramas, proyecto.nombre);
+      const zip = new JSZip();
+      for (const spec of specs) {
+        zip.file(spec.filename, spec.content);
+      }
+      const blob = await zip.generateAsync({ type: "blob" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `specs-${proyecto.nombre.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")}.zip`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } finally {
+      setGeneratingZip(false);
+    }
+  }
+
   function handleGenerated(spec: Spec) {
     queryClient.invalidateQueries({ queryKey: ["specs", id] });
     setShowGenerate(false);
@@ -833,6 +753,27 @@ export default function SpecsPage() {
               </p>
             </button>
           ))}
+        </div>
+
+        {/* ZIP export */}
+        <div className="border-t border-slate-200 p-3">
+          <button
+            onClick={handleExportZip}
+            disabled={generatingZip || diagramas.length === 0}
+            className="w-full flex items-center justify-center gap-2 text-xs bg-emerald-600 text-white px-3 py-2 rounded-lg hover:bg-emerald-700 disabled:opacity-40 transition"
+          >
+            <HiOutlineDownload className="h-3.5 w-3.5 shrink-0" />
+            {generatingZip
+              ? "Generando ZIP..."
+              : diagramas.length === 0
+              ? "Sin diagramas aún"
+              : `Exportar specs (.zip)`}
+          </button>
+          {diagramas.length > 0 && (
+            <p className="text-[10px] text-slate-400 text-center mt-1.5 leading-tight">
+              {diagramas.length} diagrama{diagramas.length !== 1 ? "s" : ""} · genera 5 archivos .md
+            </p>
+          )}
         </div>
       </aside>
 
@@ -948,8 +889,10 @@ export default function SpecsPage() {
 
               <button
                 onClick={() => {
-                  if (confirm(`¿Eliminar "${selectedSpec.nombre}"?`))
-                    deleteMutation.mutate(selectedSpec.id);
+                  toast.warning(`¿Eliminar "${selectedSpec.nombre}"?`, {
+                    action: { label: "Eliminar", onClick: () => deleteMutation.mutate(selectedSpec.id) },
+                    cancel: { label: "Cancelar", onClick: () => {} },
+                  });
                 }}
                 className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50"
               >
@@ -993,7 +936,6 @@ export default function SpecsPage() {
           proyecto={proyecto}
           procesos={procesos}
           personas={personas}
-          requisitos={requisitos}
           diagramas={diagramas}
           resultados={resultados}
           onClose={() => setShowGenerate(false)}

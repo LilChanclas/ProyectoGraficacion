@@ -9,10 +9,10 @@ import {
   HiOutlinePencil,
   HiCheck,
   HiX,
-  HiOutlineRefresh,
   HiOutlineCode,
   HiOutlineEye,
 } from "react-icons/hi";
+import { toast } from "sonner";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -44,13 +44,6 @@ interface Persona {
   id: string;
   nombre_completo: string;
   rol: { nombre: string };
-}
-
-interface Requisito {
-  id: string;
-  codigo: string | null;
-  nombre: string;
-  descripcion: string | null;
 }
 
 // ── Mermaid Renderer ──────────────────────────────────────────────────────────
@@ -112,86 +105,7 @@ function MermaidRenderer({ code }: { code: string }) {
   return <div ref={ref} className="flex justify-center items-start p-4 overflow-auto" />;
 }
 
-// ── Auto-generation helpers ───────────────────────────────────────────────────
-
-function generarPaquetes(procesos: Proceso[], proyecto: { nombre: string }): string {
-  if (!procesos.length) {
-    return `graph TD\n    A["${proyecto.nombre}"]`;
-  }
-  const lines: string[] = ["graph TD"];
-  procesos.forEach((proc) => {
-    const pid = `P_${proc.id.slice(0, 6)}`;
-    lines.push(`    subgraph ${pid}["📦 ${proc.nombre}"]`);
-    proc.subprocesos.forEach((sub) => {
-      const sid = `S_${sub.id.slice(0, 6)}`;
-      lines.push(`        ${sid}["${sub.nombre}"]`);
-    });
-    lines.push("    end");
-  });
-  return lines.join("\n");
-}
-
-function generarClases(procesos: Proceso[], personas: Persona[]): string {
-  const lines: string[] = ["classDiagram"];
-
-  // One class per proceso with subprocesos as methods
-  procesos.forEach((proc) => {
-    const className = proc.nombre.replace(/\s+/g, "_").replace(/[^a-zA-Z0-9_]/g, "");
-    lines.push(`    class ${className} {`);
-    proc.subprocesos.forEach((sub) => {
-      const method = sub.nombre.replace(/\s+/g, "_").replace(/[^a-zA-Z0-9_]/g, "");
-      lines.push(`        +ejecutar${method}()`);
-    });
-    lines.push("    }");
-  });
-
-  // One class per unique role
-  const roles = [...new Set(personas.map((p) => p.rol.nombre))];
-  roles.forEach((rol) => {
-    const className = rol.replace(/\s+/g, "_").replace(/[^a-zA-Z0-9_]/g, "");
-    lines.push(`    class ${className} {`);
-    lines.push(`        +nombre: String`);
-    lines.push("    }");
-  });
-
-  // Relationships: roles use procesos
-  roles.forEach((rol) => {
-    const rc = rol.replace(/\s+/g, "_").replace(/[^a-zA-Z0-9_]/g, "");
-    procesos.forEach((proc) => {
-      const pc = proc.nombre.replace(/\s+/g, "_").replace(/[^a-zA-Z0-9_]/g, "");
-      lines.push(`    ${rc} --> ${pc} : participa`);
-    });
-  });
-
-  return lines.join("\n");
-}
-
-function generarCasosUso(personas: Persona[], requisitos: Requisito[]): string {
-  const lines: string[] = ["graph LR"];
-
-  // Actors (unique roles)
-  const roles = [...new Map(personas.map((p) => [p.rol.nombre, p.rol])).values()];
-  roles.forEach((rol, i) => {
-    const rid = `Actor${i}`;
-    lines.push(`    ${rid}(["👤 ${rol.nombre}"])`);
-  });
-
-  // Use cases from requisitos
-  requisitos.slice(0, 12).forEach((req, i) => {
-    const uid = `UC${i}`;
-    const label = req.nombre.length > 35 ? req.nombre.slice(0, 32) + "..." : req.nombre;
-    lines.push(`    ${uid}(("${req.codigo || `UC-${i + 1}`}: ${label}"))`);
-  });
-
-  // Each actor → each use case
-  roles.forEach((_rol, ri) => {
-    requisitos.slice(0, 12).forEach((_req, ui) => {
-      lines.push(`    Actor${ri} --> UC${ui}`);
-    });
-  });
-
-  return lines.join("\n");
-}
+// ── Sequence diagram helper (used when creating a new SECUENCIA diagram) ──────
 
 function generarSecuencia(subproceso: Subproceso, personas: Persona[]): string {
   const lines: string[] = ["sequenceDiagram"];
@@ -378,12 +292,6 @@ export default function DiagramasPage() {
   const [nameValue, setNameValue] = useState("");
   const [view, setView] = useState<"split" | "code" | "preview">("split");
   const [dirty, setDirty] = useState(false);
-  const [secuenciaSubprocesoId, setSecuenciaSubprocesoId] = useState("");
-
-  const { data: proyecto } = useQuery<{ id: string; nombre: string }>({
-    queryKey: ["proyecto", id],
-    queryFn: () => fetch(`/api/proyectos/${id}`).then((r) => r.json()),
-  });
 
   const { data: diagramas = [] } = useQuery<Diagrama[]>({
     queryKey: ["diagramas", id],
@@ -399,11 +307,6 @@ export default function DiagramasPage() {
   const { data: personas = [] } = useQuery<Persona[]>({
     queryKey: ["personas", id],
     queryFn: () => fetch(`/api/proyectos/${id}/personas`).then((r) => r.json()),
-  });
-
-  const { data: requisitos = [] } = useQuery<Requisito[]>({
-    queryKey: ["requisitos", id],
-    queryFn: () => fetch(`/api/proyectos/${id}/requisitos`).then((r) => r.json()),
   });
 
   const selected = diagramas.find((d) => d.id === selectedId) ?? null;
@@ -438,39 +341,9 @@ export default function DiagramasPage() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["diagramas", id] });
       setSelectedId(null);
+      toast.success("Diagrama eliminado");
     },
   });
-
-  const allSubprocesos = procesos.flatMap((p) =>
-    p.subprocesos.map((s) => ({ ...s, procesoNombre: p.nombre }))
-  );
-
-  function handleAutoGenerate() {
-    if (!selected) return;
-    let generated = "";
-
-    switch (selected.tipo) {
-      case "PAQUETES":
-        generated = generarPaquetes(procesos, proyecto || { nombre: "Proyecto" });
-        break;
-      case "CLASES":
-        generated = generarClases(procesos, personas);
-        break;
-      case "CASOS_USO":
-        generated = generarCasosUso(personas, requisitos);
-        break;
-      case "SECUENCIA": {
-        const sub = secuenciaSubprocesoId
-          ? allSubprocesos.find((s) => s.id === secuenciaSubprocesoId)
-          : allSubprocesos[0];
-        if (sub) generated = generarSecuencia(sub, personas);
-        else generated = "sequenceDiagram\n    Actor->>Sistema: Acción\n    Sistema-->>Actor: Respuesta";
-        break;
-      }
-    }
-    setCode(generated);
-    setDirty(true);
-  }
 
   function handleSave() {
     if (!selected) return;
@@ -607,30 +480,6 @@ export default function DiagramasPage() {
                 ))}
               </div>
 
-              {selected.tipo === "SECUENCIA" && allSubprocesos.length > 0 && (
-                <select
-                  value={secuenciaSubprocesoId}
-                  onChange={(e) => setSecuenciaSubprocesoId(e.target.value)}
-                  className="text-xs border border-slate-200 rounded-lg px-2 py-1.5 text-slate-600 bg-white max-w-[180px]"
-                  title="Subproceso para auto-generar"
-                >
-                  <option value="">— Subproceso —</option>
-                  {allSubprocesos.map((s) => (
-                    <option key={s.id} value={s.id}>
-                      {s.procesoNombre} / {s.nombre}
-                    </option>
-                  ))}
-                </select>
-              )}
-              <button
-                onClick={handleAutoGenerate}
-                title="Auto-generar desde datos del proyecto"
-                className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100"
-              >
-                <HiOutlineRefresh className="h-3.5 w-3.5" />
-                Auto-generar
-              </button>
-
               <button
                 onClick={handleSave}
                 disabled={!dirty || saveMutation.isPending}
@@ -641,9 +490,10 @@ export default function DiagramasPage() {
 
               <button
                 onClick={() => {
-                  if (confirm(`¿Eliminar "${selected.nombre}"?`)) {
-                    deleteMutation.mutate(selected.id);
-                  }
+                  toast.warning(`¿Eliminar "${selected.nombre}"?`, {
+                    action: { label: "Eliminar", onClick: () => deleteMutation.mutate(selected.id) },
+                    cancel: { label: "Cancelar", onClick: () => {} },
+                  });
                 }}
                 className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50"
               >
